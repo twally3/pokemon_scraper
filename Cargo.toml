@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+serde = "1.0.217"
+serde_json = "1.0.134"
+sqlx = { version = "0.8.2", features = ["sqlite", "runtime-tokio", "migrate"] }
+thirtyfour = "0.35.0"
+tokio = { version = "1.42.0", features = ["full"] }

@@ -1,0 +1,8 @@
+- [x] Load Pokemon from a manifest
+- [ ] Scrape ebay listings for card
+- [ ] Create SQLite table for listing 
+- [ ] Store scraped listings in table
+- [ ] Create proper system for registering manifests for future scraping
+- [ ] Better filter ebay results
+- [ ] Make API for getting data
+- [ ] Add logic for filtering outliers, getting average prices, trend tracking, etc
