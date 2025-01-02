@@ -1,4 +1,5 @@
 #![warn(missing_debug_implementations, rust_2018_idioms, rustdoc::all)]
+use chrono::{Datelike, NaiveDate};
 use serde::Deserialize;
 use thirtyfour::*;
 
@@ -74,7 +75,7 @@ impl std::fmt::Display for Class {
 #[allow(dead_code)]
 struct Listing {
     title: String,
-    date: String,
+    date: NaiveDate,
     price: String,
     link: String,
 }
@@ -110,13 +111,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     //let cards = expansion.cards;
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 1);
-    //let cards = expansion.cards.into_iter().take(10);
+    let cards = expansion.cards.into_iter().take(1);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 4);
-    let cards = expansion
-        .cards
-        .into_iter()
-        .filter(|x| x.number > expansion.expansion_total)
-        .take(5);
+    //let cards = expansion
+    //    .cards
+    //    .into_iter()
+    //    .filter(|x| x.number > expansion.expansion_total)
+    //    .take(5);
 
     for card in cards {
         // TODO: Consider clearing the textbox
@@ -218,7 +219,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     .text()
                     .await?;
 
-                let date = date.trim_start_matches("Sold ").to_string();
+                let date =
+                    NaiveDate::parse_from_str(date.trim_start_matches("Sold "), "%-d %b %Y")?;
 
                 let price = listing
                     .find(By::Css(".s-item__price"))
@@ -259,7 +261,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
 
-        //dbg!(final_listings);
+        dbg!(final_listings);
 
         std::thread::sleep(std::time::Duration::new(10, 0));
     }

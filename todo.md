@@ -6,7 +6,7 @@
 - [x] Increase page count to 240 to improve performance
 - [ ] Improve title name filtering - some examples are bad like Pikachu SIR ex. Maybe remove the ex from the filter?
 - [ ] Introduce tracing for logging so we can filter debug logs
-- [ ] Parse date with Chrono
+- [x] Parse date with Chrono
 - [ ] Parse price, filter out range prices
 - [ ] Create SQLite table for listing 
 - [ ] Store scraped listings in table
