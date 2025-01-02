@@ -8,6 +8,7 @@
 - [ ] Introduce tracing for logging so we can filter debug logs
 - [x] Parse date with Chrono
 - [x] Parse price, filter out range prices
+- [x] Remove query params from links to make them more reasonable
 - [ ] Use proper currency type because using floats is sinful
 - [ ] Create SQLite table for listing 
 - [ ] Store scraped listings in table

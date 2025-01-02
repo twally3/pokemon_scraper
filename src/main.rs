@@ -110,13 +110,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     //let cards = expansion.cards;
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
-    //let cards = expansion.cards.into_iter().filter(|x| x.number == 1);
+    let cards = expansion.cards.into_iter().filter(|x| x.number == 1);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 4);
-    let cards = expansion
-        .cards
-        .into_iter()
-        .filter(|x| x.number > expansion.expansion_total)
-        .take(5);
+    //let cards = expansion
+    //    .cards
+    //    .into_iter()
+    //    .filter(|x| x.number > expansion.expansion_total)
+    //    .take(5);
 
     for card in cards {
         // TODO: Consider clearing the textbox
@@ -240,6 +240,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     .await?
                     .unwrap_or("".into());
 
+                let link = link
+                    .split("?")
+                    .next()
+                    .expect("One result should always be returned")
+                    .to_string();
+
                 let listing = Listing {
                     title,
                     date,
@@ -266,7 +272,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
 
-        //dbg!(final_listings);
+        dbg!(final_listings);
 
         //std::thread::sleep(std::time::Duration::new(10, 0));
     }
