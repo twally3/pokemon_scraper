@@ -7,7 +7,8 @@
 - [ ] Improve title name filtering - some examples are bad like Pikachu SIR ex. Maybe remove the ex from the filter?
 - [ ] Introduce tracing for logging so we can filter debug logs
 - [x] Parse date with Chrono
-- [ ] Parse price, filter out range prices
+- [x] Parse price, filter out range prices
+- [ ] Use proper currency type because using floats is sinful
 - [ ] Create SQLite table for listing 
 - [ ] Store scraped listings in table
 - [ ] Create proper system for registering manifests for future scraping
