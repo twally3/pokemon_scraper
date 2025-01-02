@@ -1,5 +1,10 @@
 - [x] Load Pokemon from a manifest
-- [ ] Scrape ebay listings for card
+- [x] Scrape ebay listings for card
+- [ ] Iterate over listing pages
+- [x] Filter out listings that don't contain the card name - it's probably a multi buy listing
+- [x] Filter out listings with blacklisted words in the title i.e. "Reverse holo" when the card is "Regular"
+- [ ] Parse date with Chrono
+- [ ] Parse price, filter out range prices
 - [ ] Create SQLite table for listing 
 - [ ] Store scraped listings in table
 - [ ] Create proper system for registering manifests for future scraping
