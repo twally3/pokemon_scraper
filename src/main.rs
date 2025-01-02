@@ -71,6 +71,7 @@ impl std::fmt::Display for Class {
 }
 
 #[derive(Debug)]
+#[allow(dead_code)]
 struct Listing {
     title: String,
     date: String,
@@ -106,8 +107,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     caps.add_arg("--start-maximized")?;
     let driver = WebDriver::new("http://localhost:9515", caps).await?;
 
-    let mut count = 0;
-    for card in expansion.cards {
+    //let cards = expansion.cards;
+    //let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
+    //let cards = expansion.cards.into_iter().filter(|x| x.number == 1);
+    //let cards = expansion.cards.into_iter().take(10);
+    let cards = expansion.cards.into_iter().filter(|x| x.number == 4);
+
+    for card in cards {
         // TODO: Consider clearing the textbox
         driver.goto("https://ebay.co.uk").await?;
 
@@ -135,19 +141,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .await?;
         sold_btn.click().await?;
 
-        //// TODO: Support synonyms
-        //if let Ok(class_btn) = driver
-        //    .find(By::Css(format!(
-        //        "input[type=checkbox][aria-label='{}']",
-        //        card.class
-        //    )))
-        //    .await
-        //{
-        //    class_btn.click().await?;
-        //} else {
-        //    println!("Couldn't find class button");
-        //}
-
         if let Ok(grade_btn) = driver
             .find(By::Css(
                 "li[name=Grade] input[type=checkbox][aria-label='Not specified']",
@@ -157,84 +150,99 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             grade_btn.click().await?;
         }
 
-        let listings = driver.find_all(By::Css("ul.srp-results > li")).await?;
         let mut final_listings = Vec::new();
 
-        for listing in listings {
-            let Some(class_names) = listing.class_name().await? else {
-                println!("Couldn't find class_names for listing");
-                continue;
-            };
+        let mut page_count = 0;
+        loop {
+            let listings = driver.find_all(By::Css("ul.srp-results > li")).await?;
 
-            if !class_names.split_whitespace().any(|x| x == "s-item") {
-                if listing.text().await? == "Results matching fewer words" {
-                    println!("Reached end of good results");
-                    break;
+            for listing in listings {
+                let Some(class_names) = listing.class_name().await? else {
+                    //println!("Couldn't find class_names for listing");
+                    continue;
                 };
 
-                continue;
+                if !class_names.split_whitespace().any(|x| x == "s-item") {
+                    if listing.text().await? == "Results matching fewer words" {
+                        //println!("Reached end of good results");
+                        break;
+                    };
+
+                    continue;
+                }
+
+                let title = listing
+                    .find(By::Css("a.s-item__link span[role=heading]"))
+                    .await?
+                    .text()
+                    .await?;
+
+                if !title.to_lowercase().contains(&card.name.to_lowercase()) {
+                    //println!("Title \"{}\" doesn't contain card name. Skipping.", title);
+                    continue;
+                }
+
+                if match card.class {
+                    Class::Regular => ["reverse holo", "reverse"]
+                        .into_iter()
+                        .any(|x| title.to_lowercase().contains(x)),
+                    Class::ReverseHolo => title.to_lowercase().contains("regular"),
+                    _ => false,
+                } {
+                    //println!("Title \"{}\" contains blacklisted words. Skipping.", title);
+                    continue;
+                }
+
+                let date = listing
+                    .find(By::Css(".s-item__caption"))
+                    .await?
+                    .text()
+                    .await?;
+
+                let date = date.trim_start_matches("Sold ").to_string();
+
+                let price = listing
+                    .find(By::Css(".s-item__price"))
+                    .await?
+                    .text()
+                    .await?;
+
+                let link = listing
+                    .find(By::Css(".s-item__link"))
+                    .await?
+                    .prop("href")
+                    .await?
+                    .unwrap_or("".into());
+
+                let listing = Listing {
+                    title,
+                    date,
+                    price,
+                    link,
+                };
+
+                final_listings.push(listing);
             }
 
-            let title = listing
-                .find(By::Css("a.s-item__link span[role=heading]"))
-                .await?
-                .text()
-                .await?;
+            let next_page_btn = match driver.find(By::Css("a.pagination__next")).await {
+                btn @ Ok(_) => btn,
+                Err(err) => match err.as_inner() {
+                    error::WebDriverErrorInner::NoSuchElement(_) => break,
+                    _ => Err(err),
+                },
+            }?;
+            next_page_btn.click().await?;
 
-            if !title.to_lowercase().contains(&card.name.to_lowercase()) {
-                println!("Title \"{}\" doesn't contain card name. Skipping.", title);
-                continue;
+            page_count += 1;
+            if page_count > 100 {
+                println!("PAGINATION LIMIT");
+                break;
             }
-
-            if match card.class {
-                Class::Regular => ["reverse holo", "reverse"]
-                    .into_iter()
-                    .any(|x| title.to_lowercase().contains(x)),
-                Class::ReverseHolo => title.to_lowercase().contains("regular"),
-                _ => false,
-            } {
-                println!("Title \"{}\" contains blacklisted words. Skipping.", title);
-                continue;
-            }
-
-            let date = listing
-                .find(By::Css(".s-item__caption"))
-                .await?
-                .text()
-                .await?;
-
-            let date = date.trim_start_matches("Sold ").to_string();
-
-            let price = listing
-                .find(By::Css(".s-item__price"))
-                .await?
-                .text()
-                .await?;
-
-            let link = listing
-                .find(By::Css(".s-item__link"))
-                .await?
-                .prop("href")
-                .await?
-                .unwrap_or("".into());
-
-            let listing = Listing {
-                title,
-                date,
-                price,
-                link,
-            };
-            final_listings.push(listing);
         }
 
-        println!("{:#?}", final_listings);
+        dbg!(final_listings);
 
         //std::thread::sleep(std::time::Duration::new(10, 0));
-
-        count += 1;
-        if count > 0 {
-            break;
-        }
     }
 
     Ok(())
