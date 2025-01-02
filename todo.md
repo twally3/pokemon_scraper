@@ -3,6 +3,7 @@
 - [x] Iterate over listing pages
 - [x] Filter out listings that don't contain the card name - it's probably a multi buy listing
 - [x] Filter out listings with blacklisted words in the title i.e. "Reverse holo" when the card is "Regular"
+- [x] Increase page count to 240 to improve performance
 - [ ] Improve title name filtering - some examples are bad like Pikachu SIR ex. Maybe remove the ex from the filter?
 - [ ] Introduce tracing for logging so we can filter debug logs
 - [ ] Parse date with Chrono

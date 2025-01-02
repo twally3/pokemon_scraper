@@ -111,7 +111,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 1);
     //let cards = expansion.cards.into_iter().take(10);
-    let cards = expansion.cards.into_iter().filter(|x| x.number == 4);
+    //let cards = expansion.cards.into_iter().filter(|x| x.number == 4);
+    let cards = expansion
+        .cards
+        .into_iter()
+        .filter(|x| x.number > expansion.expansion_total)
+        .take(5);
 
     for card in cards {
         // TODO: Consider clearing the textbox
@@ -136,6 +141,20 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         }?;
         search_btn.click().await?;
 
+        // Change page count to 240
+        if let Some(url) = match driver
+            .find(By::Css("#srp-ipp-menu-content li:last-child a"))
+            .await
+        {
+            Ok(x) => x.prop("href").await,
+            Err(err) => match err.as_inner() {
+                error::WebDriverErrorInner::NoSuchElement(_) => Ok(None),
+                _ => Err(err),
+            },
+        }? {
+            driver.goto(url).await?;
+        }
+
         let sold_btn = driver
             .find(By::Css("input[type=checkbox][aria-label='Sold items']"))
             .await?;
@@ -158,13 +177,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
             for listing in listings {
                 let Some(class_names) = listing.class_name().await? else {
-                    //println!("Couldn't find class_names for listing");
+                    println!("Couldn't find class_names for listing");
                     continue;
                 };
 
                 if !class_names.split_whitespace().any(|x| x == "s-item") {
                     if listing.text().await? == "Results matching fewer words" {
-                        //println!("Reached end of good results");
+                        println!("Reached end of good results");
                         break;
                     };
 
@@ -178,7 +197,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     .await?;
 
                 if !title.to_lowercase().contains(&card.name.to_lowercase()) {
-                    //println!("Title \"{}\" doesn't contain card name. Skipping.", title);
+                    println!("Title \"{}\" doesn't contain card name. Skipping.", title);
                     continue;
                 }
 
@@ -189,7 +208,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     Class::ReverseHolo => title.to_lowercase().contains("regular"),
                     _ => false,
                 } {
-                    //println!("Title \"{}\" contains blacklisted words. Skipping.", title);
+                    println!("Title \"{}\" contains blacklisted words. Skipping.", title);
                     continue;
                 }
 
@@ -240,9 +259,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
 
-        dbg!(final_listings);
+        //dbg!(final_listings);
 
-        //std::thread::sleep(std::time::Duration::new(10, 0));
+        std::thread::sleep(std::time::Duration::new(10, 0));
     }
 
     Ok(())
