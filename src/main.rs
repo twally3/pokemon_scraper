@@ -3,6 +3,8 @@ use chrono::NaiveDate;
 use serde::Deserialize;
 use thirtyfour::*;
 
+const PAGINATION_LIMIT: usize = 100;
+
 #[derive(Debug, Deserialize)]
 enum Rarity {
     #[serde(rename = "https://tcgcodex.com/images/rarities/pokemon-common.webp")]
@@ -266,7 +268,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             next_page_btn.click().await?;
 
             page_count += 1;
-            if page_count > 100 {
+            if page_count > PAGINATION_LIMIT {
                 println!("PAGINATION LIMIT");
                 break;
             }

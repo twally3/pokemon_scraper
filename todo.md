@@ -16,3 +16,4 @@
 - [ ] Better filter ebay results
 - [ ] Make API for getting data
 - [ ] Add logic for filtering outliers, getting average prices, trend tracking, etc
+- [ ] System for saving skipped listings and manually reviewing them
