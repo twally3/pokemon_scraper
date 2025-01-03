@@ -243,13 +243,27 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
 
                 if match card.class {
-                    Class::Regular => ["reverse holo", "reverse"]
+                    Class::Regular => ["reverse holo", "reverse", "holo"]
                         .into_iter()
                         .any(|x| title.to_lowercase().contains(x)),
                     Class::ReverseHolo => title.to_lowercase().contains("regular"),
-                    _ => false,
+                    Class::Foil => false,
                 } {
                     println!("Title \"{}\" contains blacklisted words. Skipping.", title);
+                    continue;
+                }
+
+                if match card.class {
+                    Class::Regular => false,
+                    Class::ReverseHolo => !["reverse holo", "holo", "reverse"]
+                        .into_iter()
+                        .any(|x| title.to_lowercase().contains(x)),
+                    Class::Foil => false,
+                } {
+                    println!(
+                        "Title \"{}\" doesn't contain whitelisted words. Skipping",
+                        title
+                    );
                     continue;
                 }
 

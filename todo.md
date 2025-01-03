@@ -14,7 +14,7 @@
 - [x] Create SQLite table for listing 
 - [x] Store scraped listings in table
 - [ ] Create proper system for registering manifests for future scraping
-- [ ] Filter listings using whitelist as regular cards are showing up with reverse holos
+- [x] Filter listings using whitelist as regular cards are showing up with reverse holos
 - [ ] Make API for getting data
 - [ ] Add logic for filtering outliers, getting average prices, trend tracking, etc
 - [ ] System for saving skipped listings and manually reviewing them
