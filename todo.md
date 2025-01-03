@@ -9,7 +9,7 @@
 - [x] Parse date with Chrono
 - [x] Parse price, filter out range prices
 - [x] Remove query params from links to make them more reasonable
-- [ ] Add buying format to listings
+- [x] Add buying format to listings
 - [ ] Use proper currency type because using floats is sinful
 - [x] Create SQLite table for listing 
 - [x] Store scraped listings in table

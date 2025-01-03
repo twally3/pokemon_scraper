@@ -1,7 +1,7 @@
 #![warn(missing_debug_implementations, rust_2018_idioms, rustdoc::all)]
 
 use chrono::NaiveDate;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use sqlx::sqlite::{SqliteConnectOptions, SqlitePoolOptions};
 use thirtyfour::*;
 
@@ -75,6 +75,47 @@ impl std::fmt::Display for Class {
     }
 }
 
+#[derive(Debug, Serialize)]
+#[allow(dead_code)]
+enum BuyingFormat {
+    // TODO: Look into accepts_offers
+    Auction {
+        bids: usize,
+        offer_was_accepted: bool,
+    },
+    BuyItNow {
+        accepts_offers: bool,
+        offer_was_accepted: bool,
+    },
+}
+
+impl BuyingFormat {
+    fn get_bids(&self) -> Option<usize> {
+        match self {
+            Self::Auction { bids, .. } => Some(*bids),
+            _ => None,
+        }
+    }
+
+    fn get_accepts_offers(&self) -> Option<bool> {
+        match self {
+            Self::BuyItNow { accepts_offers, .. } => Some(*accepts_offers),
+            _ => None,
+        }
+    }
+
+    fn get_offer_was_accepted(&self) -> bool {
+        match self {
+            Self::BuyItNow {
+                offer_was_accepted, ..
+            } => *offer_was_accepted,
+            Self::Auction {
+                offer_was_accepted, ..
+            } => *offer_was_accepted,
+        }
+    }
+}
+
 #[derive(Debug)]
 #[allow(dead_code)]
 struct Listing {
@@ -83,6 +124,7 @@ struct Listing {
     date: NaiveDate,
     price: f32,
     link: String,
+    buying_format: BuyingFormat,
 }
 
 #[derive(Debug, Deserialize)]
@@ -145,14 +187,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .await?;
 
     //let cards = expansion.cards.into_iter();
-    //let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
+    let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 1);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 4);
-    let cards = expansion
-        .cards
-        .into_iter()
-        .filter(|x| x.number > expansion.expansion_total)
-        .take(5);
+    //let cards = expansion
+    //    .cards
+    //    .into_iter()
+    //    .filter(|x| x.number > expansion.expansion_total)
+    //    .take(5);
     let cards = cards.collect::<Vec<_>>();
 
     let mut caps = DesiredCapabilities::chrome();
@@ -286,7 +328,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     .await?;
 
                 // TODO: Using floats for money is sinful
-                let Ok(price) = price.trim_start_matches("£").parse::<f32>() else {
+                let Ok(price) = price
+                    .trim_start_matches("£")
+                    .replace(",", "")
+                    .parse::<f32>()
+                else {
                     println!("Failed to parse price {price}. Skipping.");
                     continue;
                 };
@@ -310,12 +356,73 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     .expect("Split always returns one value")
                     .parse()?;
 
+                let buying_format = match listing.find(By::Css(".s-item__bidCount")).await {
+                    Ok(bids) => Ok(BuyingFormat::Auction {
+                        bids: bids
+                            .text()
+                            .await?
+                            .split_whitespace()
+                            .next()
+                            .expect("Should always have a value")
+                            .parse()
+                            .expect("Should always be a number"),
+                        offer_was_accepted: listing
+                            .find(By::Css(".s-item__formatBestOfferAccepted"))
+                            .await
+                            .map(|_| true)
+                            .unwrap_or(false),
+                    }),
+                    Err(bids) => match bids.as_inner() {
+                        error::WebDriverErrorInner::NoSuchElement(_) => {
+                            match listing.find(By::Css(".s-item__formatBuyItNow")).await {
+                                Ok(_) => Ok(BuyingFormat::BuyItNow {
+                                    accepts_offers: false,
+                                    offer_was_accepted: false,
+                                }),
+                                Err(err) => match err.as_inner() {
+                                    error::WebDriverErrorInner::NoSuchElement(_) => {
+                                        match listing
+                                            .find(By::Css(".s-item__formatBestOfferEnabled"))
+                                            .await
+                                        {
+                                            Ok(_) => Ok(BuyingFormat::BuyItNow {
+                                                accepts_offers: true,
+                                                offer_was_accepted: false,
+                                            }),
+                                            Err(err) => match err.as_inner() {
+                                                error::WebDriverErrorInner::NoSuchElement(_) => {
+                                                    match listing
+                                                        .find(By::Css(
+                                                            ".s-item__formatBestOfferAccepted",
+                                                        ))
+                                                        .await
+                                                    {
+                                                        Ok(_) => Ok(BuyingFormat::BuyItNow {
+                                                            accepts_offers: true,
+                                                            offer_was_accepted: true,
+                                                        }),
+                                                        _ => Err(err),
+                                                    }
+                                                }
+                                                _ => Err(err),
+                                            },
+                                        }
+                                    }
+                                    _ => Err(err),
+                                },
+                            }
+                        }
+                        _ => Err(bids),
+                    },
+                }?;
+
                 let listing = Listing {
                     id,
                     title,
                     date,
                     price,
                     link,
+                    buying_format,
                 };
 
                 final_listings.push(listing);
@@ -335,30 +442,33 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 println!("PAGINATION LIMIT");
                 break;
             }
-        }
 
-        let query_string = format!(
-            "INSERT INTO listings (id, title, date, price, link, card_number, card_class) VALUES {} ON CONFLICT DO NOTHING",
+            let query_string = format!(
+                "INSERT INTO listings (id, title, date, price, link, bids, accepts_offers, offer_was_accepted, card_number, card_class) VALUES {} ON CONFLICT DO NOTHING",
+                final_listings
+                    .iter()
+                    .map(|_| "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+                    .collect::<Vec<_>>()
+                    .join(",")
+            );
+
             final_listings
                 .iter()
-                .map(|_| "(?, ?, ?, ?, ?, ?, ?)")
-                .collect::<Vec<_>>()
-                .join(",")
-        );
-
-        final_listings
-            .iter()
-            .fold(sqlx::query(&query_string), |acc, x| {
-                acc.bind(x.id as u32)
-                    .bind(x.title.clone())
-                    .bind(x.date)
-                    .bind(x.price)
-                    .bind(x.link.clone())
-                    .bind(card.number as u32)
-                    .bind(card.class.to_string())
-            })
-            .execute(&pool)
-            .await?;
+                .fold(sqlx::query(&query_string), |acc, x| {
+                    acc.bind(x.id as u32)
+                        .bind(x.title.clone())
+                        .bind(x.date)
+                        .bind(x.price)
+                        .bind(x.link.clone())
+                        .bind(x.buying_format.get_bids().map(|x| x as u32))
+                        .bind(x.buying_format.get_accepts_offers())
+                        .bind(x.buying_format.get_offer_was_accepted())
+                        .bind(card.number as u32)
+                        .bind(card.class.to_string())
+                })
+                .execute(&pool)
+                .await?;
+        }
 
         //std::thread::sleep(std::time::Duration::new(10, 0));
     }
