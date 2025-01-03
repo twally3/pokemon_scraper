@@ -1,6 +1,8 @@
 #![warn(missing_debug_implementations, rust_2018_idioms, rustdoc::all)]
+
 use chrono::NaiveDate;
 use serde::Deserialize;
+use sqlx::sqlite::{SqliteConnectOptions, SqlitePoolOptions};
 use thirtyfour::*;
 
 const PAGINATION_LIMIT: usize = 100;
@@ -76,6 +78,7 @@ impl std::fmt::Display for Class {
 #[derive(Debug)]
 #[allow(dead_code)]
 struct Listing {
+    id: usize,
     title: String,
     date: NaiveDate,
     price: f32,
@@ -106,19 +109,55 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let expansion = include_str!("../pokemon.json");
     let expansion = serde_json::from_str::<Expansion>(expansion)?;
 
+    let connection_options = SqliteConnectOptions::new()
+        .filename("db/demo.db")
+        .foreign_keys(true)
+        .create_if_missing(true);
+
+    let pool = SqlitePoolOptions::new()
+        .max_connections(1)
+        .connect_with(connection_options)
+        .await?;
+
+    sqlx::migrate!("db/migrations").run(&pool).await?;
+
+    expansion
+        .cards
+        .iter()
+        .fold(
+            sqlx::query(&format!(
+                "INSERT INTO cards (number, class, name, rarity) VALUES {} ON CONFLICT DO NOTHING",
+                expansion
+                    .cards
+                    .iter()
+                    .map(|_| "(?, ?, ?, ?)")
+                    .collect::<Vec<_>>()
+                    .join(",")
+            )),
+            |acc, x| {
+                acc.bind(x.number as u32)
+                    .bind(x.class.to_string())
+                    .bind(x.name.clone())
+                    .bind(x.rarity.to_string())
+            },
+        )
+        .execute(&pool)
+        .await?;
+
+    //let cards = expansion.cards.into_iter();
+    //let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
+    //let cards = expansion.cards.into_iter().filter(|x| x.number == 1);
+    //let cards = expansion.cards.into_iter().filter(|x| x.number == 4);
+    let cards = expansion
+        .cards
+        .into_iter()
+        .filter(|x| x.number > expansion.expansion_total)
+        .take(5);
+    let cards = cards.collect::<Vec<_>>();
+
     let mut caps = DesiredCapabilities::chrome();
     caps.add_arg("--start-maximized")?;
     let driver = WebDriver::new("http://localhost:9515", caps).await?;
-
-    //let cards = expansion.cards;
-    //let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
-    let cards = expansion.cards.into_iter().filter(|x| x.number == 1);
-    //let cards = expansion.cards.into_iter().filter(|x| x.number == 4);
-    //let cards = expansion
-    //    .cards
-    //    .into_iter()
-    //    .filter(|x| x.number > expansion.expansion_total)
-    //    .take(5);
 
     for card in cards {
         // TODO: Consider clearing the textbox
@@ -248,7 +287,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     .expect("One result should always be returned")
                     .to_string();
 
+                let id = link
+                    .split("/")
+                    .last()
+                    .expect("Split always returns one value")
+                    .parse()?;
+
                 let listing = Listing {
+                    id,
                     title,
                     date,
                     price,
@@ -274,7 +320,28 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
 
-        dbg!(final_listings);
+        let query_string = format!(
+            "INSERT INTO listings (id, title, date, price, link, card_number, card_class) VALUES {} ON CONFLICT DO NOTHING",
+            final_listings
+                .iter()
+                .map(|_| "(?, ?, ?, ?, ?, ?, ?)")
+                .collect::<Vec<_>>()
+                .join(",")
+        );
+
+        final_listings
+            .iter()
+            .fold(sqlx::query(&query_string), |acc, x| {
+                acc.bind(x.id as u32)
+                    .bind(x.title.clone())
+                    .bind(x.date)
+                    .bind(x.price)
+                    .bind(x.link.clone())
+                    .bind(card.number as u32)
+                    .bind(card.class.to_string())
+            })
+            .execute(&pool)
+            .await?;
 
         //std::thread::sleep(std::time::Duration::new(10, 0));
     }
