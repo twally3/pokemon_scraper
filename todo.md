@@ -15,6 +15,7 @@
 - [x] Store scraped listings in table
 - [ ] Create proper system for registering manifests for future scraping
 - [x] Filter listings using whitelist as regular cards are showing up with reverse holos
+- [x] Change name filtering to any word split on spacing as many valid listings don't contain the full name i.e. Castform instead of Castform sunny form or pikachu SIR ex
 - [ ] Make API for getting data
 - [ ] Add logic for filtering outliers, getting average prices, trend tracking, etc
 - [ ] System for saving skipped listings and manually reviewing them

@@ -237,7 +237,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     .text()
                     .await?;
 
-                if !title.to_lowercase().contains(&card.name.to_lowercase()) {
+                if !std::iter::once(card.name.to_lowercase().as_str())
+                    .chain(card.name.to_lowercase().split_whitespace())
+                    .any(|x| title.to_lowercase().contains(x))
+                {
                     println!("Title \"{}\" doesn't contain card name. Skipping.", title);
                     continue;
                 }
