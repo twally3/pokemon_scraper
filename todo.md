@@ -22,3 +22,4 @@
 - [ ] System for saving skipped listings and manually reviewing them
 - [ ] Better filter out PSA graded cards using titles
 - [x] Docker build and compose for deployment
+- [ ] Better represent expansions in the DB

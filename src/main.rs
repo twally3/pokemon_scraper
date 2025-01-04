@@ -7,7 +7,7 @@ use thirtyfour::*;
 
 const PAGINATION_LIMIT: usize = 100;
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 enum Rarity {
     #[serde(rename = "https://tcgcodex.com/images/rarities/pokemon-common.webp")]
     Common,
@@ -51,7 +51,7 @@ impl std::fmt::Display for Rarity {
     }
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 enum Class {
     #[serde(rename = "advanced-pkmn_regular-unchecked")]
     Regular,
@@ -127,7 +127,7 @@ struct Listing {
     buying_format: BuyingFormat,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[allow(dead_code)]
 struct Pokemon {
     name: String,
@@ -136,7 +136,7 @@ struct Pokemon {
     class: Class,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[allow(dead_code)]
 struct Expansion {
     set_name: String,
@@ -186,6 +186,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .execute(&pool)
         .await?;
 
+    // TODO: Get rid of this
+    let cloned_expansion = expansion.clone();
+
     //let cards = expansion.cards.into_iter();
     let cards = expansion.cards.into_iter().take(1);
     //let cards = expansion.cards.into_iter().take_while(|x| x.number <= 191);
@@ -212,248 +215,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .await?
             .map(|x| x.0);
 
-        // TODO: Consider clearing the textbox
-        driver.goto("https://ebay.co.uk").await?;
-
-        println!("{card:#?}");
-
-        driver
-            .find(By::Id("gh-ac"))
-            .await?
-            .send_keys(format!(
-                "{} {:0>3}/{}",
-                card.name, card.number, expansion.expansion_total
-            ))
-            .await?;
-
-        match driver.find(By::Id("gh-btn")).await {
-            btn @ Ok(_) => btn,
-            Err(_) => match driver.find(By::Id("gh-search-btn")).await {
-                btn @ Ok(_) => btn,
-                err => err,
-            },
-        }?
-        .click()
-        .await?;
-
-        // Change page count to 240
-        if let Some(url) = match driver
-            .find(By::Css("#srp-ipp-menu-content li:last-child a"))
-            .await
-        {
-            Ok(x) => x.prop("href").await,
-            Err(err) => match err.as_inner() {
-                error::WebDriverErrorInner::NoSuchElement(_) => Ok(None),
-                _ => Err(err),
-            },
-        }? {
-            driver.goto(url).await?;
-        }
-
-        driver
-            .find(By::Css("input[type=checkbox][aria-label='Sold items']"))
-            .await?
-            .click()
-            .await?;
-
-        if let Ok(grade_btn) = driver
-            .find(By::Css(
-                "li[name=Grade] input[type=checkbox][aria-label='Not specified']",
-            ))
-            .await
-        {
-            grade_btn.click().await?;
-        }
-
-        let mut final_listings = Vec::new();
-
-        let mut page_count = 0;
-        'outer: loop {
-            let listings = driver.find_all(By::Css("ul.srp-results > li")).await?;
-
-            for listing in listings {
-                let Some(class_names) = listing.class_name().await? else {
-                    println!("Couldn't find class_names for listing");
-                    continue;
-                };
-
-                if !class_names.split_whitespace().any(|x| x == "s-item") {
-                    if listing.text().await? == "Results matching fewer words" {
-                        println!("Reached end of good results");
-                        break;
-                    };
-
-                    continue;
-                }
-
-                let date = NaiveDate::parse_from_str(
-                    listing
-                        .find(By::Css(".s-item__caption"))
-                        .await?
-                        .text()
-                        .await?
-                        .trim_start_matches("Sold "),
-                    "%-d %b %Y",
-                )?;
-
-                if last_listing_date.map(|d| date < d).unwrap_or(false) {
-                    println!(
-                        "Listing date {date} is less than last recorded date {}. Ending.",
-                        last_listing_date.unwrap()
-                    );
-                    break 'outer;
-                }
-
-                let title = listing
-                    .find(By::Css("a.s-item__link span[role=heading]"))
-                    .await?
-                    .text()
-                    .await?;
-
-                if !std::iter::once(card.name.to_lowercase().as_str())
-                    .chain(card.name.to_lowercase().split_whitespace())
-                    .any(|x| title.to_lowercase().contains(x))
-                {
-                    println!("Title \"{}\" doesn't contain card name. Skipping.", title);
-                    continue;
-                }
-
-                if match card.class {
-                    Class::Regular => ["reverse holo", "reverse"]
-                        .into_iter()
-                        .any(|x| title.to_lowercase().contains(x)),
-                    Class::ReverseHolo => title.to_lowercase().contains("regular"),
-                    Class::Foil => false,
-                } {
-                    println!("Title \"{}\" contains blacklisted words. Skipping.", title);
-                    continue;
-                }
-
-                if match card.class {
-                    Class::Regular => false,
-                    Class::ReverseHolo => !["reverse holo", "holo", "reverse"]
-                        .into_iter()
-                        .any(|x| title.to_lowercase().contains(x)),
-                    Class::Foil => false,
-                } {
-                    println!(
-                        "Title \"{}\" doesn't contain whitelisted words. Skipping",
-                        title
-                    );
-                    continue;
-                }
-
-                let price = listing
-                    .find(By::Css(".s-item__price"))
-                    .await?
-                    .text()
-                    .await?;
-
-                // TODO: Using floats for money is sinful
-                let Ok(price) = price
-                    .trim_start_matches("£")
-                    .replace(",", "")
-                    .parse::<f32>()
-                else {
-                    println!("Failed to parse price {price}. Skipping.");
-                    continue;
-                };
-
-                let link = listing
-                    .find(By::Css(".s-item__link"))
-                    .await?
-                    .prop("href")
-                    .await?
-                    .unwrap_or("".into());
-
-                let link = link
-                    .split("?")
-                    .next()
-                    .expect("One result should always be returned")
-                    .to_string();
-
-                let id = link
-                    .split("/")
-                    .last()
-                    .expect("Split always returns one value")
-                    .parse()?;
-
-                let buying_format =
-                    if let Ok(bids) = listing.find(By::Css(".s-item__bidCount")).await {
-                        Ok(BuyingFormat::Auction {
-                            bids: bids
-                                .text()
-                                .await?
-                                .split_whitespace()
-                                .next()
-                                .expect("Should always have a value")
-                                .parse()
-                                .expect("Should always be a number"),
-                            offer_was_accepted: listing
-                                .find(By::Css(".s-item__formatBestOfferAccepted"))
-                                .await
-                                .map(|_| true)
-                                .unwrap_or(false),
-                        })
-                    } else if listing
-                        .find(By::Css(".s-item__formatBuyItNow"))
-                        .await
-                        .is_ok()
-                    {
-                        Ok(BuyingFormat::BuyItNow {
-                            accepts_offers: false,
-                            offer_was_accepted: false,
-                        })
-                    } else if listing
-                        .find(By::Css(".s-item__formatBestOfferEnabled"))
-                        .await
-                        .is_ok()
-                    {
-                        Ok(BuyingFormat::BuyItNow {
-                            accepts_offers: true,
-                            offer_was_accepted: false,
-                        })
-                    } else if listing
-                        .find(By::Css(".s-item__formatBestOfferAccepted"))
-                        .await
-                        .is_ok()
-                    {
-                        Ok(BuyingFormat::BuyItNow {
-                            accepts_offers: true,
-                            offer_was_accepted: true,
-                        })
-                    } else {
-                        Err("Failed to resolve buying format")
-                    }?;
-
-                let listing = Listing {
-                    id,
-                    title,
-                    date,
-                    price,
-                    link,
-                    buying_format,
-                };
-
-                final_listings.push(listing);
-            }
-
-            match driver.find(By::Css("a.pagination__next")).await {
-                btn @ Ok(_) => btn,
-                Err(err) => match err.as_inner() {
-                    error::WebDriverErrorInner::NoSuchElement(_) => break,
-                    _ => Err(err),
-                },
-            }?
-            .click()
-            .await?;
-
-            page_count += 1;
-            if page_count > PAGINATION_LIMIT {
-                println!("PAGINATION LIMIT");
-                break;
-            }
-        }
+        let final_listings =
+            scrape_listings_for_card(&card, &cloned_expansion, last_listing_date, &driver).await?;
 
         if final_listings.is_empty() {
             continue;
@@ -489,4 +252,255 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     Ok(())
+}
+
+async fn scrape_listings_for_card(
+    card: &Pokemon,
+    expansion: &Expansion,
+    last_listing_date: Option<chrono::NaiveDate>,
+    driver: &thirtyfour::WebDriver,
+) -> Result<Vec<Listing>, Box<dyn std::error::Error>> {
+    // TODO: Consider clearing the text box
+    driver.goto("https://ebay.co.uk").await?;
+
+    println!("{card:#?}");
+
+    driver
+        .find(By::Id("gh-ac"))
+        .await?
+        .send_keys(format!(
+            "{} {:0>3}/{}",
+            card.name, card.number, expansion.expansion_total
+        ))
+        .await?;
+
+    match driver.find(By::Id("gh-btn")).await {
+        btn @ Ok(_) => btn,
+        Err(_) => match driver.find(By::Id("gh-search-btn")).await {
+            btn @ Ok(_) => btn,
+            err => err,
+        },
+    }?
+    .click()
+    .await?;
+
+    // Change page count to 240
+    if let Some(url) = match driver
+        .find(By::Css("#srp-ipp-menu-content li:last-child a"))
+        .await
+    {
+        Ok(x) => x.prop("href").await,
+        Err(err) => match err.as_inner() {
+            error::WebDriverErrorInner::NoSuchElement(_) => Ok(None),
+            _ => Err(err),
+        },
+    }? {
+        driver.goto(url).await?;
+    }
+
+    driver
+        .find(By::Css("input[type=checkbox][aria-label='Sold items']"))
+        .await?
+        .click()
+        .await?;
+
+    if let Ok(grade_btn) = driver
+        .find(By::Css(
+            "li[name=Grade] input[type=checkbox][aria-label='Not specified']",
+        ))
+        .await
+    {
+        grade_btn.click().await?;
+    }
+
+    let mut final_listings = Vec::new();
+
+    let mut page_count = 0;
+    loop {
+        let listings = driver.find_all(By::Css("ul.srp-results > li")).await?;
+
+        for listing in listings {
+            let Some(class_names) = listing.class_name().await? else {
+                println!("Couldn't find class_names for listing");
+                continue;
+            };
+
+            if !class_names.split_whitespace().any(|x| x == "s-item") {
+                if listing.text().await? == "Results matching fewer words" {
+                    println!("Reached end of good results");
+                    break;
+                };
+
+                continue;
+            }
+
+            let date = NaiveDate::parse_from_str(
+                listing
+                    .find(By::Css(".s-item__caption"))
+                    .await?
+                    .text()
+                    .await?
+                    .trim_start_matches("Sold "),
+                "%-d %b %Y",
+            )?;
+
+            if last_listing_date.map(|d| date < d).unwrap_or(false) {
+                println!(
+                    "Listing date {date} is less than last recorded date {}. Ending.",
+                    last_listing_date.unwrap()
+                );
+                return Ok(final_listings);
+            }
+
+            let title = listing
+                .find(By::Css("a.s-item__link span[role=heading]"))
+                .await?
+                .text()
+                .await?;
+
+            if !std::iter::once(card.name.to_lowercase().as_str())
+                .chain(card.name.to_lowercase().split_whitespace())
+                .any(|x| title.to_lowercase().contains(x))
+            {
+                println!("Title \"{}\" doesn't contain card name. Skipping.", title);
+                continue;
+            }
+
+            if match card.class {
+                Class::Regular => ["reverse holo", "reverse"]
+                    .into_iter()
+                    .any(|x| title.to_lowercase().contains(x)),
+                Class::ReverseHolo => title.to_lowercase().contains("regular"),
+                Class::Foil => false,
+            } {
+                //println!("Title \"{}\" contains blacklisted words. Skipping.", title);
+                continue;
+            }
+
+            if match card.class {
+                Class::Regular => false,
+                Class::ReverseHolo => !["reverse holo", "holo", "reverse"]
+                    .into_iter()
+                    .any(|x| title.to_lowercase().contains(x)),
+                Class::Foil => false,
+            } {
+                println!(
+                    "Title \"{}\" doesn't contain whitelisted words. Skipping",
+                    title
+                );
+                continue;
+            }
+
+            let price = listing
+                .find(By::Css(".s-item__price"))
+                .await?
+                .text()
+                .await?;
+
+            // TODO: Using floats for money is sinful
+            let Ok(price) = price
+                .trim_start_matches("£")
+                .replace(",", "")
+                .parse::<f32>()
+            else {
+                println!("Failed to parse price {price}. Skipping.");
+                continue;
+            };
+
+            let link = listing
+                .find(By::Css(".s-item__link"))
+                .await?
+                .prop("href")
+                .await?
+                .unwrap_or("".into());
+
+            let link = link
+                .split("?")
+                .next()
+                .expect("One result should always be returned")
+                .to_string();
+
+            let id = link
+                .split("/")
+                .last()
+                .expect("Split always returns one value")
+                .parse()?;
+
+            let buying_format = if let Ok(bids) = listing.find(By::Css(".s-item__bidCount")).await {
+                Ok(BuyingFormat::Auction {
+                    bids: bids
+                        .text()
+                        .await?
+                        .split_whitespace()
+                        .next()
+                        .expect("Should always have a value")
+                        .parse()
+                        .expect("Should always be a number"),
+                    offer_was_accepted: listing
+                        .find(By::Css(".s-item__formatBestOfferAccepted"))
+                        .await
+                        .map(|_| true)
+                        .unwrap_or(false),
+                })
+            } else if listing
+                .find(By::Css(".s-item__formatBuyItNow"))
+                .await
+                .is_ok()
+            {
+                Ok(BuyingFormat::BuyItNow {
+                    accepts_offers: false,
+                    offer_was_accepted: false,
+                })
+            } else if listing
+                .find(By::Css(".s-item__formatBestOfferEnabled"))
+                .await
+                .is_ok()
+            {
+                Ok(BuyingFormat::BuyItNow {
+                    accepts_offers: true,
+                    offer_was_accepted: false,
+                })
+            } else if listing
+                .find(By::Css(".s-item__formatBestOfferAccepted"))
+                .await
+                .is_ok()
+            {
+                Ok(BuyingFormat::BuyItNow {
+                    accepts_offers: true,
+                    offer_was_accepted: true,
+                })
+            } else {
+                Err("Failed to resolve buying format")
+            }?;
+
+            let listing = Listing {
+                id,
+                title,
+                date,
+                price,
+                link,
+                buying_format,
+            };
+
+            final_listings.push(listing);
+        }
+
+        match driver.find(By::Css("a.pagination__next")).await {
+            btn @ Ok(_) => btn,
+            Err(err) => match err.as_inner() {
+                error::WebDriverErrorInner::NoSuchElement(_) => break,
+                _ => Err(err),
+            },
+        }?
+        .click()
+        .await?;
+
+        page_count += 1;
+        if page_count > PAGINATION_LIMIT {
+            println!("PAGINATION LIMIT");
+            break;
+        }
+    }
+
+    Ok(final_listings)
 }
