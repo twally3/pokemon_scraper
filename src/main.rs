@@ -187,8 +187,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .await?;
 
     //let cards = expansion.cards.into_iter();
-    //let cards = expansion.cards.into_iter().take(191);
-    let cards = expansion.cards.into_iter().take_while(|x| x.number <= 191);
+    let cards = expansion.cards.into_iter().take(1);
+    //let cards = expansion.cards.into_iter().take_while(|x| x.number <= 191);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 1);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 4);
@@ -197,11 +197,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     //    .into_iter()
     //    .filter(|x| x.number > expansion.expansion_total)
     //    .take(5);
-    let cards = cards.collect::<Vec<_>>();
+    //let cards = cards.collect::<Vec<_>>();
 
+    let wd_url = std::env::var("WEB_DRIVER_URL").unwrap_or("http://localhost:9515".into());
     let mut caps = DesiredCapabilities::chrome();
     caps.add_arg("--start-maximized")?;
-    let driver = WebDriver::new("http://localhost:9515", caps).await?;
+    let driver = WebDriver::new(wd_url, caps).await?;
 
     for card in cards {
         let last_listing_date = sqlx::query_as::<_,  (chrono::NaiveDate, )>("SELECT date FROM listings WHERE card_number = ? AND card_class = ? ORDER BY date DESC LIMIT 1")
