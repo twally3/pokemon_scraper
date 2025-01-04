@@ -172,7 +172,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 expansion
                     .cards
                     .iter()
-                    .map(|_| "(?, ?, ?, ?)")
+                    .map(|_| "(?,?,?,?)")
                     .collect::<Vec<_>>()
                     .join(",")
             )),
@@ -187,7 +187,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .await?;
 
     //let cards = expansion.cards.into_iter();
-    let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
+    //let cards = expansion.cards.into_iter().take(191);
+    let cards = expansion.cards.into_iter().take_while(|x| x.number <= 191);
+    //let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 1);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 4);
     //let cards = expansion
@@ -202,27 +204,36 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let driver = WebDriver::new("http://localhost:9515", caps).await?;
 
     for card in cards {
+        let last_listing_date = sqlx::query_as::<_,  (chrono::NaiveDate, )>("SELECT date FROM listings WHERE card_number = ? AND card_class = ? ORDER BY date DESC LIMIT 1")
+            .bind(card.number as u32)
+            .bind(card.class.to_string())
+            .fetch_optional(&pool)
+            .await?
+            .map(|x| x.0);
+
         // TODO: Consider clearing the textbox
         driver.goto("https://ebay.co.uk").await?;
 
         println!("{card:#?}");
 
-        let search_input = driver.find(By::Id("gh-ac")).await?;
-        search_input
+        driver
+            .find(By::Id("gh-ac"))
+            .await?
             .send_keys(format!(
                 "{} {:0>3}/{}",
                 card.name, card.number, expansion.expansion_total
             ))
             .await?;
 
-        let search_btn = match driver.find(By::Id("gh-btn")).await {
+        match driver.find(By::Id("gh-btn")).await {
             btn @ Ok(_) => btn,
             Err(_) => match driver.find(By::Id("gh-search-btn")).await {
                 btn @ Ok(_) => btn,
                 err => err,
             },
-        }?;
-        search_btn.click().await?;
+        }?
+        .click()
+        .await?;
 
         // Change page count to 240
         if let Some(url) = match driver
@@ -238,10 +249,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             driver.goto(url).await?;
         }
 
-        let sold_btn = driver
+        driver
             .find(By::Css("input[type=checkbox][aria-label='Sold items']"))
+            .await?
+            .click()
             .await?;
-        sold_btn.click().await?;
 
         if let Ok(grade_btn) = driver
             .find(By::Css(
@@ -255,7 +267,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let mut final_listings = Vec::new();
 
         let mut page_count = 0;
-        loop {
+        'outer: loop {
             let listings = driver.find_all(By::Css("ul.srp-results > li")).await?;
 
             for listing in listings {
@@ -273,6 +285,24 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     continue;
                 }
 
+                let date = NaiveDate::parse_from_str(
+                    listing
+                        .find(By::Css(".s-item__caption"))
+                        .await?
+                        .text()
+                        .await?
+                        .trim_start_matches("Sold "),
+                    "%-d %b %Y",
+                )?;
+
+                if last_listing_date.map(|d| date < d).unwrap_or(false) {
+                    println!(
+                        "Listing date {date} is less than last recorded date {}. Ending.",
+                        last_listing_date.unwrap()
+                    );
+                    break 'outer;
+                }
+
                 let title = listing
                     .find(By::Css("a.s-item__link span[role=heading]"))
                     .await?
@@ -288,7 +318,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
 
                 if match card.class {
-                    Class::Regular => ["reverse holo", "reverse", "holo"]
+                    Class::Regular => ["reverse holo", "reverse"]
                         .into_iter()
                         .any(|x| title.to_lowercase().contains(x)),
                     Class::ReverseHolo => title.to_lowercase().contains("regular"),
@@ -311,15 +341,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     );
                     continue;
                 }
-
-                let date = listing
-                    .find(By::Css(".s-item__caption"))
-                    .await?
-                    .text()
-                    .await?;
-
-                let date =
-                    NaiveDate::parse_from_str(date.trim_start_matches("Sold "), "%-d %b %Y")?;
 
                 let price = listing
                     .find(By::Css(".s-item__price"))
@@ -356,65 +377,53 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     .expect("Split always returns one value")
                     .parse()?;
 
-                let buying_format = match listing.find(By::Css(".s-item__bidCount")).await {
-                    Ok(bids) => Ok(BuyingFormat::Auction {
-                        bids: bids
-                            .text()
-                            .await?
-                            .split_whitespace()
-                            .next()
-                            .expect("Should always have a value")
-                            .parse()
-                            .expect("Should always be a number"),
-                        offer_was_accepted: listing
-                            .find(By::Css(".s-item__formatBestOfferAccepted"))
-                            .await
-                            .map(|_| true)
-                            .unwrap_or(false),
-                    }),
-                    Err(bids) => match bids.as_inner() {
-                        error::WebDriverErrorInner::NoSuchElement(_) => {
-                            match listing.find(By::Css(".s-item__formatBuyItNow")).await {
-                                Ok(_) => Ok(BuyingFormat::BuyItNow {
-                                    accepts_offers: false,
-                                    offer_was_accepted: false,
-                                }),
-                                Err(err) => match err.as_inner() {
-                                    error::WebDriverErrorInner::NoSuchElement(_) => {
-                                        match listing
-                                            .find(By::Css(".s-item__formatBestOfferEnabled"))
-                                            .await
-                                        {
-                                            Ok(_) => Ok(BuyingFormat::BuyItNow {
-                                                accepts_offers: true,
-                                                offer_was_accepted: false,
-                                            }),
-                                            Err(err) => match err.as_inner() {
-                                                error::WebDriverErrorInner::NoSuchElement(_) => {
-                                                    match listing
-                                                        .find(By::Css(
-                                                            ".s-item__formatBestOfferAccepted",
-                                                        ))
-                                                        .await
-                                                    {
-                                                        Ok(_) => Ok(BuyingFormat::BuyItNow {
-                                                            accepts_offers: true,
-                                                            offer_was_accepted: true,
-                                                        }),
-                                                        _ => Err(err),
-                                                    }
-                                                }
-                                                _ => Err(err),
-                                            },
-                                        }
-                                    }
-                                    _ => Err(err),
-                                },
-                            }
-                        }
-                        _ => Err(bids),
-                    },
-                }?;
+                let buying_format =
+                    if let Ok(bids) = listing.find(By::Css(".s-item__bidCount")).await {
+                        Ok(BuyingFormat::Auction {
+                            bids: bids
+                                .text()
+                                .await?
+                                .split_whitespace()
+                                .next()
+                                .expect("Should always have a value")
+                                .parse()
+                                .expect("Should always be a number"),
+                            offer_was_accepted: listing
+                                .find(By::Css(".s-item__formatBestOfferAccepted"))
+                                .await
+                                .map(|_| true)
+                                .unwrap_or(false),
+                        })
+                    } else if listing
+                        .find(By::Css(".s-item__formatBuyItNow"))
+                        .await
+                        .is_ok()
+                    {
+                        Ok(BuyingFormat::BuyItNow {
+                            accepts_offers: false,
+                            offer_was_accepted: false,
+                        })
+                    } else if listing
+                        .find(By::Css(".s-item__formatBestOfferEnabled"))
+                        .await
+                        .is_ok()
+                    {
+                        Ok(BuyingFormat::BuyItNow {
+                            accepts_offers: true,
+                            offer_was_accepted: false,
+                        })
+                    } else if listing
+                        .find(By::Css(".s-item__formatBestOfferAccepted"))
+                        .await
+                        .is_ok()
+                    {
+                        Ok(BuyingFormat::BuyItNow {
+                            accepts_offers: true,
+                            offer_was_accepted: true,
+                        })
+                    } else {
+                        Err("Failed to resolve buying format")
+                    }?;
 
                 let listing = Listing {
                     id,
@@ -428,47 +437,52 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 final_listings.push(listing);
             }
 
-            let next_page_btn = match driver.find(By::Css("a.pagination__next")).await {
+            match driver.find(By::Css("a.pagination__next")).await {
                 btn @ Ok(_) => btn,
                 Err(err) => match err.as_inner() {
                     error::WebDriverErrorInner::NoSuchElement(_) => break,
                     _ => Err(err),
                 },
-            }?;
-            next_page_btn.click().await?;
+            }?
+            .click()
+            .await?;
 
             page_count += 1;
             if page_count > PAGINATION_LIMIT {
                 println!("PAGINATION LIMIT");
                 break;
             }
+        }
 
-            let query_string = format!(
+        if final_listings.is_empty() {
+            continue;
+        }
+
+        let query_string = format!(
                 "INSERT INTO listings (id, title, date, price, link, bids, accepts_offers, offer_was_accepted, card_number, card_class) VALUES {} ON CONFLICT DO NOTHING",
                 final_listings
                     .iter()
-                    .map(|_| "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+                    .map(|_| "(?,?,?,?,?,?,?,?,?,?)")
                     .collect::<Vec<_>>()
                     .join(",")
             );
 
-            final_listings
-                .iter()
-                .fold(sqlx::query(&query_string), |acc, x| {
-                    acc.bind(x.id as u32)
-                        .bind(x.title.clone())
-                        .bind(x.date)
-                        .bind(x.price)
-                        .bind(x.link.clone())
-                        .bind(x.buying_format.get_bids().map(|x| x as u32))
-                        .bind(x.buying_format.get_accepts_offers())
-                        .bind(x.buying_format.get_offer_was_accepted())
-                        .bind(card.number as u32)
-                        .bind(card.class.to_string())
-                })
-                .execute(&pool)
-                .await?;
-        }
+        final_listings
+            .iter()
+            .fold(sqlx::query(&query_string), |acc, x| {
+                acc.bind(x.id as u32)
+                    .bind(x.title.clone())
+                    .bind(x.date)
+                    .bind(x.price)
+                    .bind(x.link.clone())
+                    .bind(x.buying_format.get_bids().map(|x| x as u32))
+                    .bind(x.buying_format.get_accepts_offers())
+                    .bind(x.buying_format.get_offer_was_accepted())
+                    .bind(card.number as u32)
+                    .bind(card.class.to_string())
+            })
+            .execute(&pool)
+            .await?;
 
         //std::thread::sleep(std::time::Duration::new(10, 0));
     }

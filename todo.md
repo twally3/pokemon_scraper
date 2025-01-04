@@ -4,13 +4,14 @@
 - [x] Filter out listings that don't contain the card name - it's probably a multi buy listing
 - [x] Filter out listings with blacklisted words in the title i.e. "Reverse holo" when the card is "Regular"
 - [x] Increase page count to 240 to improve performance
-- [ ] Improve title name filtering - some examples are bad like Pikachu SIR ex. Maybe remove the ex from the filter?
+- [-] Improve title name filtering - some examples are bad like Pikachu SIR ex. Maybe remove the ex from the filter?
 - [ ] Introduce tracing for logging so we can filter debug logs
 - [x] Parse date with Chrono
 - [x] Parse price, filter out range prices
 - [x] Remove query params from links to make them more reasonable
 - [x] Add buying format to listings
 - [ ] Use proper currency type because using floats is sinful
+- [x] Stop scraping early if the listing date is less than the most recently stored card
 - [x] Create SQLite table for listing 
 - [x] Store scraped listings in table
 - [ ] Create proper system for registering manifests for future scraping
