@@ -1,9 +1,12 @@
 #![warn(missing_debug_implementations, rust_2018_idioms, rustdoc::all)]
 
 use chrono::NaiveDate;
+use currency::{Currency, Money, GBP};
 use serde::{Deserialize, Serialize};
 use sqlx::sqlite::{SqliteConnectOptions, SqlitePoolOptions};
 use thirtyfour::*;
+
+mod currency;
 
 const PAGINATION_LIMIT: usize = 100;
 
@@ -122,7 +125,7 @@ struct Listing {
     id: usize,
     title: String,
     date: NaiveDate,
-    price: f32,
+    price: Money,
     link: String,
     buying_format: BuyingFormat,
 }
@@ -190,9 +193,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let cloned_expansion = expansion.clone();
 
     //let cards = expansion.cards.into_iter();
-    let cards = expansion.cards.into_iter().take(1);
+    //let cards = expansion.cards.into_iter().take(1);
     //let cards = expansion.cards.into_iter().take_while(|x| x.number <= 191);
-    //let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
+    let cards = expansion.cards.into_iter().filter(|x| x.number == 238);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 1);
     //let cards = expansion.cards.into_iter().filter(|x| x.number == 4);
     //let cards = expansion
@@ -237,7 +240,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 acc.bind(x.id as u32)
                     .bind(x.title.clone())
                     .bind(x.date)
-                    .bind(x.price)
+                    .bind(std::convert::Into::<u64>::into(&x.price) as u32)
                     .bind(x.link.clone())
                     .bind(x.buying_format.get_bids().map(|x| x as u32))
                     .bind(x.buying_format.get_accepts_offers())
@@ -400,12 +403,7 @@ async fn scrape_listings_for_card(
                 .text()
                 .await?;
 
-            // TODO: Using floats for money is sinful
-            let Ok(price) = price
-                .trim_start_matches("£")
-                .replace(",", "")
-                .parse::<f32>()
-            else {
+            let Ok(price) = Money::from_str(price.as_str(), GBP) else {
                 println!("Failed to parse price {price}. Skipping.");
                 continue;
             };
