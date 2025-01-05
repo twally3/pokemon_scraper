@@ -10,7 +10,7 @@
 - [x] Parse price, filter out range prices
 - [x] Remove query params from links to make them more reasonable
 - [x] Add buying format to listings
-- [ ] Use proper currency type because using floats is sinful
+- [x] Use proper currency type because using floats is sinful
 - [x] Stop scraping early if the listing date is less than the most recently stored card
 - [x] Create SQLite table for listing 
 - [x] Store scraped listings in table
@@ -23,3 +23,5 @@
 - [ ] Better filter out PSA graded cards using titles
 - [x] Docker build and compose for deployment
 - [ ] Better represent expansions in the DB
+- [ ] Better handle title filtering, remove things like ex? 
+- [ ] Add global word blacklist: "Master set", "Display", "lottery", etc
