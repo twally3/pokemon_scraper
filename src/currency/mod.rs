@@ -20,10 +20,11 @@ pub struct Money {
 
 impl Money {
     pub fn from_str(s: &str, currency: &Currency) -> Result<Self, String> {
-        let mut s = s.to_string();
-        if s.starts_with(currency.symbol) {
-            s = s.chars().skip(1).collect::<String>();
-        }
+        let s = if s.starts_with(currency.symbol) {
+            s.chars().skip(1).collect::<String>()
+        } else {
+            s.to_string()
+        };
 
         let mut xs = s.split(currency.exponent_seperator).collect::<Vec<_>>();
 
