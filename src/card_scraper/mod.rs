@@ -195,18 +195,26 @@ impl CardScaper {
             tokio::select! {
                 _ = s.changed() => {
                     println!("Killing scraper");
-                    break;
+                    break
                 }
-                x = async {
-                    self.thing(&expansion).await
-                } => {
+                x = self.thing(&expansion) => {
                     if x.is_err() {
                         println!("Something went wrong scraping");
                         break;
                     }
-                    tokio::time::sleep(std::time::Duration::from_secs(10)).await;
+                    println!("Now sleeping");
                 }
             };
+
+            tokio::select! {
+                _ = s.changed() => {
+                    println!("Killing scraper");
+                    break
+                }
+                _ = tokio::time::sleep(std::time::Duration::from_secs(20)) => {
+                    println!("Sleep completed");
+                }
+            }
         }
 
         Ok(())
