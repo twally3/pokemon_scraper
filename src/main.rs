@@ -1,7 +1,7 @@
 #![warn(missing_debug_implementations, rust_2018_idioms, rustdoc::all)]
 
 use chrono::NaiveDate;
-use currency::{Currency, Money, GBP};
+use currency::{Money, GBP};
 use serde::{Deserialize, Serialize};
 use sqlx::sqlite::{SqliteConnectOptions, SqlitePoolOptions};
 use thirtyfour::*;
@@ -121,11 +121,11 @@ impl BuyingFormat {
 
 #[derive(Debug)]
 #[allow(dead_code)]
-struct Listing {
+struct Listing<'a> {
     id: usize,
     title: String,
     date: NaiveDate,
-    price: Money,
+    price: Money<'a>,
     link: String,
     buying_format: BuyingFormat,
 }
@@ -257,12 +257,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-async fn scrape_listings_for_card(
+async fn scrape_listings_for_card<'a>(
     card: &Pokemon,
     expansion: &Expansion,
     last_listing_date: Option<chrono::NaiveDate>,
     driver: &thirtyfour::WebDriver,
-) -> Result<Vec<Listing>, Box<dyn std::error::Error>> {
+) -> Result<Vec<Listing<'a>>, Box<dyn std::error::Error>> {
     // TODO: Consider clearing the text box
     driver.goto("https://ebay.co.uk").await?;
 
