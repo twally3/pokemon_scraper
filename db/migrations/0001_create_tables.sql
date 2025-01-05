@@ -10,7 +10,7 @@ CREATE TABLE listings (
 	id INTEGER NOT NULL,
 	title TEXT NOT NULL,
 	date TEXT NOT NULL,
-	price REAL NOT NULL,
+	price INTEGER NOT NULL,
 	link TEXT NOT NULL,
 	bids INTEGER,
 	accepts_offers BOOLEAN,
