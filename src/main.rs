@@ -358,9 +358,12 @@ async fn scrape_listings_for_card(
                 .text()
                 .await?;
 
-            if !std::iter::once(card.name.to_lowercase().as_str())
-                .chain(card.name.to_lowercase().split_whitespace())
-                .any(|x| title.to_lowercase().contains(x))
+            if !title.to_lowercase().contains(&card.name.to_lowercase())
+                && !card
+                    .name
+                    .to_lowercase()
+                    .split_whitespace()
+                    .all(|x| title.to_lowercase().contains(x))
             {
                 println!("Title \"{}\" doesn't contain card name. Skipping.", title);
                 continue;
@@ -373,7 +376,7 @@ async fn scrape_listings_for_card(
                 Class::ReverseHolo => title.to_lowercase().contains("regular"),
                 Class::Foil => false,
             } {
-                //println!("Title \"{}\" contains blacklisted words. Skipping.", title);
+                println!("Title \"{}\" contains blacklisted words. Skipping.", title);
                 continue;
             }
 
