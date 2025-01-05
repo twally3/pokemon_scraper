@@ -29,19 +29,30 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     caps.add_arg("--start-maximized")?;
     let driver = WebDriver::new(wd_url, caps).await?;
 
-    let (shutdown_tx, shutdown_rx) = tokio::sync::watch::channel(());
-    let ctrl_c = async {
-        tokio::signal::ctrl_c()
-            .await
-            .expect("failed to install Ctrl+C handler");
+    let shutdown_signal = async {
+        tokio::select! {
+            _ = async {
+                tokio::signal::ctrl_c()
+                    .await
+                    .expect("failed to install Ctrl+C handler");
+            } => {},
+            _ = async {
+                tokio::signal::unix::signal(tokio::signal::unix::SignalKind::terminate())
+                    .expect("failed to install signal handler")
+                    .recv()
+                    .await;
+            } => {},
+        }
     };
+
+    let (shutdown_tx, shutdown_rx) = tokio::sync::watch::channel(());
 
     let scraper = CardScaper::new(pool.clone(), driver, shutdown_rx);
 
     let h = tokio::spawn(async move { scraper.scrape_expansion(expansion).await });
 
     tokio::select! {
-        _ = ctrl_c => {
+        _ = shutdown_signal => {
             println!("Initiating shutdown");
             shutdown_tx.send(()).expect("Failed to send shutdown signal");
 
