@@ -65,9 +65,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (scraper_tx, mut scraper_rx) = tokio::sync::watch::channel(());
     let (server_tx, mut server_rx) = tokio::sync::watch::channel(());
 
-    let (shutdown_tx, mut shutdown_rx) = tokio::sync::watch::channel(());
+    let shutdown = std::sync::Arc::new(tokio::sync::Notify::new());
+    let shutdown_scraper = shutdown.clone();
+    let shutdown_server = shutdown.clone();
 
-    let scraper = CardScaper::new(pool.clone(), driver, shutdown_rx.clone());
+    let scraper = CardScaper::new(pool.clone(), driver, shutdown_scraper);
     let h = tokio::spawn(async move {
         let a = scraper.scrape_expansion(expansion).await;
         scraper_tx.send(()).expect("Failed to send scraper signal");
@@ -80,14 +82,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
     let server = axum::serve(listener, app).with_graceful_shutdown(async move {
-        shutdown_rx
-            .changed()
-            .await
-            .expect("Failed to recieve shutdown signal for server");
+        shutdown_server.notified().await;
     });
 
     let server = tokio::spawn(async move {
-        println!("TEST");
         let _ = server.await;
         server_tx.send(()).expect("Failed to send server signal");
     });
@@ -98,15 +96,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     tokio::select! {
         _ = shutdown_signal() => {
             println!("Shutdown signal received");
-            shutdown_tx.send(()).expect("Failed to send shutdown sigal from shutdown signal");
+            shutdown.notify_waiters();
         }
         _ = a.changed() => {
             println!("Scraper completed");
-            shutdown_tx.send(()).expect("Failed to send shutdown sigal from scraper");
+            shutdown.notify_waiters();
         }
         _ = b.changed() => {
             println!("Server completed");
-            shutdown_tx.send(()).expect("Failed to send shutdown sigal from server");
+            shutdown.notify_waiters();
         }
     }
 

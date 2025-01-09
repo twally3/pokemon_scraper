@@ -149,16 +149,14 @@ pub struct Expansion {
 pub struct CardScaper {
     pool: sqlx::Pool<Sqlite>,
     driver: WebDriver,
-    shutdown_rx: tokio::sync::watch::Receiver<()>,
-    //shutdown_rx: std::sync::Arc<tokio::sync::Notify>,
+    shutdown_rx: std::sync::Arc<tokio::sync::Notify>,
 }
 
 impl CardScaper {
     pub fn new(
         pool: sqlx::Pool<Sqlite>,
         driver: thirtyfour::WebDriver,
-        shutdown_rx: tokio::sync::watch::Receiver<()>,
-        //shutdown_rx: std::sync::Arc<tokio::sync::Notify>,
+        shutdown_rx: std::sync::Arc<tokio::sync::Notify>,
     ) -> Self {
         Self {
             pool,
@@ -192,17 +190,15 @@ impl CardScaper {
             .await
             .map_err(|_| "Failed to create expansion entries")?;
 
-        let mut s = self.shutdown_rx.clone();
         loop {
             tokio::select! {
-                //_ = self.shutdown_rx.notified() => {
-                _ = s.changed() => {
+                _ = self.shutdown_rx.notified() => {
                     println!("Killing scraper");
                     break
                 }
                 x = self.thing(&expansion) => {
-                    if x.is_err() {
-                        println!("Something went wrong scraping");
+                    if let Err(a) = x {
+                        println!("Something went wrong scraping: {a:?}");
                         break;
                     }
                     println!("Now sleeping");
@@ -210,8 +206,7 @@ impl CardScaper {
             };
 
             tokio::select! {
-                //_ = self.shutdown_rx.notified() => {
-                _ = s.changed() => {
+                _ = self.shutdown_rx.notified() => {
                     println!("Killing scraper");
                     break
                 }
@@ -225,7 +220,8 @@ impl CardScaper {
     }
 
     async fn thing(&self, expansion: &Expansion) -> Result<(), String> {
-        let cards = expansion.cards.iter().take(1).collect::<Vec<_>>();
+        //let cards = expansion.cards.iter().take(1).collect::<Vec<_>>();
+        let cards = expansion.cards.iter().collect::<Vec<_>>();
 
         for card in cards {
             let last_listing_date = sqlx::query_as::<_,  (chrono::NaiveDate, )>("SELECT date FROM listings WHERE card_number = ? AND card_class = ? ORDER BY date DESC LIMIT 1")
@@ -239,7 +235,7 @@ impl CardScaper {
             let final_listings = self
                 .scrape_listings_for_card(card, expansion, last_listing_date)
                 .await
-                .map_err(|_| "Failed to scrape card")?;
+                .map_err(|e| format!("Failed to scrape card: {e:?}"))?;
 
             if final_listings.is_empty() {
                 continue;
