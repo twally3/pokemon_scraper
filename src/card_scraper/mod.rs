@@ -199,6 +199,12 @@ impl CardScaper {
                 x = self.thing(&expansion) => {
                     if let Err(a) = x {
                         println!("Something went wrong scraping: {a:?}");
+
+                        let timestamp = format!("screenshots/{}.png", chrono::Utc::now().to_rfc3339());
+                        if let Err(e) = self.driver.screenshot(std::path::Path::new(&timestamp)).await {
+                            println!("Failed to take screenshot {e:?}");
+                        }
+
                         break;
                     }
                     println!("Now sleeping");
