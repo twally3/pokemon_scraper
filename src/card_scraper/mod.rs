@@ -150,6 +150,7 @@ pub struct CardScaper {
     pool: sqlx::Pool<Sqlite>,
     driver: WebDriver,
     shutdown_rx: tokio::sync::watch::Receiver<()>,
+    //shutdown_rx: std::sync::Arc<tokio::sync::Notify>,
 }
 
 impl CardScaper {
@@ -157,6 +158,7 @@ impl CardScaper {
         pool: sqlx::Pool<Sqlite>,
         driver: thirtyfour::WebDriver,
         shutdown_rx: tokio::sync::watch::Receiver<()>,
+        //shutdown_rx: std::sync::Arc<tokio::sync::Notify>,
     ) -> Self {
         Self {
             pool,
@@ -193,6 +195,7 @@ impl CardScaper {
         let mut s = self.shutdown_rx.clone();
         loop {
             tokio::select! {
+                //_ = self.shutdown_rx.notified() => {
                 _ = s.changed() => {
                     println!("Killing scraper");
                     break
@@ -207,6 +210,7 @@ impl CardScaper {
             };
 
             tokio::select! {
+                //_ = self.shutdown_rx.notified() => {
                 _ = s.changed() => {
                     println!("Killing scraper");
                     break

@@ -62,28 +62,55 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     caps.add_arg("--start-maximized")?;
     let driver = WebDriver::new(wd_url, caps).await?;
 
-    let (shutdown_tx, shutdown_rx) = tokio::sync::watch::channel(());
-    let scraper = CardScaper::new(pool.clone(), driver, shutdown_rx);
-    let h = tokio::spawn(async move { scraper.scrape_expansion(expansion).await });
+    let (scraper_tx, mut scraper_rx) = tokio::sync::watch::channel(());
+    let (server_tx, mut server_rx) = tokio::sync::watch::channel(());
+
+    let (shutdown_tx, mut shutdown_rx) = tokio::sync::watch::channel(());
+
+    let scraper = CardScaper::new(pool.clone(), driver, shutdown_rx.clone());
+    let h = tokio::spawn(async move {
+        let a = scraper.scrape_expansion(expansion).await;
+        scraper_tx.send(()).expect("Failed to send scraper signal");
+        a
+    });
 
     let app = axum::Router::new()
         .route("/", axum::routing::get(root))
         .with_state(AppState { pool });
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
-    let server = axum::serve(listener, app).with_graceful_shutdown(shutdown_signal());
+    let server = axum::serve(listener, app).with_graceful_shutdown(async move {
+        shutdown_rx
+            .changed()
+            .await
+            .expect("Failed to recieve shutdown signal for server");
+    });
 
-    if let Err(err) = server.await {
-        println!("Server result: {:?}", err);
+    let server = tokio::spawn(async move {
+        println!("TEST");
+        let _ = server.await;
+        server_tx.send(()).expect("Failed to send server signal");
+    });
+
+    let mut a = scraper_rx.clone();
+    let mut b = server_rx.clone();
+
+    tokio::select! {
+        _ = shutdown_signal() => {
+            println!("Shutdown signal received");
+            shutdown_tx.send(()).expect("Failed to send shutdown sigal from shutdown signal");
+        }
+        _ = a.changed() => {
+            println!("Scraper completed");
+            shutdown_tx.send(()).expect("Failed to send shutdown sigal from scraper");
+        }
+        _ = b.changed() => {
+            println!("Server completed");
+            shutdown_tx.send(()).expect("Failed to send shutdown sigal from server");
+        }
     }
 
-    println!("Initiating shutdown");
-    shutdown_tx
-        .send(())
-        .expect("Failed to send shutdown signal");
-
-    h.await??;
-    println!("Scraper shutdown completed");
+    let _ = tokio::join!(server, h, scraper_rx.changed(), server_rx.changed());
 
     Ok(())
 }
