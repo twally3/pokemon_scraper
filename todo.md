@@ -28,3 +28,4 @@
 - [ ] A response type for pagination etc
 - [ ] Logic for generating REST endpoints from schema?
 - [x] System to get scraper sleep timer from env var
+- [ ] Keep scraping progress in the DB so that it can resume
