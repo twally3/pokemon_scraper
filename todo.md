@@ -25,3 +25,6 @@
 - [ ] Better represent expansions in the DB
 - [ ] Add global word blacklist: "Master set", "Display", "lottery", etc
 - [ ] Frontend?
+- [ ] A response type for pagination etc
+- [ ] Logic for generating REST endpoints from schema?
+- [ ] System to get scraper sleep timer from env var
