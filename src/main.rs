@@ -1,7 +1,9 @@
 #![warn(missing_debug_implementations, rust_2018_idioms, rustdoc::all)]
 
+use std::collections::HashMap;
+
 use axum::{
-    extract::{Path, State},
+    extract::{Path, Query, State},
     Json,
 };
 use card_scraper::{CardScaper, Expansion};
@@ -260,16 +262,29 @@ struct Anus {
 
 async fn get_listings_for_card_iqr(
     Path((card_id, card_class)): Path<(u32, String)>,
+    Query(query_params): Query<HashMap<String, String>>,
     State(app_state): State<AppState>,
 ) -> Json<Anus> {
-    let listings = sqlx::query_as::<_, Listing>(
-        "SELECT listings.* FROM cards JOIN listings ON listings.card_number = cards.number AND listings.card_class = cards.class WHERE cards.number = ? AND cards.class = ?",
-    )
-    .bind(card_id)
-    .bind(card_class)
-    .fetch_all(&app_state.pool)
-    .await
-    .expect("Failed to fetch listings");
+    let listings = if let Some(max_date) = query_params.get("max_date") {
+        sqlx::query_as::<_, Listing>(
+            "SELECT listings.* FROM cards JOIN listings ON listings.card_number = cards.number AND listings.card_class = cards.class WHERE cards.number = ? AND cards.class = ? AND listings.date >= ?",
+        )
+            .bind(card_id)
+            .bind(card_class)
+            .bind(max_date)
+            .fetch_all(&app_state.pool)
+            .await
+            .expect("Failed to fetch listings")
+    } else {
+        sqlx::query_as::<_, Listing>(
+            "SELECT listings.* FROM cards JOIN listings ON listings.card_number = cards.number AND listings.card_class = cards.class WHERE cards.number = ? AND cards.class = ?",
+        )
+            .bind(card_id)
+            .bind(card_class)
+            .fetch_all(&app_state.pool)
+            .await
+            .expect("Failed to fetch listings")
+    };
 
     let n = match listings.len() % 2 {
         0 => listings.len() / 2,
