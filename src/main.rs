@@ -251,8 +251,8 @@ fn median<T>(xs: &[T]) -> &T {
 
 #[derive(Serialize)]
 struct Anus {
-    lb: u32,
-    ub: u32,
+    lb: f64,
+    ub: f64,
     q1: Vec<Listing>,
     q2: Vec<Listing>,
     q3: Vec<Listing>,
@@ -286,28 +286,34 @@ async fn get_listings_for_card_iqr(
     let q1 = median(q1);
     let q3 = median(q3);
 
-    let iqr = q3.price - q1.price;
+    let q1_price: f64 = q1.price.into();
+    let q3_price: f64 = q3.price.into();
 
-    let lower_bound = q1.price.saturating_sub(iqr * 3 / 2); // 1.5 * IQR
-    let upper_bound = q3.price + (iqr * 3 / 2); // 1.5 * IQR
+    let iqr = q3_price - q1_price;
+
+    let lower_bound = q1_price - (iqr * 3.0 / 2.0);
+    let upper_bound = q3_price + (iqr * 3.0 / 2.0);
 
     dbg!(lower_bound, upper_bound);
 
     let mut lower_shit = listings
         .iter()
-        .filter(|x| x.price < lower_bound)
+        .filter(|x| std::convert::Into::<f64>::into(x.price) < lower_bound)
         .cloned()
         .collect::<Vec<_>>();
 
     let mut upper_shit = listings
         .iter()
-        .filter(|x| x.price > upper_bound)
+        .filter(|x| std::convert::Into::<f64>::into(x.price) > upper_bound)
         .cloned()
         .collect::<Vec<_>>();
 
     let mut middle_shit = listings
         .iter()
-        .filter(|x| x.price >= lower_bound && x.price <= upper_bound)
+        .filter(|x| {
+            std::convert::Into::<f64>::into(x.price) >= lower_bound
+                && std::convert::Into::<f64>::into(x.price) <= upper_bound
+        })
         .cloned()
         .collect::<Vec<_>>();
 
