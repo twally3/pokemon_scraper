@@ -1,9 +1,13 @@
 #![warn(missing_debug_implementations, rust_2018_idioms, rustdoc::all)]
 
-use axum::{extract::State, Json};
+use axum::{
+    extract::{Path, State},
+    Json,
+};
 use card_scraper::{CardScaper, Expansion};
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use sqlx::{
+    prelude::FromRow,
     sqlite::{SqliteConnectOptions, SqlitePoolOptions},
     Sqlite,
 };
@@ -76,9 +80,23 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         a
     });
 
-    let app = axum::Router::new()
-        .route("/", axum::routing::get(root))
+    let api_routes = axum::Router::new()
+        .route("/cards", axum::routing::get(get_cards))
+        .route(
+            "/cards/{card_number}",
+            axum::routing::get(get_cards_by_number),
+        )
+        .route(
+            "/cards/{card_number}/{card_class}",
+            axum::routing::get(get_card),
+        )
+        .route(
+            "/cards/{card_number}/{card_class}/listings",
+            axum::routing::get(get_listings_for_card),
+        )
         .with_state(AppState { pool });
+
+    let app = axum::Router::new().nest("/api", api_routes);
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
     let server = axum::serve(listener, app).with_graceful_shutdown(async move {
@@ -113,14 +131,101 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-#[derive(Serialize)]
-struct Test {
-    hello: String,
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum Class {
+    Regular,
+    ReverseHolo,
+    Holo,
 }
 
-async fn root(State(app_state): State<AppState>) -> Json<Test> {
-    let t = Test {
-        hello: "world".into(),
-    };
-    Json(t)
+impl sqlx::Type<sqlx::Sqlite> for Class {
+    fn type_info() -> sqlx::sqlite::SqliteTypeInfo {
+        <String as sqlx::Type<sqlx::Sqlite>>::type_info()
+    }
+}
+
+impl sqlx::Decode<'_, sqlx::Sqlite> for Class {
+    fn decode(value: sqlx::sqlite::SqliteValueRef<'_>) -> Result<Self, sqlx::error::BoxDynError> {
+        let value = <String as sqlx::Decode<sqlx::Sqlite>>::decode(value)?;
+        match value.as_str() {
+            "Regular" => Ok(Class::Regular),
+            "Reverse Holo" => Ok(Class::ReverseHolo),
+            "Holo" => Ok(Class::Holo),
+            _ => Err("Invalid class variant".into()),
+        }
+    }
+}
+
+#[derive(Serialize, Deserialize, FromRow)]
+struct Listing {
+    id: u32,
+    title: String,
+    date: String,
+    price: u32,
+    link: String,
+    bids: u32,
+    accepts_offers: bool,
+    offer_was_accepted: bool,
+    card_number: u32,
+    card_class: Class,
+}
+
+#[derive(Serialize, Deserialize, FromRow)]
+struct Card {
+    number: u32,
+    class: Class,
+    name: String,
+    rarity: String,
+}
+
+async fn get_cards(State(app_state): State<AppState>) -> Json<Vec<Card>> {
+    let cards = sqlx::query_as::<_, Card>("SELECT * FROM cards")
+        .fetch_all(&app_state.pool)
+        .await
+        .expect("Failed to fetch cards");
+
+    Json(cards)
+}
+
+async fn get_cards_by_number(
+    Path(card_number): Path<u32>,
+    State(app_state): State<AppState>,
+) -> Json<Vec<Card>> {
+    let cards = sqlx::query_as::<_, Card>("SELECT * FROM cards WHERE number = ?")
+        .bind(card_number)
+        .fetch_all(&app_state.pool)
+        .await
+        .expect("Failed to fetch cards");
+
+    Json(cards)
+}
+
+async fn get_card(
+    Path((card_number, card_class)): Path<(u32, String)>,
+    State(app_state): State<AppState>,
+) -> Json<Card> {
+    let cards = sqlx::query_as::<_, Card>("SELECT * FROM cards WHERE number = ? AND class = ?")
+        .bind(card_number)
+        .bind(card_class)
+        .fetch_one(&app_state.pool)
+        .await
+        .expect("Failed to fetch cards");
+
+    Json(cards)
+}
+
+async fn get_listings_for_card(
+    Path((card_id, card_class)): Path<(u32, String)>,
+    State(app_state): State<AppState>,
+) -> Json<Vec<Listing>> {
+    let listings = sqlx::query_as::<_, Listing>(
+        "SELECT listings.* FROM cards JOIN listings ON listings.card_number = cards.number AND listings.card_class = cards.class WHERE cards.number = ? AND cards.class = ?",
+    )
+    .bind(card_id)
+    .bind(card_class)
+    .fetch_all(&app_state.pool)
+    .await
+    .expect("Failed to fetch listings");
+
+    Json(listings)
 }

@@ -4,7 +4,7 @@
 - [x] Filter out listings that don't contain the card name - it's probably a multi buy listing
 - [x] Filter out listings with blacklisted words in the title i.e. "Reverse holo" when the card is "Regular"
 - [x] Increase page count to 240 to improve performance
-- [-] Improve title name filtering - some examples are bad like Pikachu SIR ex. Maybe remove the ex from the filter?
+- [ ] Improve title name filtering - some examples are bad like Pikachu SIR ex. Maybe remove the ex from the filter?
 - [ ] Introduce tracing for logging so we can filter debug logs
 - [x] Parse date with Chrono
 - [x] Parse price, filter out range prices
@@ -17,11 +17,11 @@
 - [ ] Create proper system for registering manifests for future scraping
 - [x] Filter listings using whitelist as regular cards are showing up with reverse holos
 - [x] Change name filtering to any word split on spacing as many valid listings don't contain the full name i.e. Castform instead of Castform sunny form or pikachu SIR ex
-- [ ] Make API for getting data
+- [x] Make API for getting data
 - [ ] Add logic for filtering outliers, getting average prices, trend tracking, etc
 - [ ] System for saving skipped listings and manually reviewing them
 - [ ] Better filter out PSA graded cards using titles
 - [x] Docker build and compose for deployment
 - [ ] Better represent expansions in the DB
-- [ ] Better handle title filtering, remove things like ex? 
 - [ ] Add global word blacklist: "Master set", "Display", "lottery", etc
+- [ ] Frontend?
