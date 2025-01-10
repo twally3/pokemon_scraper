@@ -150,6 +150,7 @@ pub struct CardScaper {
     pool: sqlx::Pool<Sqlite>,
     driver: WebDriver,
     shutdown_rx: std::sync::Arc<tokio::sync::Notify>,
+    sleep_seconds: u64,
 }
 
 impl CardScaper {
@@ -157,11 +158,13 @@ impl CardScaper {
         pool: sqlx::Pool<Sqlite>,
         driver: thirtyfour::WebDriver,
         shutdown_rx: std::sync::Arc<tokio::sync::Notify>,
+        sleep_seconds: u64,
     ) -> Self {
         Self {
             pool,
             driver,
             shutdown_rx,
+            sleep_seconds,
         }
     }
 
@@ -216,7 +219,7 @@ impl CardScaper {
                     println!("Killing scraper");
                     break
                 }
-                _ = tokio::time::sleep(std::time::Duration::from_secs(20)) => {
+                _ = tokio::time::sleep(std::time::Duration::from_secs(self.sleep_seconds)) => {
                     println!("Sleep completed");
                 }
             }

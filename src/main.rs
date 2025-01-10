@@ -62,6 +62,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     sqlx::migrate!("db/migrations").run(&pool).await?;
 
     let wd_url = std::env::var("WEB_DRIVER_URL").unwrap_or("http://localhost:9515".into());
+    let sleep_secs = std::env::var("SCRAPER_SLEEP_SECS")
+        .unwrap_or("20".into())
+        .parse::<u64>()
+        .expect("Failed to parse SCRAPER_SLEEP_SECS");
     let mut caps = DesiredCapabilities::chrome();
     caps.add_arg("--start-maximized")?;
     let driver = WebDriver::new(wd_url, caps).await?;
@@ -73,7 +77,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let shutdown_scraper = shutdown.clone();
     let shutdown_server = shutdown.clone();
 
-    let scraper = CardScaper::new(pool.clone(), driver, shutdown_scraper);
+    let scraper = CardScaper::new(pool.clone(), driver, shutdown_scraper, sleep_secs);
     let h = tokio::spawn(async move {
         let a = scraper.scrape_expansion(expansion).await;
         scraper_tx.send(()).expect("Failed to send scraper signal");

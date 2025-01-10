@@ -27,4 +27,4 @@
 - [ ] Frontend?
 - [ ] A response type for pagination etc
 - [ ] Logic for generating REST endpoints from schema?
-- [ ] System to get scraper sleep timer from env var
+- [x] System to get scraper sleep timer from env var

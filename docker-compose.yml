@@ -3,6 +3,9 @@ services:
     build: .
     environment:
       - WEB_DRIVER_URL=http://selenium:4444
+      - SCRAPER_SLEEP_SECS=7200
+    ports:
+      - 3000:3000
     volumes:
       - pokemon_scraper:/usr/src/app/db
     depends_on:
