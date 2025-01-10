@@ -1,5 +1,6 @@
 services:
   pokemon_scraper:
+    image: ghcr.io/twally3/pokemon_scraper:latest
     build: .
     environment:
       - WEB_DRIVER_URL=http://selenium:4444
@@ -7,10 +8,21 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - pokemon_scraper:/usr/src/app/db
+      - pokemon_scraper_db:/usr/src/app/db
+      - pokemon_scraper_screenshots:/usr/src/app/screenshots
     depends_on:
-      selenium:
-        condition: service_healthy
+      - selenium
+    restart: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        window: 30s
+    networks:
+      - main
+    # depends_on:
+    #   selenium:
+    #     condition: service_healthy
 
   # http://localhost:7900/?autoconnect=1&resize=scale&password=secret
   selenium:
@@ -18,12 +30,25 @@ services:
     ports:
       - 4444:4444
       - 7900:7900
-    shm_size: 2g
+    # shm_size: 2g
+    tmpfs:
+      - /dev/shm:rw,nosuid,nodev,noexec,relatime,size=2g
+    volumes:
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+          size: 2147483648  # 2GB in bytes
     healthcheck:
       test: ["CMD", "wget", "--spider", "http://localhost:4444/status"]
       interval: 10s
       timeout: 5s
       retries: 3
+    networks:
+      - main
 
 volumes:
-  pokemon_scraper:
+  pokemon_scraper_db:
+  pokemon_scraper_screenshots:
+
+networks:
+  main:
