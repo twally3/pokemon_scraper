@@ -61,7 +61,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     sqlx::migrate!("db/migrations").run(&pool).await?;
 
-    let wd_url = std::env::var("WEB_DRIVER_URL").unwrap_or("http://localhost:9515".into());
+    let wd_url = std::env::var("WEB_DRIVER_URL").unwrap_or("http://localhost:4444".into());
     let sleep_secs = std::env::var("SCRAPER_SLEEP_SECS")
         .unwrap_or("20".into())
         .parse::<u64>()
@@ -97,6 +97,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .route(
             "/cards/{card_number}/{card_class}/listings",
             axum::routing::get(get_listings_for_card),
+        )
+        .route(
+            "/cards/{card_number}/{card_class}/listings/iqr",
+            axum::routing::get(get_listings_for_card_iqr),
         )
         .with_state(AppState { pool });
 
@@ -160,7 +164,7 @@ impl sqlx::Decode<'_, sqlx::Sqlite> for Class {
     }
 }
 
-#[derive(Serialize, Deserialize, FromRow)]
+#[derive(Serialize, Deserialize, FromRow, Clone, Debug)]
 struct Listing {
     id: u32,
     title: String,
@@ -232,4 +236,90 @@ async fn get_listings_for_card(
     .expect("Failed to fetch listings");
 
     Json(listings)
+}
+
+fn median<T>(xs: &[T]) -> &T {
+    let len = xs.len();
+
+    match len % 2 {
+        // TODO: This should be (n + n+1)/2
+        0 => &xs[(len + 1) / 2],
+        1 => &xs[len / 2],
+        _ => unreachable!(),
+    }
+}
+
+#[derive(Serialize)]
+struct Anus {
+    lb: u32,
+    ub: u32,
+    q1: Vec<Listing>,
+    q2: Vec<Listing>,
+    q3: Vec<Listing>,
+}
+
+async fn get_listings_for_card_iqr(
+    Path((card_id, card_class)): Path<(u32, String)>,
+    State(app_state): State<AppState>,
+) -> Json<Anus> {
+    let listings = sqlx::query_as::<_, Listing>(
+        "SELECT listings.* FROM cards JOIN listings ON listings.card_number = cards.number AND listings.card_class = cards.class WHERE cards.number = ? AND cards.class = ?",
+    )
+    .bind(card_id)
+    .bind(card_class)
+    .fetch_all(&app_state.pool)
+    .await
+    .expect("Failed to fetch listings");
+
+    let n = match listings.len() % 2 {
+        0 => listings.len() / 2,
+        1 => (listings.len() - 1) / 2,
+        _ => unreachable!(),
+    };
+
+    let mut poo = listings.clone();
+    poo.sort_by(|a, b| a.price.cmp(&b.price));
+
+    let q1 = &poo[..n];
+    let q3 = &poo[n..];
+
+    let q1 = median(q1);
+    let q3 = median(q3);
+
+    let iqr = q3.price - q1.price;
+
+    let lower_bound = q1.price.saturating_sub(iqr * 3 / 2); // 1.5 * IQR
+    let upper_bound = q3.price + (iqr * 3 / 2); // 1.5 * IQR
+
+    dbg!(lower_bound, upper_bound);
+
+    let mut lower_shit = listings
+        .iter()
+        .filter(|x| x.price < lower_bound)
+        .cloned()
+        .collect::<Vec<_>>();
+
+    let mut upper_shit = listings
+        .iter()
+        .filter(|x| x.price > upper_bound)
+        .cloned()
+        .collect::<Vec<_>>();
+
+    let mut middle_shit = listings
+        .iter()
+        .filter(|x| x.price >= lower_bound && x.price <= upper_bound)
+        .cloned()
+        .collect::<Vec<_>>();
+
+    lower_shit.sort_by(|a, b| a.price.cmp(&b.price));
+    middle_shit.sort_by(|a, b| a.price.cmp(&b.price));
+    upper_shit.sort_by(|a, b| a.price.cmp(&b.price));
+
+    Json(Anus {
+        lb: lower_bound,
+        ub: upper_bound,
+        q1: lower_shit,
+        q2: middle_shit,
+        q3: upper_shit,
+    })
 }
