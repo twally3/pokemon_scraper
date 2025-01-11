@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+askama = "0.12.1"
 axum = "0.8.1"
 chrono = "0.4.39"
 serde = "1.0.217"
