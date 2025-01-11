@@ -6,6 +6,8 @@ COPY Cargo.toml Cargo.lock ./
 
 COPY ./pokemon.json ./pokemon.json
 COPY ./db/migrations ./db/migrations
+COPY ./screenshots ./screenshots
+COPY ./templates ./templates
 COPY ./src ./src
 
 RUN cargo build --release
