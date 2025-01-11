@@ -208,7 +208,7 @@ impl CardScaper {
                             println!("Failed to take screenshot {e:?}");
                         }
 
-                        break;
+                        return Err(a);
                     }
                     println!("Now sleeping");
                 }

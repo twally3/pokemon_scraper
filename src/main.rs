@@ -141,8 +141,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     });
 
     let server = tokio::spawn(async move {
-        let _ = server.await;
+        let a = server.await;
         server_tx.send(()).expect("Failed to send server signal");
+        a
     });
 
     let mut a = scraper_rx.clone();
@@ -163,7 +164,19 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
 
-    let _ = tokio::join!(server, h, scraper_rx.changed(), server_rx.changed());
+    let (h, server, ..) = tokio::join!(h, server, scraper_rx.changed(), server_rx.changed());
+
+    match h {
+        Err(e) => Err(e.to_string()),
+        Ok(Err(e)) => Err(e.to_string()),
+        _ => Ok(()),
+    }?;
+
+    match server {
+        Err(e) => Err(e.to_string()),
+        Ok(Err(e)) => Err(e.to_string()),
+        _ => Ok(()),
+    }?;
 
     Ok(())
 }
