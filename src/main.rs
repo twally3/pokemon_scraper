@@ -3,7 +3,7 @@
 use askama::Template;
 use axum::{
     extract::{Path, Query, State},
-    response::{Html, IntoResponse},
+    response::Html,
     Json,
 };
 use card_scraper::{CardScaper, Expansion};
