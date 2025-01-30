@@ -274,7 +274,7 @@ async fn get_listings_for_card(
     State(app_state): State<AppState>,
 ) -> Json<Vec<Listing>> {
     let listings = sqlx::query_as::<_, Listing>(
-        "SELECT listings.* FROM cards JOIN listings ON listings.card_number = cards.number AND listings.card_class = cards.class WHERE cards.number = ? AND cards.class = ?",
+        "SELECT listings.* FROM cards JOIN listings ON listings.card_number = cards.number AND listings.card_class = cards.class WHERE cards.number = ? AND cards.class = ? ORDER BY listings.date DESC",
     )
     .bind(card_id)
     .bind(card_class)
