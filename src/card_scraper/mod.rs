@@ -1,7 +1,7 @@
 use chrono::NaiveDate;
 use serde::{Deserialize, Serialize};
 use sqlx::sqlite::Sqlite;
-use thirtyfour::{By, WebDriver};
+use thirtyfour::{By, Capabilities, WebDriver};
 
 use crate::currency::{Money, GBP};
 
@@ -148,27 +148,30 @@ pub struct Expansion {
 
 pub struct CardScaper {
     pool: sqlx::Pool<Sqlite>,
-    driver: WebDriver,
     shutdown_rx: std::sync::Arc<tokio::sync::Notify>,
     sleep_seconds: u64,
+    web_driver_url: String,
+    web_driver_capabilities: Capabilities,
 }
 
 impl CardScaper {
     pub fn new(
         pool: sqlx::Pool<Sqlite>,
-        driver: thirtyfour::WebDriver,
+        web_driver_url: impl Into<String>,
+        web_driver_capabilities: impl Into<Capabilities>,
         shutdown_rx: std::sync::Arc<tokio::sync::Notify>,
         sleep_seconds: u64,
     ) -> Self {
         Self {
             pool,
-            driver,
             shutdown_rx,
             sleep_seconds,
+            web_driver_url: web_driver_url.into(),
+            web_driver_capabilities: web_driver_capabilities.into(),
         }
     }
 
-    pub async fn scrape_expansion(&self, expansion: Expansion) -> Result<(), String> {
+    pub async fn start_scraping_expansion(&self, expansion: Expansion) -> Result<(), String> {
         expansion
             .cards
             .iter()
@@ -194,17 +197,24 @@ impl CardScaper {
             .map_err(|_| "Failed to create expansion entries")?;
 
         loop {
+            let driver = WebDriver::new(
+                self.web_driver_url.clone(),
+                self.web_driver_capabilities.clone(),
+            )
+            .await
+            .map_err(|e| e.to_string())?;
+
             tokio::select! {
                 _ = self.shutdown_rx.notified() => {
                     println!("Killing scraper");
                     break
                 }
-                x = self.thing(&expansion) => {
+                x = self.scrape_expansion(&expansion, &driver) => {
                     if let Err(a) = x {
                         println!("Something went wrong scraping: {a:?}");
 
                         let timestamp = format!("screenshots/{}.png", chrono::Utc::now().to_rfc3339());
-                        if let Err(e) = self.driver.screenshot(std::path::Path::new(&timestamp)).await {
+                        if let Err(e) = driver.screenshot(std::path::Path::new(&timestamp)).await {
                             println!("Failed to take screenshot {e:?}");
                         }
 
@@ -213,6 +223,8 @@ impl CardScaper {
                     println!("Now sleeping");
                 }
             };
+
+            drop(driver);
 
             tokio::select! {
                 _ = self.shutdown_rx.notified() => {
@@ -228,7 +240,11 @@ impl CardScaper {
         Ok(())
     }
 
-    async fn thing(&self, expansion: &Expansion) -> Result<(), String> {
+    async fn scrape_expansion(
+        &self,
+        expansion: &Expansion,
+        driver: &WebDriver,
+    ) -> Result<(), String> {
         //let cards = expansion.cards.iter().take(1).collect::<Vec<_>>();
         let cards = expansion.cards.iter().collect::<Vec<_>>();
 
@@ -242,7 +258,7 @@ impl CardScaper {
                     .map(|x| x.0);
 
             let final_listings = self
-                .scrape_listings_for_card(card, expansion, last_listing_date)
+                .scrape_listings_for_card(card, expansion, last_listing_date, driver)
                 .await
                 .map_err(|e| format!("Failed to scrape card: {e:?}"))?;
 
@@ -286,8 +302,8 @@ impl CardScaper {
         card: &Pokemon,
         expansion: &Expansion,
         last_listing_date: Option<chrono::NaiveDate>,
+        driver: &WebDriver,
     ) -> Result<Vec<Listing<'a>>, Box<dyn std::error::Error>> {
-        let driver = &self.driver;
         // TODO: Consider clearing the text box
         driver.goto("https://ebay.co.uk").await?;
 

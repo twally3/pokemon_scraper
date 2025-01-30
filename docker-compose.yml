@@ -43,6 +43,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
+    # environment:
+    #   - SE_NODE_MAX_SESSIONS=5
+    #   - SE_NODE_OVERRIDE_MAX_SESSIONS=true
     networks:
       - main
 

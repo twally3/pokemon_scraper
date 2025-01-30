@@ -95,7 +95,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .expect("Failed to parse SCRAPER_SLEEP_SECS");
     let mut caps = DesiredCapabilities::chrome();
     caps.add_arg("--start-maximized")?;
-    let driver = WebDriver::new(wd_url, caps).await?;
 
     let (scraper_tx, mut scraper_rx) = tokio::sync::watch::channel(());
     let (server_tx, mut server_rx) = tokio::sync::watch::channel(());
@@ -104,9 +103,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let shutdown_scraper = shutdown.clone();
     let shutdown_server = shutdown.clone();
 
-    let scraper = CardScaper::new(pool.clone(), driver, shutdown_scraper, sleep_secs);
+    let scraper = CardScaper::new(pool.clone(), wd_url, caps, shutdown_scraper, sleep_secs);
+
     let h = tokio::spawn(async move {
-        let a = scraper.scrape_expansion(expansion).await;
+        let a = scraper.start_scraping_expansion(expansion).await;
         scraper_tx.send(()).expect("Failed to send scraper signal");
         a
     });
