@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pokemon Poverty</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Card Number</th>
+			<th>Card Class</th>
+			<th>Card Name</th>
+			<th>Price</th>
+		</tr>
+		{% for card in cards %}
+			<tr>
+				<td>{{ card.card_number }}</td>
+				<td>{{ card.card_class }}</td>
+				<td>{{ card.card_name }}</td>
+				<td>£{{ "{:.2}"|format(card.price) }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>

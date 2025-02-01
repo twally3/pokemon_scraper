@@ -1,47 +1,22 @@
 #![warn(missing_debug_implementations, rust_2018_idioms, rustdoc::all)]
 
-use askama::Template;
 use axum::{
     extract::{Path, Query, State},
-    response::Html,
     Json,
 };
 use card_scraper::{CardScaper, Expansion};
+use routes::{app_state::AppState, greet, list_cards};
 use serde::{Deserialize, Serialize};
 use sqlx::{
     prelude::FromRow,
     sqlite::{SqliteConnectOptions, SqlitePoolOptions},
-    Sqlite,
 };
 use std::collections::HashMap;
 use thirtyfour::*;
 
 mod card_scraper;
 mod currency;
-
-#[derive(Template)]
-#[template(path = "hello.html")]
-struct HelloTemplate {
-    name: String,
-}
-
-struct HtmlTemplate<T>(T);
-
-impl<T> axum::response::IntoResponse for HtmlTemplate<T>
-where
-    T: Template,
-{
-    fn into_response(self) -> axum::response::Response {
-        match self.0.render() {
-            Ok(x) => Html(x).into_response(),
-            Err(err) => (
-                axum::http::StatusCode::INTERNAL_SERVER_ERROR,
-                format!("Failed to render template. Error: {err}"),
-            )
-                .into_response(),
-        }
-    }
-}
+mod routes;
 
 async fn shutdown_signal() {
     let ctrl_c = async {
@@ -65,11 +40,6 @@ async fn shutdown_signal() {
         _ = ctrl_c => {},
         _ = terminate => {},
     }
-}
-
-#[derive(Clone, Debug)]
-struct AppState {
-    pool: sqlx::Pool<Sqlite>,
 }
 
 #[tokio::main]
@@ -128,12 +98,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .route(
             "/cards/{card_number}/{card_class}/listings/iqr",
             axum::routing::get(get_listings_for_card_iqr),
-        )
-        .with_state(AppState { pool });
+        );
 
     let app = axum::Router::new()
         .nest("/api", api_routes)
-        .route("/greet/{name}", axum::routing::get(greet));
+        .route("/greet/{name}", axum::routing::get(greet))
+        .route("/", axum::routing::get(list_cards))
+        .with_state(AppState { pool });
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
     let server = axum::serve(listener, app).with_graceful_shutdown(async move {
@@ -179,11 +150,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }?;
 
     Ok(())
-}
-
-async fn greet(Path(name): Path<String>) -> impl axum::response::IntoResponse {
-    let template = HelloTemplate { name };
-    HtmlTemplate(template)
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
