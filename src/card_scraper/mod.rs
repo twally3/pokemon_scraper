@@ -177,16 +177,19 @@ impl CardScaper {
             .iter()
             .fold(
                 sqlx::query(&format!(
-                "INSERT INTO cards (number, class, name, rarity) VALUES {} ON CONFLICT DO NOTHING",
+                "INSERT INTO cards (set_name, expansion, number, class, name, rarity) VALUES {} ON CONFLICT DO NOTHING",
                 expansion
                     .cards
                     .iter()
-                    .map(|_| "(?,?,?,?)")
+                    .map(|_| "(?,?,?,?,?,?)")
                     .collect::<Vec<_>>()
                     .join(",")
             )),
                 |acc, x| {
-                    acc.bind(x.number as u32)
+                    acc
+                        .bind(expansion.set_name.clone())
+                        .bind(expansion.expansion_number as u32)
+                        .bind(x.number as u32)
                         .bind(x.class.to_string())
                         .bind(x.name.clone())
                         .bind(x.rarity.to_string())
@@ -194,7 +197,7 @@ impl CardScaper {
             )
             .execute(&self.pool)
             .await
-            .map_err(|_| "Failed to create expansion entries")?;
+            .map_err(|e| format!("Failed to create expansion entries: {e}"))?;
 
         loop {
             let driver = WebDriver::new(
@@ -249,13 +252,26 @@ impl CardScaper {
         let cards = expansion.cards.iter().collect::<Vec<_>>();
 
         for card in cards {
-            let last_listing_date = sqlx::query_as::<_,  (chrono::NaiveDate, )>("SELECT date FROM listings WHERE card_number = ? AND card_class = ? ORDER BY date DESC LIMIT 1")
-                    .bind(card.number as u32)
-                    .bind(card.class.to_string())
-                    .fetch_optional(&self.pool)
-                    .await
-                    .map_err(|_| "Failed to get last listing date")?
-                    .map(|x| x.0);
+            let last_listing_date = sqlx::query_as::<_, (chrono::NaiveDate,)>(
+                "
+                SELECT date
+                FROM listings
+                WHERE card_set_name = ?
+                    AND card_expansion = ?
+                    AND card_number = ? 
+                    AND card_class = ?
+                ORDER BY date DESC
+                LIMIT 1
+                ",
+            )
+            .bind(expansion.set_name.clone())
+            .bind(expansion.expansion_number as u32)
+            .bind(card.number as u32)
+            .bind(card.class.to_string())
+            .fetch_optional(&self.pool)
+            .await
+            .map_err(|e| format!("Failed to last listing date: {e}"))?
+            .map(|x| x.0);
 
             let final_listings = self
                 .scrape_listings_for_card(card, expansion, last_listing_date, driver)
@@ -267,10 +283,14 @@ impl CardScaper {
             }
 
             let query_string = format!(
-                "INSERT INTO listings (id, title, date, price, link, bids, accepts_offers, offer_was_accepted, card_number, card_class) VALUES {} ON CONFLICT DO NOTHING",
+                "
+                INSERT INTO listings 
+                    (id, title, date, price, link, bids, accepts_offers, offer_was_accepted, card_set_name, card_expansion, card_number, card_class) 
+                VALUES {} 
+                ON CONFLICT DO NOTHING",
                 final_listings
                     .iter()
-                    .map(|_| "(?,?,?,?,?,?,?,?,?,?)")
+                    .map(|_| "(?,?,?,?,?,?,?,?,?,?,?,?)")
                     .collect::<Vec<_>>()
                     .join(",")
             );
@@ -286,12 +306,14 @@ impl CardScaper {
                         .bind(x.buying_format.get_bids().map(|x| x as u32))
                         .bind(x.buying_format.get_accepts_offers())
                         .bind(x.buying_format.get_offer_was_accepted())
+                        .bind(expansion.set_name.clone())
+                        .bind(expansion.expansion_number as u32)
                         .bind(card.number as u32)
                         .bind(card.class.to_string())
                 })
                 .execute(&self.pool)
                 .await
-                .map_err(|_| "Failed to update DB")?;
+                .map_err(|e| format!("Failed to write listings: {e}"))?;
         }
 
         Ok(())

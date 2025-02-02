@@ -1,0 +1,2156 @@
+{
+	"set_name": "Scarlet & Violet",
+	"expansion_name": "Temporal Forces",
+	"expansion_number": 5,
+	"expansion_total": 162,
+	"cards": [
+		{
+			"name": "Scyther",
+			"number": 1,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Scyther",
+			"number": 1,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Pineco",
+			"number": 2,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Pineco",
+			"number": 2,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Seedot",
+			"number": 3,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Seedot",
+			"number": 3,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Nuzleaf",
+			"number": 4,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Nuzleaf",
+			"number": 4,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Shiftry",
+			"number": 5,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Shiftry",
+			"number": 5,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Shroomish",
+			"number": 6,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Shroomish",
+			"number": 6,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Breloom",
+			"number": 7,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Breloom",
+			"number": 7,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Roselia",
+			"number": 8,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Roselia",
+			"number": 8,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Roserade",
+			"number": 9,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Roserade",
+			"number": 9,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Turtwig",
+			"number": 10,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Turtwig",
+			"number": 10,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Grotle",
+			"number": 11,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Grotle",
+			"number": 11,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Torterra ex",
+			"number": 12,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Shaymin",
+			"number": 13,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Shaymin",
+			"number": 13,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Cottonee",
+			"number": 14,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Cottonee",
+			"number": 14,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Whimsicott",
+			"number": 15,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Whimsicott",
+			"number": 15,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Deerling",
+			"number": 16,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Deerling",
+			"number": 16,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Sawsbuck",
+			"number": 17,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Sawsbuck",
+			"number": 17,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Grubbin",
+			"number": 18,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Grubbin",
+			"number": 18,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Dhelmise",
+			"number": 19,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Dhelmise",
+			"number": 19,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Bramblin",
+			"number": 20,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Bramblin",
+			"number": 20,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Brambleghast",
+			"number": 21,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Brambleghast",
+			"number": 21,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Scovillain ex",
+			"number": 22,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Rellor",
+			"number": 23,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Rellor",
+			"number": 23,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Rabsca",
+			"number": 24,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Rabsca",
+			"number": 24,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Iron Leaves ex",
+			"number": 25,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Ponyta",
+			"number": 26,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Ponyta",
+			"number": 26,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Rapidash",
+			"number": 27,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Rapidash",
+			"number": 27,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Slugma",
+			"number": 28,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Slugma",
+			"number": 28,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Magcargo",
+			"number": 29,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Magcargo",
+			"number": 29,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Victini",
+			"number": 30,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Victini",
+			"number": 30,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Heatmor",
+			"number": 31,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Heatmor",
+			"number": 31,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Litten",
+			"number": 32,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Litten",
+			"number": 32,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Torracat",
+			"number": 33,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Torracat",
+			"number": 33,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Incineroar ex",
+			"number": 34,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Turtonator",
+			"number": 35,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Turtonator",
+			"number": 35,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Sizzlipede",
+			"number": 36,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Sizzlipede",
+			"number": 36,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Centiskorch",
+			"number": 37,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Centiskorch",
+			"number": 37,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Gouging Fire ex",
+			"number": 38,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Totodile",
+			"number": 39,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Totodile",
+			"number": 39,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Croconaw",
+			"number": 40,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Croconaw",
+			"number": 40,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Feraligatr",
+			"number": 41,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Feraligatr",
+			"number": 41,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Carvanha",
+			"number": 42,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Carvanha",
+			"number": 42,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Sharpedo",
+			"number": 43,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Sharpedo",
+			"number": 43,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Keldeo",
+			"number": 44,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Keldeo",
+			"number": 44,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Snom",
+			"number": 45,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Snom",
+			"number": 45,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Frosmoth",
+			"number": 46,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Frosmoth",
+			"number": 46,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Wiglett",
+			"number": 47,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Wiglett",
+			"number": 47,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Finizen",
+			"number": 48,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Finizen",
+			"number": 48,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Palafin",
+			"number": 49,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Palafin",
+			"number": 49,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Walking Wake ex",
+			"number": 50,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Pikachu",
+			"number": 51,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Pikachu",
+			"number": 51,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Raichu",
+			"number": 52,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Raichu",
+			"number": 52,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Electabuzz",
+			"number": 53,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Electabuzz",
+			"number": 53,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Electivire",
+			"number": 54,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Electivire",
+			"number": 54,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Charjabug",
+			"number": 55,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Charjabug",
+			"number": 55,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Vikavolt",
+			"number": 56,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Vikavolt",
+			"number": 56,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Zeraora",
+			"number": 57,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Zeraora",
+			"number": 57,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Yamper",
+			"number": 58,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Yamper",
+			"number": 58,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Boltund",
+			"number": 59,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Boltund",
+			"number": 59,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Wugtrio ex",
+			"number": 60,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Hands",
+			"number": 61,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Iron Hands",
+			"number": 61,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Iron Thorns",
+			"number": 62,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Iron Thorns",
+			"number": 62,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Mr. Mime",
+			"number": 63,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Mr. Mime",
+			"number": 63,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Marill",
+			"number": 64,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Marill",
+			"number": 64,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Azumarill",
+			"number": 65,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Azumarill",
+			"number": 65,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Girafarig",
+			"number": 66,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Girafarig",
+			"number": 66,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Latias",
+			"number": 67,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Latias",
+			"number": 67,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Bronzor",
+			"number": 68,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Bronzor",
+			"number": 68,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Bronzong",
+			"number": 69,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Bronzong",
+			"number": 69,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Solosis",
+			"number": 70,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Solosis",
+			"number": 70,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Duosion",
+			"number": 71,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Duosion",
+			"number": 71,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Reuniclus",
+			"number": 72,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Reuniclus",
+			"number": 72,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Elgyem",
+			"number": 73,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Elgyem",
+			"number": 73,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Beheeyem",
+			"number": 74,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Beheeyem",
+			"number": 74,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Cutiefly",
+			"number": 75,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Cutiefly",
+			"number": 75,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Ribombee",
+			"number": 76,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Ribombee",
+			"number": 76,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Scream Tail",
+			"number": 77,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Scream Tail",
+			"number": 77,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Flutter Mane",
+			"number": 78,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Flutter Mane",
+			"number": 78,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Valiant",
+			"number": 79,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Iron Valiant",
+			"number": 79,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Iron Valiant",
+			"number": 80,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Iron Valiant",
+			"number": 80,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Crown ex",
+			"number": 81,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Meditite",
+			"number": 82,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Meditite",
+			"number": 82,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Medicham",
+			"number": 83,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Medicham",
+			"number": 83,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Relicanth",
+			"number": 84,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Relicanth",
+			"number": 84,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Drilbur",
+			"number": 85,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Drilbur",
+			"number": 85,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Excadrill",
+			"number": 86,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Excadrill",
+			"number": 86,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Golett",
+			"number": 87,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Golett",
+			"number": 87,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Golurk",
+			"number": 88,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Golurk",
+			"number": 88,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Rockruff",
+			"number": 89,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Rockruff",
+			"number": 89,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Lycanroc",
+			"number": 90,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Lycanroc",
+			"number": 90,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Mudbray",
+			"number": 91,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Mudbray",
+			"number": 91,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Mudsdale",
+			"number": 92,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Mudsdale",
+			"number": 92,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Rolycoly",
+			"number": 93,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Rolycoly",
+			"number": 93,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Carkol",
+			"number": 94,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Carkol",
+			"number": 94,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Coalossal",
+			"number": 95,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Coalossal",
+			"number": 95,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Great Tusk",
+			"number": 96,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Great Tusk",
+			"number": 96,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Great Tusk",
+			"number": 97,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Great Tusk",
+			"number": 97,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Sandy Shocks",
+			"number": 98,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Sandy Shocks",
+			"number": 98,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Iron Boulder ex",
+			"number": 99,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Ekans",
+			"number": 100,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Ekans",
+			"number": 100,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Arbok",
+			"number": 101,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Arbok",
+			"number": 101,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Gastly",
+			"number": 102,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Gastly",
+			"number": 102,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Haunter",
+			"number": 103,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Haunter",
+			"number": 103,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Gengar ex",
+			"number": 104,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Poochyena",
+			"number": 105,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Poochyena",
+			"number": 105,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Mightyena",
+			"number": 106,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Mightyena",
+			"number": 106,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Sableye",
+			"number": 107,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Sableye",
+			"number": 107,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Farigiraf ex",
+			"number": 108,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Roaring Moon",
+			"number": 109,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Roaring Moon",
+			"number": 109,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Forretress",
+			"number": 110,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Forretress",
+			"number": 110,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Scizor ex",
+			"number": 111,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Mawile",
+			"number": 112,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Mawile",
+			"number": 112,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Beldum",
+			"number": 113,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Beldum",
+			"number": 113,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Metang",
+			"number": 114,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Metang",
+			"number": 114,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Metagross",
+			"number": 115,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Metagross",
+			"number": 115,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Meltan",
+			"number": 116,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Meltan",
+			"number": 116,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Melmetal",
+			"number": 117,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Melmetal",
+			"number": 117,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Treads",
+			"number": 118,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Iron Treads",
+			"number": 118,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Koraidon",
+			"number": 119,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Koraidon",
+			"number": 119,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Koraidon ex",
+			"number": 120,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Miraidon",
+			"number": 121,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Miraidon",
+			"number": 121,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Miraidon ex",
+			"number": 122,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Raging Bolt ex",
+			"number": 123,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Lickitung",
+			"number": 124,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Lickitung",
+			"number": 124,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Lickilicky",
+			"number": 125,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Lickilicky",
+			"number": 125,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Hoothoot",
+			"number": 126,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Hoothoot",
+			"number": 126,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Noctowl",
+			"number": 127,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Noctowl",
+			"number": 127,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Dunsparce",
+			"number": 128,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Dunsparce",
+			"number": 128,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Dudunsparce",
+			"number": 129,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Dudunsparce",
+			"number": 129,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Skitty",
+			"number": 130,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Skitty",
+			"number": 130,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Delcatty",
+			"number": 131,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Delcatty",
+			"number": 131,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Chatot",
+			"number": 132,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Chatot",
+			"number": 132,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Pidove",
+			"number": 133,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Pidove",
+			"number": 133,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Tranquill",
+			"number": 134,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Tranquill",
+			"number": 134,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Unfezant",
+			"number": 135,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Unfezant",
+			"number": 135,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Minccino",
+			"number": 136,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Minccino",
+			"number": 136,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-common.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Cinccino",
+			"number": 137,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Cinccino",
+			"number": 137,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Drampa",
+			"number": 138,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Drampa",
+			"number": 138,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Jugulis",
+			"number": 139,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Iron Jugulis",
+			"number": 139,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Ancient Booster Energy Capsule",
+			"number": 140,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Ancient Booster Energy Capsule",
+			"number": 140,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Awakening Drum",
+			"number": 141,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ace-spec-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Bianca's Devotion",
+			"number": 142,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Bianca's Devotion",
+			"number": 142,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Boxed Order",
+			"number": 143,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Boxed Order",
+			"number": 143,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Buddy-Buddy Poffin",
+			"number": 144,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Buddy-Buddy Poffin",
+			"number": 144,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Ciphermaniac's Codebreaking",
+			"number": 145,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Ciphermaniac's Codebreaking",
+			"number": 145,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Eri",
+			"number": 146,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Eri",
+			"number": 146,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Explorer's Guidance",
+			"number": 147,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Explorer's Guidance",
+			"number": 147,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Full Metal Lab",
+			"number": 148,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Full Metal Lab",
+			"number": 148,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Future Booster Energy Capsule",
+			"number": 149,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Future Booster Energy Capsule",
+			"number": 149,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Hand Trimmer",
+			"number": 150,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Hand Trimmer",
+			"number": 150,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Heavy Baton",
+			"number": 151,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Heavy Baton",
+			"number": 151,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Hero's Cape",
+			"number": 152,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ace-spec-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Master Ball",
+			"number": 153,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ace-spec-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Maximum Belt",
+			"number": 154,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ace-spec-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Morty's Conviction",
+			"number": 155,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Morty's Conviction",
+			"number": 155,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Perilous Jungle",
+			"number": 156,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Perilous Jungle",
+			"number": 156,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Prime Catcher",
+			"number": 157,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ace-spec-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Reboot Pod",
+			"number": 158,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ace-spec-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Rescue Board",
+			"number": 159,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Rescue Board",
+			"number": 159,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Salvatore",
+			"number": 160,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Salvatore",
+			"number": 160,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Mist Energy",
+			"number": 161,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_regular-unchecked"
+		},
+		{
+			"name": "Mist Energy",
+			"number": 161,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp",
+			"class": "advanced-pkmn_rev_holo-unchecked"
+		},
+		{
+			"name": "Neo Upper Energy",
+			"number": 162,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ace-spec-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Shiftry",
+			"number": 163,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Grotle",
+			"number": 164,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Deerling",
+			"number": 165,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Sawsbuck",
+			"number": 166,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Litten",
+			"number": 167,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Snom",
+			"number": 168,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Charjabug",
+			"number": 169,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Bronzor",
+			"number": 170,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Reuniclus",
+			"number": 171,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Cutiefly",
+			"number": 172,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Relicanth",
+			"number": 173,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Excadrill",
+			"number": 174,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Mudsdale",
+			"number": 175,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Arbok",
+			"number": 176,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Gastly",
+			"number": 177,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Metagross",
+			"number": 178,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Meltan",
+			"number": 179,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Lickitung",
+			"number": 180,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Chatot",
+			"number": 181,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Minccino",
+			"number": 182,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Cinccino",
+			"number": 183,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Drampa",
+			"number": 184,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Torterra ex",
+			"number": 185,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Leaves ex",
+			"number": 186,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Incineroar ex",
+			"number": 187,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Gouging Fire ex",
+			"number": 188,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Walking Wake ex",
+			"number": 189,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Wugtrio ex",
+			"number": 190,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Crown ex",
+			"number": 191,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Boulder ex",
+			"number": 192,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Gengar ex",
+			"number": 193,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Farigiraf ex",
+			"number": 194,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Scizor ex",
+			"number": 195,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Raging Bolt ex",
+			"number": 196,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Bianca's Devotion",
+			"number": 197,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Ciphermaniac's Codebreaking",
+			"number": 198,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Eri",
+			"number": 199,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Explorer's Guidance",
+			"number": 200,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Morty's Conviction",
+			"number": 201,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Salvatore",
+			"number": 202,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Leaves ex",
+			"number": 203,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-special-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Gouging Fire ex",
+			"number": 204,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-special-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Walking Wake ex",
+			"number": 205,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-special-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Crown ex",
+			"number": 206,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-special-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Boulder ex",
+			"number": 207,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-special-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Raging Bolt ex",
+			"number": 208,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-special-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Bianca's Devotion",
+			"number": 209,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-special-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Eri",
+			"number": 210,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-special-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Morty's Conviction",
+			"number": 211,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-special-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Salvatore",
+			"number": 212,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-special-illustration-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Leaves ex",
+			"number": 213,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-hyper-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Gouging Fire ex",
+			"number": 214,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-hyper-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Walking Wake ex",
+			"number": 215,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-hyper-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Crown ex",
+			"number": 216,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-hyper-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Iron Boulder ex",
+			"number": 217,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-hyper-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		},
+		{
+			"name": "Raging Bolt ex",
+			"number": 218,
+			"rarity": "https://tcgcodex.com/images/rarities/pokemon-hyper-rare.webp",
+			"class": "advanced-pkmn_foil-unchecked"
+		}
+	]
+}

@@ -44,7 +44,7 @@ async fn shutdown_signal() {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let expansion = include_str!("../pokemon.json");
+    let expansion = include_str!("../expansions/surging_sparks.json");
     let expansion = serde_json::from_str::<Expansion>(expansion)?;
 
     let connection_options = SqliteConnectOptions::new()
