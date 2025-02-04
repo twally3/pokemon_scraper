@@ -70,6 +70,8 @@ struct Thing {
     bids: u32,
     accepts_offers: bool,
     offer_was_accepted: bool,
+    card_set_name: String,
+    card_expansion: u32,
     card_number: u32,
     card_class: Class,
     card_name: String,
@@ -96,6 +98,8 @@ impl From<Thing> for f64 {
 
 struct Penis {
     price: f64,
+    card_set_name: String,
+    card_expansion: u32,
     card_number: u32,
     card_class: Class,
     card_name: String,
@@ -121,21 +125,31 @@ pub async fn list_cards(
     let cards = sqlx::query_as::<_, Thing>(
         "
         WITH ranked_listings AS (
-          SELECT 
-            listings.*,
-            cards.name AS card_name,
-            cards.rarity AS card_rarity,
-            ROW_NUMBER() OVER (
-              PARTITION BY cards.number, cards.class
-              ORDER BY listings.date DESC
-            ) as listing_rank
-          FROM cards 
-          JOIN listings ON cards.number = listings.card_number AND cards.class = listings.card_class
+            SELECT
+                listings.*,
+                cards.set_name AS card_set_name,
+                cards.expansion AS card_expansion,
+                cards.number AS card_number,
+                cards.class AS card_class,
+                cards.name AS card_name,
+                cards.rarity AS card_rarity,
+                ROW_NUMBER() OVER (
+                    PARTITION BY cards.number, cards.class
+                    ORDER BY listings.date DESC
+                ) as listing_rank
+            FROM cards
+            LEFT JOIN listings_cards
+                ON listings_cards.card_set_name = cards.set_name
+                AND listings_cards.card_expansion = cards.expansion
+                AND listings_cards.card_number = cards.number
+                AND listings_cards.card_class = cards.class
+            LEFT JOIN listings
+                ON listings.id = listings_cards.listing_id
         )
         SELECT *
         FROM ranked_listings 
         WHERE listing_rank <= ?
-        ORDER BY card_number, card_class, listing_rank DESC;
+        ORDER BY card_expansion, card_number, card_class, listing_rank DESC;
         ",
     )
     .bind(n)
@@ -171,6 +185,8 @@ pub async fn list_cards(
                 .cloned()
                 .map(|x| Penis {
                     price: std::convert::Into::<f64>::into(x.price) / 100.0,
+                    card_set_name: x.card_set_name,
+                    card_expansion: x.card_expansion,
                     card_number: x.card_number,
                     card_class: x.card_class,
                     card_name: x.card_name,

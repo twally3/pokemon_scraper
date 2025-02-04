@@ -8,6 +8,8 @@
 <body>
 	<table>
 		<tr>
+			<th>Card Set</th>
+			<th>Card Expansion</th>
 			<th>Card Number</th>
 			<th>Card Class</th>
 			<th>Card Name</th>
@@ -15,6 +17,8 @@
 		</tr>
 		{% for card in cards %}
 			<tr>
+				<td>{{ card.card_set_name }}</td>
+				<td>{{ card.card_expansion }}</td>
 				<td>{{ card.card_number }}</td>
 				<td>{{ card.card_class }}</td>
 				<td>{{ card.card_name }}</td>

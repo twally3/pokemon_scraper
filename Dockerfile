@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY Cargo.toml Cargo.lock ./
 
-COPY ./pokemon.json ./pokemon.json
+COPY ./expansions ./expansions
 COPY ./db/migrations ./db/migrations
 COPY ./screenshots ./screenshots
 COPY ./templates ./templates

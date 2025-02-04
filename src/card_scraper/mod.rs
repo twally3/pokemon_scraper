@@ -256,10 +256,12 @@ impl CardScaper {
                 "
                 SELECT date
                 FROM listings
-                WHERE card_set_name = ?
-                    AND card_expansion = ?
-                    AND card_number = ? 
-                    AND card_class = ?
+                JOIN listings_cards
+                  ON listings_cards.listing_id = listings.id
+                WHERE listings_cards.card_set_name = ?
+                  AND listings_cards.card_expansion = ?
+                  AND listings_cards.card_number = ?
+                  AND listings_cards.card_class = ?
                 ORDER BY date DESC
                 LIMIT 1
                 ",
@@ -282,38 +284,82 @@ impl CardScaper {
                 continue;
             }
 
-            let query_string = format!(
-                "
-                INSERT INTO listings 
-                    (id, title, date, price, link, bids, accepts_offers, offer_was_accepted, card_set_name, card_expansion, card_number, card_class) 
-                VALUES {} 
-                ON CONFLICT DO NOTHING",
+            let mut txn = self
+                .pool
+                .begin()
+                .await
+                .map_err(|e| format!("Error creating transaction: {e}"))?;
+
+            let r: Result<(), sqlx::error::Error> = async {
                 final_listings
                     .iter()
-                    .map(|_| "(?,?,?,?,?,?,?,?,?,?,?,?)")
-                    .collect::<Vec<_>>()
-                    .join(",")
-            );
+                    .fold(
+                        sqlx::query(&format!(
+                            "
+                            INSERT INTO listings
+                                (id, title, date, price, link, bids, accepts_offers, offer_was_accepted) 
+                            VALUES {} 
+                            ON CONFLICT DO NOTHING
+                            ",
+                            final_listings
+                                .iter()
+                                .map(|_| "(?,?,?,?,?,?,?,?)")
+                                .collect::<Vec<_>>()
+                                .join(",")
+                        )),
+                        |acc, x| {
+                            acc.bind(x.id as u32)
+                                .bind(x.title.clone())
+                                .bind(x.date)
+                                .bind(std::convert::Into::<u64>::into(&x.price) as u32)
+                                .bind(x.link.clone())
+                                .bind(x.buying_format.get_bids().map(|x| x as u32))
+                                .bind(x.buying_format.get_accepts_offers())
+                                .bind(x.buying_format.get_offer_was_accepted())
+                        },
+                    )
+                    .execute(&mut *txn)
+                    .await?;
 
-            final_listings
-                .iter()
-                .fold(sqlx::query(&query_string), |acc, x| {
-                    acc.bind(x.id as u32)
-                        .bind(x.title.clone())
-                        .bind(x.date)
-                        .bind(std::convert::Into::<u64>::into(&x.price) as u32)
-                        .bind(x.link.clone())
-                        .bind(x.buying_format.get_bids().map(|x| x as u32))
-                        .bind(x.buying_format.get_accepts_offers())
-                        .bind(x.buying_format.get_offer_was_accepted())
-                        .bind(expansion.set_name.clone())
-                        .bind(expansion.expansion_number as u32)
-                        .bind(card.number as u32)
-                        .bind(card.class.to_string())
-                })
-                .execute(&self.pool)
-                .await
-                .map_err(|e| format!("Failed to write listings: {e}"))?;
+                final_listings
+                    .iter()
+                    .fold(
+                        sqlx::query(&format!(
+                            "
+                            INSERT INTO listings_cards
+                                (listing_id, card_set_name, card_expansion, card_number, card_class) 
+                            VALUES {} 
+                            ON CONFLICT DO NOTHING
+                            ",
+                            final_listings
+                                .iter()
+                                .map(|_| "(?,?,?,?,?)")
+                                .collect::<Vec<_>>()
+                                .join(",")
+                        )),
+                        |acc, x| acc
+                            .bind(x.id as u32)
+                            .bind(expansion.set_name.clone())
+                            .bind(expansion.expansion_number as u32)
+                            .bind(card.number as u32)
+                            .bind(card.class.to_string()),
+                    )
+                    .execute(&mut *txn)
+                    .await?;
+
+                Ok(())
+            }.await;
+
+            match r {
+                err @ Err(_) => {
+                    if let Err(e2) = txn.rollback().await {
+                        eprintln!("Failed to rollback transaction with Error: {e2}");
+                    }
+                    err
+                }
+                Ok(_) => txn.commit().await,
+            }
+            .map_err(|e| format!("Failed to create listing: {e}"))?;
         }
 
         Ok(())
