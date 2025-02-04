@@ -7,6 +7,7 @@ use html_template::HtmlTemplate;
 use serde::{Deserialize, Serialize};
 use sqlx::prelude::FromRow;
 
+pub mod api;
 pub mod app_state;
 mod html_template;
 
