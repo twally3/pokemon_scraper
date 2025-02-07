@@ -171,8 +171,12 @@ impl CardScaper {
         }
     }
 
-    pub async fn start_scraping_expansion(&self, expansion: Expansion) -> Result<(), String> {
-        expansion
+    pub async fn start_scraping_expansions(
+        &self,
+        expansions: Vec<Expansion>,
+    ) -> Result<(), String> {
+        for expansion in &expansions {
+            expansion
             .cards
             .iter()
             .fold(
@@ -198,6 +202,7 @@ impl CardScaper {
             .execute(&self.pool)
             .await
             .map_err(|e| format!("Failed to create expansion entries: {e}"))?;
+        }
 
         loop {
             let driver = WebDriver::new(
@@ -207,41 +212,113 @@ impl CardScaper {
             .await
             .map_err(|e| e.to_string())?;
 
-            tokio::select! {
-                _ = self.shutdown_rx.notified() => {
-                    println!("Killing scraper");
-                    break
-                }
-                x = self.scrape_expansion(&expansion, &driver) => {
-                    if let Err(a) = x {
-                        println!("Something went wrong scraping: {a:?}");
-
-                        let timestamp = format!("screenshots/{}.png", chrono::Utc::now().to_rfc3339());
-                        if let Err(e) = driver.screenshot(std::path::Path::new(&timestamp)).await {
-                            println!("Failed to take screenshot {e:?}");
-                        }
-
-                        return Err(a);
+            for expansion in &expansions {
+                tokio::select! {
+                    _ = self.shutdown_rx.notified() => {
+                        println!("Killing scraper");
+                        return Ok(());
                     }
-                    println!("Now sleeping");
-                }
-            };
+                    x = self.scrape_expansion(expansion, &driver) => {
+                        if let Err(a) = x {
+                            println!("Something went wrong scraping: {a:?}");
+
+                            let timestamp = format!("screenshots/{}.png", chrono::Utc::now().to_rfc3339());
+                            if let Err(e) = driver.screenshot(std::path::Path::new(&timestamp)).await {
+                                println!("Failed to take screenshot {e:?}");
+                            }
+
+                            return Err(a);
+                        }
+                        println!("Now sleeping");
+                    }
+                };
+            }
 
             drop(driver);
 
             tokio::select! {
                 _ = self.shutdown_rx.notified() => {
                     println!("Killing scraper");
-                    break
+                    return Ok(());
                 }
                 _ = tokio::time::sleep(std::time::Duration::from_secs(self.sleep_seconds)) => {
                     println!("Sleep completed");
                 }
             }
         }
-
-        Ok(())
     }
+
+    //pub async fn start_scraping_expansion(&self, expansion: Expansion) -> Result<(), String> {
+    //    expansion
+    //        .cards
+    //        .iter()
+    //        .fold(
+    //            sqlx::query(&format!(
+    //            "INSERT INTO cards (set_name, expansion, number, class, name, rarity) VALUES {} ON CONFLICT DO NOTHING",
+    //            expansion
+    //                .cards
+    //                .iter()
+    //                .map(|_| "(?,?,?,?,?,?)")
+    //                .collect::<Vec<_>>()
+    //                .join(",")
+    //        )),
+    //            |acc, x| {
+    //                acc
+    //                    .bind(expansion.set_name.clone())
+    //                    .bind(expansion.expansion_number as u32)
+    //                    .bind(x.number as u32)
+    //                    .bind(x.class.to_string())
+    //                    .bind(x.name.clone())
+    //                    .bind(x.rarity.to_string())
+    //            },
+    //        )
+    //        .execute(&self.pool)
+    //        .await
+    //        .map_err(|e| format!("Failed to create expansion entries: {e}"))?;
+    //
+    //    loop {
+    //        let driver = WebDriver::new(
+    //            self.web_driver_url.clone(),
+    //            self.web_driver_capabilities.clone(),
+    //        )
+    //        .await
+    //        .map_err(|e| e.to_string())?;
+    //
+    //        tokio::select! {
+    //            _ = self.shutdown_rx.notified() => {
+    //                println!("Killing scraper");
+    //                break
+    //            }
+    //            x = self.scrape_expansion(&expansion, &driver) => {
+    //                if let Err(a) = x {
+    //                    println!("Something went wrong scraping: {a:?}");
+    //
+    //                    let timestamp = format!("screenshots/{}.png", chrono::Utc::now().to_rfc3339());
+    //                    if let Err(e) = driver.screenshot(std::path::Path::new(&timestamp)).await {
+    //                        println!("Failed to take screenshot {e:?}");
+    //                    }
+    //
+    //                    return Err(a);
+    //                }
+    //                println!("Now sleeping");
+    //            }
+    //        };
+    //
+    //        drop(driver);
+    //
+    //        tokio::select! {
+    //            _ = self.shutdown_rx.notified() => {
+    //                println!("Killing scraper");
+    //                break
+    //            }
+    //            _ = tokio::time::sleep(std::time::Duration::from_secs(self.sleep_seconds)) => {
+    //                println!("Sleep completed");
+    //            }
+    //        }
+    //    }
+    //
+    //    Ok(())
+    //}
 
     async fn scrape_expansion(
         &self,

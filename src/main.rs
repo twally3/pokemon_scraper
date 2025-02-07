@@ -35,8 +35,15 @@ async fn shutdown_signal() {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let expansion = include_str!("../expansions/surging_sparks.json");
-    let expansion = serde_json::from_str::<Expansion>(expansion)?;
+    let expansions = vec![
+        include_str!("../expansions/temporal_forces.json"),
+        include_str!("../expansions/surging_sparks.json"),
+    ];
+
+    let expansions = expansions
+        .into_iter()
+        .map(serde_json::from_str::<Expansion>)
+        .collect::<Result<Vec<_>, _>>()?;
 
     let connection_options = SqliteConnectOptions::new()
         .filename("db/demo.db")
@@ -67,7 +74,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let scraper = CardScaper::new(pool.clone(), wd_url, caps, shutdown_scraper, sleep_secs);
 
     let h = tokio::spawn(async move {
-        let a = scraper.start_scraping_expansion(expansion).await;
+        let a = scraper.start_scraping_expansions(expansions).await;
         scraper_tx.send(()).expect("Failed to send scraper signal");
         a
     });

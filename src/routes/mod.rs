@@ -205,8 +205,6 @@ pub async fn list_cards(
         }
     });
 
-    dbg!(x);
-
     let template = MainTemplate { cards: r };
     HtmlTemplate(template)
 }
