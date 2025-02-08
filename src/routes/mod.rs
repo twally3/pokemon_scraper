@@ -135,7 +135,7 @@ pub async fn list_cards(
                 cards.name AS card_name,
                 cards.rarity AS card_rarity,
                 ROW_NUMBER() OVER (
-                    PARTITION BY cards.number, cards.class
+                    PARTITION BY cards.set_name, cards.expansion, cards.number, cards.class
                     ORDER BY listings.date DESC
                 ) as listing_rank
             FROM cards
@@ -197,12 +197,17 @@ pub async fn list_cards(
         })
         .collect::<Vec<_>>();
 
-    r.sort_by(|a, b| {
-        let o = a.card_number.cmp(&b.card_number);
-        match o {
-            std::cmp::Ordering::Equal => a.card_class.to_string().cmp(&b.card_class.to_string()),
-            _ => o,
-        }
+    r.sort_by(|a, b| match a.card_set_name.cmp(&b.card_set_name) {
+        std::cmp::Ordering::Equal => match a.card_expansion.cmp(&b.card_expansion) {
+            std::cmp::Ordering::Equal => match a.card_number.cmp(&b.card_number) {
+                std::cmp::Ordering::Equal => {
+                    a.card_class.to_string().cmp(&b.card_class.to_string())
+                }
+                o => o,
+            },
+            o => o,
+        },
+        o => o,
     });
 
     let template = MainTemplate { cards: r };
