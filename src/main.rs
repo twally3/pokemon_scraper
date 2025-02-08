@@ -1,7 +1,7 @@
 #![warn(missing_debug_implementations, rust_2018_idioms, rustdoc::all)]
 
 use card_scraper::{CardScaper, Expansion};
-use routes::{app_state::AppState, greet, list_cards};
+use routes::{app_state::AppState, card, greet, list_cards};
 use sqlx::sqlite::{SqliteConnectOptions, SqlitePoolOptions};
 use thirtyfour::*;
 
@@ -85,6 +85,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .nest("/api", api_routes)
         .route("/greet/{name}", axum::routing::get(greet))
         .route("/", axum::routing::get(list_cards))
+        .route("/{expansion}/{number}/{class}", axum::routing::get(card))
         .with_state(AppState { pool });
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();

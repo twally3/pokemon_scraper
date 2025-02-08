@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block body %}
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Date</th>
+			<th>Price</th>
+			<th>Bids</th>
+			<th>Accepts offers</th>
+			<th>Offer was accepted</th>
+		</tr>
+		{% for listing in listings %}
+			<tr>
+				<td><a href="{{ listing.link }}" target="_blank">{{ listing.title }}</a></td>
+				<td>{{ listing.date }}</td>
+				<td>{{ listing.price }}</td>
+				<td>{{ listing.bids }}</td>
+				<td>{{ listing.accepts_offers }}</td>
+				<td>{{ listing.offer_was_accepted }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

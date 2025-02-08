@@ -36,7 +36,7 @@ impl std::fmt::Display for Class {
             "{}",
             match self {
                 Self::Regular => "Regular",
-                Self::ReverseHolo => "ReverseHolo",
+                Self::ReverseHolo => "Reverse Holo",
                 Self::Holo => "Holo",
             }
         )
@@ -246,4 +246,80 @@ where
                 && std::convert::Into::<f64>::into(x.clone()) <= upper_bound
         })
         .collect()
+}
+
+#[derive(Serialize, Deserialize, FromRow, Debug)]
+struct Listing {
+    id: u32,
+    title: String,
+    date: String,
+    price: u32,
+    link: String,
+    bids: u32,
+    accepts_offers: bool,
+    offer_was_accepted: bool,
+}
+
+struct ViewListing {
+    id: u32,
+    title: String,
+    date: String,
+    price: f64,
+    link: String,
+    bids: u32,
+    accepts_offers: bool,
+    offer_was_accepted: bool,
+}
+
+impl From<Listing> for ViewListing {
+    fn from(value: Listing) -> Self {
+        ViewListing {
+            id: value.id,
+            title: value.title,
+            date: value.date,
+            price: std::convert::Into::<f64>::into(value.price) / 100.0,
+            link: value.link,
+            bids: value.bids,
+            accepts_offers: value.accepts_offers,
+            offer_was_accepted: value.offer_was_accepted,
+        }
+    }
+}
+
+#[derive(Template)]
+#[template(path = "card.html")]
+struct CardTemplate {
+    listings: Vec<ViewListing>,
+}
+
+pub async fn card(
+    Path((expansion, number, class)): Path<(u32, u32, String)>,
+    State(app_state): State<AppState>,
+) -> impl axum::response::IntoResponse {
+    let listings = sqlx::query_as::<_, Listing>(
+        "
+        SELECT
+            listings.*
+        FROM
+            listings_cards
+            JOIN listings ON listings.id = listings_cards.listing_id
+        WHERE
+            listings_cards.card_set_name = \"Scarlet & Violet\"
+            AND listings_cards.card_expansion = ?
+            AND listings_cards.card_number = ?
+            AND listings_cards.card_class = ?
+        ORDER BY
+            listings.date DESC;
+        ",
+    )
+    .bind(expansion)
+    .bind(number)
+    .bind(class)
+    .fetch_all(&app_state.pool)
+    .await
+    .expect("Failed to fetch cards");
+
+    HtmlTemplate(CardTemplate {
+        listings: listings.into_iter().map(|x| x.into()).collect(),
+    })
 }
