@@ -36,6 +36,8 @@ async fn shutdown_signal() {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let expansions = vec![
+        include_str!("../expansions/stellar_crown.json"),
+        include_str!("../expansions/obsidian_flames.json"),
         include_str!("../expansions/temporal_forces.json"),
         include_str!("../expansions/surging_sparks.json"),
     ];
