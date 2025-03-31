@@ -9,25 +9,14 @@ const PAGINATION_LIMIT: usize = 100;
 
 #[derive(Debug, Deserialize, Clone)]
 pub enum Rarity {
-    #[serde(rename = "https://tcgcodex.com/images/rarities/pokemon-common.webp")]
     Common,
-    #[serde(rename = "https://tcgcodex.com/images/rarities/pokemon-uncommon.webp")]
     Uncommon,
-    #[serde(rename = "https://tcgcodex.com/images/rarities/pokemon-rare.webp")]
     Rare,
-    #[serde(rename = "https://tcgcodex.com/images/rarities/pokemon-double-rare.webp")]
     DoubleRare,
-    #[serde(rename = "https://tcgcodex.com/images/rarities/pokemon-ace-spec-rare.webp")]
     AceSpecRare,
-    #[serde(rename = "https://tcgcodex.com/images/rarities/pokemon-illustration-rare.webp")]
     IllustrationRare,
-    #[serde(rename = "https://tcgcodex.com/images/rarities/pokemon-ultra-rare.webp")]
     UltraRare,
-    #[serde(
-        rename = "https://tcgcodex.com/images/rarities/pokemon-special-illustration-rare.webp"
-    )]
     SpecialIllustrationRare,
-    #[serde(rename = "https://tcgcodex.com/images/rarities/pokemon-hyper-rare.webp")]
     HyperRare,
 }
 
@@ -53,11 +42,9 @@ impl std::fmt::Display for Rarity {
 
 #[derive(Debug, Deserialize, Clone)]
 pub enum Class {
-    #[serde(rename = "advanced-pkmn_regular-unchecked")]
     Regular,
-    #[serde(rename = "advanced-pkmn_rev_holo-unchecked")]
+    #[serde(rename = "Parallel")]
     ReverseHolo,
-    #[serde(rename = "advanced-pkmn_foil-unchecked")]
     Foil,
 }
 
@@ -133,7 +120,8 @@ pub struct Pokemon {
     pub name: String,
     pub number: usize,
     pub rarity: Rarity,
-    pub class: Class,
+    #[serde(rename = "variants")]
+    pub class: Vec<Class>,
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -177,31 +165,37 @@ impl CardScaper {
     ) -> Result<(), String> {
         for expansion in &expansions {
             expansion
-            .cards
-            .iter()
-            .fold(
-                sqlx::query(&format!(
-                "INSERT INTO cards (set_name, expansion, number, class, name, rarity) VALUES {} ON CONFLICT DO NOTHING",
-                expansion
-                    .cards
-                    .iter()
-                    .map(|_| "(?,?,?,?,?,?)")
-                    .collect::<Vec<_>>()
-                    .join(",")
-            )),
-                |acc, x| {
-                    acc
-                        .bind(expansion.set_name.clone())
-                        .bind(expansion.expansion_number as u32)
-                        .bind(x.number as u32)
-                        .bind(x.class.to_string())
-                        .bind(x.name.clone())
-                        .bind(x.rarity.to_string())
-                },
-            )
-            .execute(&self.pool)
-            .await
-            .map_err(|e| format!("Failed to create expansion entries: {e}"))?;
+                .cards
+                .iter()
+                .fold(
+                    sqlx::query(&format!(
+                        "INSERT INTO cards (set_name, expansion, number, class, name, rarity) VALUES {} ON CONFLICT DO NOTHING",
+                        expansion
+                            .cards
+                            .iter()
+                            .flat_map(|card| card.class.iter().map(|_|  "(?,?,?,?,?,?)"))
+                            .collect::<Vec<_>>()
+                            .join(",")
+                    )),
+                    |acc, x| {
+                        x
+                            .class
+                            .iter()
+                            .fold(acc, |acc, c| {
+                                acc
+                                    .bind(expansion.set_name.clone())
+                                    .bind(expansion.expansion_number as u32)
+                                    .bind(x.number as u32)
+                                    .bind(c.to_string())
+                                    .bind(x.name.clone())
+                                    .bind(x.rarity.to_string())
+                            }
+                        )
+                    },
+                )
+                .execute(&self.pool)
+                .await
+                .map_err(|e| format!("Failed to create expansion entries: {e}"))?;
         }
 
         loop {
@@ -248,112 +242,50 @@ impl CardScaper {
         }
     }
 
-    //pub async fn start_scraping_expansion(&self, expansion: Expansion) -> Result<(), String> {
-    //    expansion
-    //        .cards
-    //        .iter()
-    //        .fold(
-    //            sqlx::query(&format!(
-    //            "INSERT INTO cards (set_name, expansion, number, class, name, rarity) VALUES {} ON CONFLICT DO NOTHING",
-    //            expansion
-    //                .cards
-    //                .iter()
-    //                .map(|_| "(?,?,?,?,?,?)")
-    //                .collect::<Vec<_>>()
-    //                .join(",")
-    //        )),
-    //            |acc, x| {
-    //                acc
-    //                    .bind(expansion.set_name.clone())
-    //                    .bind(expansion.expansion_number as u32)
-    //                    .bind(x.number as u32)
-    //                    .bind(x.class.to_string())
-    //                    .bind(x.name.clone())
-    //                    .bind(x.rarity.to_string())
-    //            },
-    //        )
-    //        .execute(&self.pool)
-    //        .await
-    //        .map_err(|e| format!("Failed to create expansion entries: {e}"))?;
-    //
-    //    loop {
-    //        let driver = WebDriver::new(
-    //            self.web_driver_url.clone(),
-    //            self.web_driver_capabilities.clone(),
-    //        )
-    //        .await
-    //        .map_err(|e| e.to_string())?;
-    //
-    //        tokio::select! {
-    //            _ = self.shutdown_rx.notified() => {
-    //                println!("Killing scraper");
-    //                break
-    //            }
-    //            x = self.scrape_expansion(&expansion, &driver) => {
-    //                if let Err(a) = x {
-    //                    println!("Something went wrong scraping: {a:?}");
-    //
-    //                    let timestamp = format!("screenshots/{}.png", chrono::Utc::now().to_rfc3339());
-    //                    if let Err(e) = driver.screenshot(std::path::Path::new(&timestamp)).await {
-    //                        println!("Failed to take screenshot {e:?}");
-    //                    }
-    //
-    //                    return Err(a);
-    //                }
-    //                println!("Now sleeping");
-    //            }
-    //        };
-    //
-    //        drop(driver);
-    //
-    //        tokio::select! {
-    //            _ = self.shutdown_rx.notified() => {
-    //                println!("Killing scraper");
-    //                break
-    //            }
-    //            _ = tokio::time::sleep(std::time::Duration::from_secs(self.sleep_seconds)) => {
-    //                println!("Sleep completed");
-    //            }
-    //        }
-    //    }
-    //
-    //    Ok(())
-    //}
-
     async fn scrape_expansion(
         &self,
         expansion: &Expansion,
         driver: &WebDriver,
     ) -> Result<(), String> {
-        //let cards = expansion.cards.iter().take(1).collect::<Vec<_>>();
-        let cards = expansion.cards.iter().collect::<Vec<_>>();
+        let cards = expansion
+            .cards
+            .iter()
+            .flat_map(|card| {
+                card.class.iter().map(|class| Pokemon {
+                    name: card.name.clone(),
+                    number: card.number,
+                    rarity: card.rarity.clone(),
+                    class: vec![class.clone()],
+                })
+            })
+            .collect::<Vec<_>>();
 
         for card in cards {
             let last_listing_date = sqlx::query_as::<_, (chrono::NaiveDate,)>(
                 "
-                SELECT date
-                FROM listings
-                JOIN listings_cards
-                  ON listings_cards.listing_id = listings.id
-                WHERE listings_cards.card_set_name = ?
-                  AND listings_cards.card_expansion = ?
-                  AND listings_cards.card_number = ?
-                  AND listings_cards.card_class = ?
-                ORDER BY date DESC
-                LIMIT 1
-                ",
+                    SELECT date
+                    FROM listings
+                    JOIN listings_cards
+                      ON listings_cards.listing_id = listings.id
+                    WHERE listings_cards.card_set_name = ?
+                      AND listings_cards.card_expansion = ?
+                      AND listings_cards.card_number = ?
+                      AND listings_cards.card_class = ?
+                    ORDER BY date DESC
+                    LIMIT 1
+                    ",
             )
             .bind(expansion.set_name.clone())
             .bind(expansion.expansion_number as u32)
             .bind(card.number as u32)
-            .bind(card.class.to_string())
+            .bind(card.class.first().unwrap().to_string())
             .fetch_optional(&self.pool)
             .await
             .map_err(|e| format!("Failed to last listing date: {e}"))?
             .map(|x| x.0);
 
             let final_listings = self
-                .scrape_listings_for_card(card, expansion, last_listing_date, driver)
+                .scrape_listings_for_card(&card, expansion, last_listing_date, driver)
                 .await
                 .map_err(|e| format!("Failed to scrape card: {e:?}"))?;
 
@@ -419,7 +351,7 @@ impl CardScaper {
                             .bind(expansion.set_name.clone())
                             .bind(expansion.expansion_number as u32)
                             .bind(card.number as u32)
-                            .bind(card.class.to_string()),
+                            .bind(card.class.first().unwrap().to_string()),
                     )
                     .execute(&mut *txn)
                     .await?;
@@ -558,7 +490,7 @@ impl CardScaper {
                     continue;
                 }
 
-                if match card.class {
+                if match card.class.first().unwrap() {
                     Class::Regular => ["reverse holo", "reverse"]
                         .into_iter()
                         .any(|x| title.to_lowercase().contains(x)),
@@ -569,7 +501,7 @@ impl CardScaper {
                     continue;
                 }
 
-                if match card.class {
+                if match card.class.first().unwrap() {
                     Class::Regular => false,
                     Class::ReverseHolo => !["reverse holo", "holo", "reverse"]
                         .into_iter()

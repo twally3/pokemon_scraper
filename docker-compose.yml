@@ -43,6 +43,11 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        window: 30s
     # environment:
     #   - SE_NODE_MAX_SESSIONS=5
     #   - SE_NODE_OVERRIDE_MAX_SESSIONS=true
