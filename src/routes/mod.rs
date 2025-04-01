@@ -140,7 +140,7 @@ pub async fn list_cards(
         .clone()
         .iter()
         .fold(HashMap::<_, Vec<Thing>>::new(), |mut acc, x| {
-            acc.entry((x.card_number, x.card_class.to_string()))
+            acc.entry((x.card_expansion, x.card_number, x.card_class.to_string()))
                 .and_modify(|a| a.push(x.clone()))
                 .or_insert(vec![x.clone()]);
 
@@ -157,10 +157,14 @@ pub async fn list_cards(
 
     let mut r = x
         .iter()
-        .map(|((number, class), _)| {
+        .map(|((expansion, number, class), _)| {
             cards
                 .iter()
-                .find(|x| x.card_number == *number && x.card_class.to_string() == *class)
+                .find(|x| {
+                    x.card_expansion == *expansion
+                        && x.card_number == *number
+                        && x.card_class.to_string() == *class
+                })
                 .cloned()
                 .map(|x| Penis {
                     price: std::convert::Into::<f64>::into(x.price) / 100.0,
