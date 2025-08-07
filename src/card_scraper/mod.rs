@@ -260,7 +260,6 @@ impl CardScaper {
             })
             .collect::<Vec<_>>();
 
-        let mut is_first_card = true;
         for card in cards {
             let last_listing_date = sqlx::query_as::<_, (chrono::NaiveDate,)>(
                 "
@@ -286,17 +285,9 @@ impl CardScaper {
             .map(|x| x.0);
 
             let final_listings = self
-                .scrape_listings_for_card(
-                    &card,
-                    expansion,
-                    last_listing_date,
-                    is_first_card,
-                    driver,
-                )
+                .scrape_listings_for_card(&card, expansion, last_listing_date, driver)
                 .await
                 .map_err(|e| format!("Failed to scrape card: {e:?}"))?;
-
-            is_first_card = false;
 
             if final_listings.is_empty() {
                 continue;
@@ -388,7 +379,6 @@ impl CardScaper {
         card: &Pokemon,
         expansion: &Expansion,
         last_listing_date: Option<chrono::NaiveDate>,
-        is_first_card: bool,
         driver: &WebDriver,
     ) -> Result<Vec<Listing<'a>>, Box<dyn std::error::Error>> {
         // TODO: Consider clearing the text box
@@ -415,13 +405,6 @@ impl CardScaper {
         .click()
         .await?;
 
-        tokio::time::sleep(std::time::Duration::from_secs(if is_first_card {
-            5
-        } else {
-            1
-        }))
-        .await;
-
         // Change page count to 240
         if let Some(url) = match driver
             .find(By::Css("#srp-ipp-menu-content li:last-child a"))
@@ -436,11 +419,24 @@ impl CardScaper {
             driver.goto(url).await?;
         }
 
-        driver
-            .find(By::Css("input[type=checkbox][aria-label='Sold items']"))
-            .await?
-            .click()
-            .await?;
+        // INFO: The page takes a while to load so we add retry logic to the first find
+        for i in 0..5 {
+            match driver
+                .find(By::Css("input[type=checkbox][aria-label='Sold items']"))
+                .await
+            {
+                Ok(checkbox) => {
+                    checkbox.click().await?;
+                    break;
+                }
+                e @ Err(_) => {
+                    if i >= 4 {
+                        e?;
+                    }
+                    tokio::time::sleep(std::time::Duration::from_secs(3)).await;
+                }
+            }
+        }
 
         if let Ok(grade_btn) = driver
             .find(By::Css(
