@@ -129,7 +129,7 @@ pub struct Pokemon {
 pub struct Expansion {
     pub set_name: String,
     pub expansion_name: String,
-    pub expansion_number: usize,
+    pub expansion_number: f32,
     pub expansion_total: usize,
     pub cards: Vec<Pokemon>,
 }
