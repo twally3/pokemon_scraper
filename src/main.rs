@@ -42,6 +42,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         include_str!("../expansions/obsidian_flames.json"),
         include_str!("../expansions/temporal_forces.json"),
         include_str!("../expansions/surging_sparks.json"),
+        include_str!("../expansions/journey_together.json"),
         include_str!("../expansions/mega_evolution.json"),
     ];
 

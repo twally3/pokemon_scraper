@@ -1,0 +1,7785 @@
+{
+	"set_name": "Scarlet & Violet",
+	"expansion_name": "Journey Together",
+	"expansion_number": 9,
+	"expansion_total": 159,
+	"cards": [
+		{
+			"number": 1,
+			"name": "Caterpie",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_001_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Grass"
+							],
+							"name": "Bug Bite",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 50,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Shimaris Yukichi"
+		},
+		{
+			"number": 2,
+			"name": "Metapod",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_002_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Grass"
+							],
+							"name": "Harden",
+							"effect": "During your opponent's next turn, prevent all damage done to this Pokémon by attacks if that damage is 60 or less.",
+							"damage": null
+						}
+					],
+					"stage": {
+						"stage1": "Caterpie"
+					},
+					"energy": "Grass",
+					"hp": 90,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "OKUBO"
+		},
+		{
+			"number": 3,
+			"name": "Butterfree",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_003_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Grass"
+							],
+							"name": "Scale Hurricane",
+							"effect": "Flip 4 coins. This attack does 60 damage for each heads. If at least 2 of them are heads, your opponent's Active Pokémon is now Paralyzed.",
+							"damage": {
+								"multiple": 60
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Metapod"
+					},
+					"energy": "Grass",
+					"hp": 120,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "satoma"
+		},
+		{
+			"number": 4,
+			"name": "Paras",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_004_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Grass"
+							],
+							"name": "Leech Life",
+							"effect": "Heal from this Pokémon the same amount of damage you did to your opponent's Active Pokémon.",
+							"damage": {
+								"exact": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 70,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Ayako Ozaki"
+		},
+		{
+			"number": 5,
+			"name": "Parasect",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_005_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Spore",
+							"effect": "Your opponent's Active Pokémon is now Asleep.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Grass",
+								"Colourless"
+							],
+							"name": "Scissor Swing",
+							"effect": "Flip 2 coins. This attack does 30 more damage for each heads.",
+							"damage": {
+								"plus": 60
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Paras"
+					},
+					"energy": "Grass",
+					"hp": 120,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Tetsu Kayama"
+		},
+		{
+			"number": 6,
+			"name": "Petilil",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_006_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Grass",
+								"Colourless"
+							],
+							"name": "Leaf Step",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 50,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Shibuzoh."
+		},
+		{
+			"number": 7,
+			"name": "Lilligant",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_007_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Sunny Day",
+						"effect": "Attacks used by your [G] Pokémon and [R] Pokémon do 20 more damage to your opponent's Active Pokémon (before applying Weakness and Resistance)."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Grass",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Spinning Attack",
+							"effect": null,
+							"damage": {
+								"exact": 60
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Petilil"
+					},
+					"energy": "Grass",
+					"hp": 110,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Jiro Sasumo"
+		},
+		{
+			"number": 8,
+			"name": "Maractus",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_008_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Exploding Needles",
+						"effect": "If this Pokémon is in the Active Spot and is Knocked Out by damage from an attack from your opponent's Pokémon, put 6 damage counters on the Attacking Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Corner",
+							"effect": "During your opponent's next turn, the Defending Pokémon can't retreat.",
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 110,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Dsuke"
+		},
+		{
+			"number": 9,
+			"name": "Karrablast",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_009_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Push Down",
+							"effect": "Switch out your opponent's Active Pokémon to the Bench. (Your opponent chooses the new Active Pokémon.)",
+							"damage": {
+								"exact": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 60,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Yuka Morii"
+		},
+		{
+			"number": 10,
+			"name": "Foongus",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_010_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Grass"
+							],
+							"name": "Spore Ball",
+							"effect": "Your opponent's Active Pokémon is now Asleep.",
+							"damage": {
+								"exact": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 50,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Saboteri"
+		},
+		{
+			"number": 11,
+			"name": "Amoonguss ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_011_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Grass"
+							],
+							"name": "Spore Ball",
+							"effect": "Your opponent's Active Pokémon is now Asleep.",
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Grass",
+								"Colourless"
+							],
+							"name": "Champignon's Swing",
+							"effect": "Flip a coin. If heads, this attack does 80 more damage.",
+							"damage": {
+								"plus": 100
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Foongus"
+					},
+					"energy": "Grass",
+					"hp": 260,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "PLANETA Mochizuki"
+		},
+		{
+			"number": 12,
+			"name": "Shelmet",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_012_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Grass",
+								"Colourless"
+							],
+							"name": "Shell Smack",
+							"effect": "Flip a coin. If heads, during your opponent's next turn, prevent all damage done to this Pokémon by attacks.",
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 70,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Toshinao Aoki"
+		},
+		{
+			"number": 13,
+			"name": "Accelgor",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_013_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Grass",
+								"Colourless"
+							],
+							"name": "Poisonous Ploy",
+							"effect": "Your opponent's Active Pokémon is now Confused and Poisoned. Switch this Pokémon with 1 of your Benched Pokémon.",
+							"damage": {
+								"exact": 70
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Shelmet"
+					},
+					"energy": "Grass",
+					"hp": 100,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Kazumasa Yasukuni"
+		},
+		{
+			"number": 14,
+			"name": "Durant",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_014_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Grass",
+								"Colourless"
+							],
+							"name": "Crunch",
+							"effect": "Flip a coin. If heads, discard an Energy from your opponent's Active Pokémon.",
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 90,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "KEIICHIRO ITO"
+		},
+		{
+			"number": 15,
+			"name": "Virizion",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_015_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Grass",
+								"Colourless"
+							],
+							"name": "Leaf Drain",
+							"effect": "Heal 30 damage from this Pokémon.",
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Grass",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Slicing Blade",
+							"effect": null,
+							"damage": {
+								"exact": 100
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 120,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Anesaki Dynamic"
+		},
+		{
+			"number": 16,
+			"name": "Sprigatito",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_016_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Tons of Treading",
+							"effect": "Flip 3 coins. This attack does 10 damage for each heads.",
+							"damage": {
+								"multiple": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 60,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Mina Nakai"
+		},
+		{
+			"number": 17,
+			"name": "Floragato",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_017_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Magical Leaf",
+							"effect": "Flip a coin. If heads, this attack does 30 more damage, and heal 30 damage from this Pokémon.",
+							"damage": {
+								"plus": 30
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Sprigatito"
+					},
+					"energy": "Grass",
+					"hp": 90,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Felicia Chen"
+		},
+		{
+			"number": 18,
+			"name": "Meowscarada",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_018_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Showtime",
+						"effect": "Once during your turn, if this Pokémon is on your Bench, you may switch it with your Active Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Rising Bloom",
+							"effect": "If your opponent's Active Pokémon is a Pokémon ex, this attack does 90 more damage.",
+							"damage": {
+								"plus": 90
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Floragato"
+					},
+					"energy": "Grass",
+					"hp": 160,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "kodama"
+		},
+		{
+			"number": 19,
+			"name": "Nymble",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_019_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Rear Kick",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 50,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Ayako Ozaki"
+		},
+		{
+			"number": 20,
+			"name": "Magmar",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_020_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Colourless"
+							],
+							"name": "Searing Flame",
+							"effect": "Flip a coin. If heads, your opponent's Active Pokémon is now Burned.",
+							"damage": {
+								"exact": 30
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fire",
+					"hp": 80,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Naoyo Kimura"
+		},
+		{
+			"number": 21,
+			"name": "Magmortar",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_021_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Magma Surge",
+						"effect": "During Pokémon Checkup, put 3 more damage counters on your opponent's Burned Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Fire",
+								"Colourless"
+							],
+							"name": "Searing Flame",
+							"effect": "Flip a coin. If heads, your opponent's Active Pokémon is now Burned.",
+							"damage": {
+								"exact": 90
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Magmar"
+					},
+					"energy": "Fire",
+					"hp": 130,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Tonji Matsuno"
+		},
+		{
+			"number": 22,
+			"name": "Torchic",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_022_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Colourless"
+							],
+							"name": "Scratch",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fire",
+					"hp": 60,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "OKACHEKE"
+		},
+		{
+			"number": 23,
+			"name": "Combusken",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_023_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Colourless"
+							],
+							"name": "Slash",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Torchic"
+					},
+					"energy": "Fire",
+					"hp": 90,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Fujimoto Gold"
+		},
+		{
+			"number": 24,
+			"name": "Blaziken ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_024_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Seething Spirit",
+						"effect": "Once during your turn, you may attach a Basic Energy card from your discard pile to 1 of your Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Colourless"
+							],
+							"name": "Smolder-sault",
+							"effect": "During your next turn, this Pokémon can't attack.",
+							"damage": {
+								"exact": 200
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Combusken"
+					},
+					"energy": "Fire",
+					"hp": 320,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "takuyoa"
+		},
+		{
+			"number": 25,
+			"name": "Torkoal",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_025_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fire"
+							],
+							"name": "Live Coal",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						},
+						{
+							"types": [
+								"Fire",
+								"Fire",
+								"Colourless"
+							],
+							"name": "Heat Blast",
+							"effect": null,
+							"damage": {
+								"exact": 110
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fire",
+					"hp": 130,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "kodama"
+		},
+		{
+			"number": 26,
+			"name": "N's Darumaka",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_026_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Rolling Tackle",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						},
+						{
+							"types": [
+								"Fire",
+								"Fire",
+								"Colourless"
+							],
+							"name": "Flare",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fire",
+					"hp": 80,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Gemi"
+		},
+		{
+			"number": 27,
+			"name": "N's Darmanitan",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_027_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Back Draft",
+							"effect": "This attack does 30 damage for each Basic Energy card in your opponent's discard pile.",
+							"damage": {
+								"multiple": 30
+							}
+						},
+						{
+							"types": [
+								"Fire",
+								"Fire",
+								"Colourless"
+							],
+							"name": "Flamebody Cannon",
+							"effect": "Discard all Energy from this Pokémon, and this attack also does 90 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+							"damage": {
+								"exact": 90
+							}
+						}
+					],
+					"stage": {
+						"stage1": "N's Darumaka"
+					},
+					"energy": "Fire",
+					"hp": 140,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "nagimiso"
+		},
+		{
+			"number": 28,
+			"name": "Larvesta",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_028_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Will-O-Wisp",
+							"effect": null,
+							"damage": {
+								"exact": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fire",
+					"hp": 80,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Kyoko Umemoto"
+		},
+		{
+			"number": 29,
+			"name": "Volcarona",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_029_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Colourless"
+							],
+							"name": "Smoldering Scales",
+							"effect": null,
+							"damage": {
+								"exact": 80
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Larvesta"
+					},
+					"energy": "Fire",
+					"hp": 140,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Mitsuhiro Arita"
+		},
+		{
+			"number": 30,
+			"name": "Reshiram ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_030_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fire"
+							],
+							"name": "Fire Wing",
+							"effect": null,
+							"damage": {
+								"exact": 40
+							}
+						},
+						{
+							"types": [
+								"Fire",
+								"Fire",
+								"Colourless"
+							],
+							"name": "Scorching Fire",
+							"effect": "Discard an Energy from this Pokémon.",
+							"damage": {
+								"exact": 200
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fire",
+					"hp": 220,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "PLANETA Mochizuki"
+		},
+		{
+			"number": 31,
+			"name": "Volcanion ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_031_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Scalding Steam",
+						"effect": "Once during your turn, if this Pokémon is in the Active Spot, you may make your opponent's Active Pokémon Burned."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Fire",
+								"Colourless"
+							],
+							"name": "Scorching Cyclone",
+							"effect": "Move an Energy from this Pokémon to 1 of your Benched Pokémon.",
+							"damage": {
+								"exact": 160
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fire",
+					"hp": 220,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "5ban Graphics"
+		},
+		{
+			"number": 32,
+			"name": "Articuno",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_032_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Frigid Fluttering",
+							"effect": "Search your deck for up to 2 Basic [W] Energy cards and attach them to this Pokémon. Then, shuffle your deck.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Water",
+								"Water",
+								"Colourless"
+							],
+							"name": "Ice Blast",
+							"effect": null,
+							"damage": {
+								"exact": 110
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Water",
+					"hp": 110,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Takumi Wada"
+		},
+		{
+			"number": 33,
+			"name": "Remoraid",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_033_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Water"
+							],
+							"name": "Flail",
+							"effect": "This attack does 10 damage for each damage counter on this Pokémon.",
+							"damage": {
+								"multiple": 10
+							}
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Rain Splash",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Water",
+					"hp": 60,
+					"weakness": "Lightning",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Minahamu"
+		},
+		{
+			"number": 34,
+			"name": "Octillery",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_034_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Water"
+							],
+							"name": "Aqua Wash",
+							"effect": "You may put an Energy attached to your opponent's Active Pokémon into their hand.",
+							"damage": {
+								"exact": 20
+							}
+						},
+						{
+							"types": [
+								"Water",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Octo Beatdown",
+							"effect": "Flip a coin until you get tails. This attack does 90 damage for each heads.",
+							"damage": {
+								"multiple": 90
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Remoraid"
+					},
+					"energy": "Water",
+					"hp": 110,
+					"weakness": "Lightning",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Toshinao Aoki"
+		},
+		{
+			"number": 35,
+			"name": "Lotad",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_035_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Water"
+							],
+							"name": "Water Gun",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Water",
+					"hp": 60,
+					"weakness": "Lightning",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Ayako Ozaki"
+		},
+		{
+			"number": 36,
+			"name": "Lombre",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_036_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Water",
+								"Water"
+							],
+							"name": "Aqua Slash",
+							"effect": "During your next turn, this Pokémon can't attack.",
+							"damage": {
+								"exact": 70
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Lotad"
+					},
+					"energy": "Water",
+					"hp": 90,
+					"weakness": "Lightning",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Mousho"
+		},
+		{
+			"number": 37,
+			"name": "Ludicolo",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_037_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Vibrant Dance",
+						"effect": "All of your Pokémon in play get +40 HP. The effect of Vibrant Dance doesn't stack."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Water",
+								"Water",
+								"Colourless"
+							],
+							"name": "Hydro Splash",
+							"effect": null,
+							"damage": {
+								"exact": 130
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Lombre"
+					},
+					"energy": "Water",
+					"hp": 140,
+					"weakness": "Lightning",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Jerky"
+		},
+		{
+			"number": 38,
+			"name": "Wingull",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_038_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Flap",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Water",
+					"hp": 60,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Mékayu"
+		},
+		{
+			"number": 39,
+			"name": "Pelipper",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_039_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Spit Up",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Water",
+								"Colourless"
+							],
+							"name": "Speed Dive",
+							"effect": null,
+							"damage": {
+								"exact": 70
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Wingull"
+					},
+					"energy": "Water",
+					"hp": 120,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Nelnal"
+		},
+		{
+			"number": 40,
+			"name": "Wailmer",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_040_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Surf",
+							"effect": null,
+							"damage": {
+								"exact": 60
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Water",
+					"hp": 130,
+					"weakness": "Lightning",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Shinya Mizuno"
+		},
+		{
+			"number": 41,
+			"name": "Wailord",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_041_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Hydro Pump",
+							"effect": "This attack does 50 more damage for each [W] Energy attached to this Pokémon.",
+							"damage": {
+								"plus": 10
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Wailmer"
+					},
+					"energy": "Water",
+					"hp": 240,
+					"weakness": "Lightning",
+					"resistance": null,
+					"retreat": 4,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Takeshi Nakamura"
+		},
+		{
+			"number": 42,
+			"name": "Regice",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_042_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Water",
+								"Colourless"
+							],
+							"name": "Icicle",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Water",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Blizzard",
+							"effect": "This attack also does 10 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+							"damage": {
+								"exact": 90
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Water",
+					"hp": 120,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Takumi Wada"
+		},
+		{
+			"number": 43,
+			"name": "Veluza ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_043_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Water"
+							],
+							"name": "Razor Fin",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Water",
+								"Water",
+								"Colourless"
+							],
+							"name": "Purging Strike",
+							"effect": "You may discard your hand. If you discarded any cards in this way, this attack does 120 more damage.",
+							"damage": {
+								"plus": 120
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Water",
+					"hp": 210,
+					"weakness": "Lightning",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "5ban Graphics"
+		},
+		{
+			"number": 44,
+			"name": "Alolan Geodude",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_044_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Knuckle Punch",
+							"effect": null,
+							"damage": {
+								"exact": 10
+							}
+						},
+						{
+							"types": [
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Tiny Charge",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Lightning",
+					"hp": 60,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "svlt"
+		},
+		{
+			"number": 45,
+			"name": "Alolan Graveler",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_045_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Rolling Tackle",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Electric Punch",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Alolan Geodude"
+					},
+					"energy": "Lightning",
+					"hp": 100,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "HYOGONOSUKE"
+		},
+		{
+			"number": 46,
+			"name": "Alolan Golem",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_046_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Lightning"
+							],
+							"name": "Electromagnetic Catapult",
+							"effect": "Flip a coin until you get tails. This attack does 70 damage for each heads.",
+							"damage": {
+								"multiple": 70
+							}
+						},
+						{
+							"types": [
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Megaton Fall",
+							"effect": "This Pokémon also does 40 damage to itself.",
+							"damage": {
+								"exact": 160
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Alolan Graveler"
+					},
+					"energy": "Lightning",
+					"hp": 180,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 4,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Takeshi Nakamura"
+		},
+		{
+			"number": 47,
+			"name": "Iono's Voltorb",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_047_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Voltaic Chain",
+							"effect": "This attack does 20 more damage for each [L] Energy attached to all of your Iono's Pokémon.",
+							"damage": {
+								"plus": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Lightning",
+					"hp": 70,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Kazumasa Yasukuni"
+		},
+		{
+			"number": 48,
+			"name": "Iono's Electrode",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_048_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Lightning",
+								"Lightning"
+							],
+							"name": "Thump-Thump Boom",
+							"effect": "This Pokémon does 100 damage to itself. Flip a coin. If heads, your opponent's Active Pokémon is Knocked Out.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Lightning",
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Electric Ball",
+							"effect": null,
+							"damage": {
+								"exact": 100
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Iono's Voltorb"
+					},
+					"energy": "Lightning",
+					"hp": 100,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 0,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "GOTO minori"
+		},
+		{
+			"number": 49,
+			"name": "N's Joltik",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_049_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Zapping Short",
+							"effect": "Before doing damage, discard all Pokémon Tools from your opponent's Active Pokémon. If you discarded a Pokémon Tool in this way, your opponent's Active Pokémon is now Paralyzed.",
+							"damage": {
+								"exact": 30
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Lightning",
+					"hp": 40,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Iori Suzuki"
+		},
+		{
+			"number": 50,
+			"name": "Togedemaru",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_050_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Toge Spark",
+							"effect": "Flip a coin. If heads, during your opponent's next turn, prevent all damage from and effects of attacks done to this Pokémon.",
+							"damage": {
+								"exact": 40
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Lightning",
+					"hp": 80,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Susumu Maeya"
+		},
+		{
+			"number": 51,
+			"name": "Tapu Koko ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_051_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Linked Lightning",
+							"effect": "This attack does 20 more damage for each of your Benched Pokémon.",
+							"damage": {
+								"plus": 60
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Lightning",
+					"hp": 200,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 0,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "PLANETA Igarashi"
+		},
+		{
+			"number": 52,
+			"name": "Iono's Tadbulb",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_052_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Tiny Charge",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Lightning",
+					"hp": 60,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "kurumitsu"
+		},
+		{
+			"number": 53,
+			"name": "Iono's Bellibolt ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_053_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Electric Streamer",
+						"effect": "As often as you like during your turn, you may attach a Basic [L] Energy card from your hand to 1 of your Iono's Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Lightning",
+								"Lightning",
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Thunderous Bolt",
+							"effect": "During your next turn, this Pokémon can't attack.",
+							"damage": {
+								"exact": 230
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Iono's Tadbulb"
+					},
+					"energy": "Lightning",
+					"hp": 280,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "5ban Graphics"
+		},
+		{
+			"number": 54,
+			"name": "Iono's Wattrel",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_054_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Lightning"
+							],
+							"name": "Quick Attack",
+							"effect": "Flip a coin. If heads, this attack does 20 more damage.",
+							"damage": {
+								"plus": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Lightning",
+					"hp": 60,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Akira Komayama"
+		},
+		{
+			"number": 55,
+			"name": "Iono's Kilowattrel",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_055_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Flashing Draw",
+						"effect": "You must discard a Basic [L] Energy from this Pokémon in order to use this Ability. Once during your turn, you may draw cards until you have 6 cards in your hand."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Lightning",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Mach Bolt",
+							"effect": null,
+							"damage": {
+								"exact": 70
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Iono's Wattrel"
+					},
+					"energy": "Lightning",
+					"hp": 120,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "chibi"
+		},
+		{
+			"number": 56,
+			"name": "Lillie's Clefairy ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_056_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Fairy Zone",
+						"effect": "The Weakness of each of your opponent's [N] Pokémon in play is now [P]. (Apply Weakness as ×2.)"
+					},
+					"attacks": [
+						{
+							"types": [
+								"Psychic",
+								"Colourless"
+							],
+							"name": "Full Moon Rondo",
+							"effect": "This attack does 20 more damage for each Benched Pokémon (both yours and your opponent's).",
+							"damage": {
+								"plus": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 190,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "5ban Graphics"
+		},
+		{
+			"number": 57,
+			"name": "Alolan Marowak",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_057_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Retaliate",
+							"effect": "If any of your Pokémon were Knocked Out by damage from an attack during your opponent's last turn, this attack does 90 more damage.",
+							"damage": {
+								"plus": 30
+							}
+						},
+						{
+							"types": [
+								"Psychic",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Will-O-Wisp",
+							"effect": null,
+							"damage": {
+								"exact": 90
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Cubone"
+					},
+					"energy": "Psychic",
+					"hp": 120,
+					"weakness": "Dark",
+					"resistance": "Fighting",
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Uta"
+		},
+		{
+			"number": 58,
+			"name": "Mr. Mime",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_058_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Mimic",
+							"effect": "Shuffle your hand into your deck. Then, draw a card for each card in your opponent's hand.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Psychic",
+								"Colourless"
+							],
+							"name": "Psy Bolt",
+							"effect": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed.",
+							"damage": {
+								"exact": 40
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 90,
+					"weakness": "Dark",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "GOTO minori"
+		},
+		{
+			"number": 59,
+			"name": "Shuppet",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_059_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Spooky Shot",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 60,
+					"weakness": "Dark",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "miki kudo"
+		},
+		{
+			"number": 60,
+			"name": "Banette",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_060_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Cursed Words",
+							"effect": "Your opponent chooses 3 cards from their hand and shuffles those cards into their deck.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Psychic",
+								"Colourless"
+							],
+							"name": "Spooky Shot",
+							"effect": null,
+							"damage": {
+								"exact": 70
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Shuppet"
+					},
+					"energy": "Psychic",
+					"hp": 90,
+					"weakness": "Dark",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Anesaki Dynamic"
+		},
+		{
+			"number": 61,
+			"name": "Beldum",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_061_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Spinning Attack",
+							"effect": null,
+							"damage": {
+								"exact": 10
+							}
+						},
+						{
+							"types": [
+								"Psychic",
+								"Psychic"
+							],
+							"name": "Beam",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 60,
+					"weakness": "Dark",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Izucch"
+		},
+		{
+			"number": 62,
+			"name": "Metang",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_062_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Psypunch",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Psychic",
+								"Psychic"
+							],
+							"name": "Zen Headbutt",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Beldum"
+					},
+					"energy": "Psychic",
+					"hp": 100,
+					"weakness": "Dark",
+					"resistance": "Fighting",
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Oswaldo KATO"
+		},
+		{
+			"number": 63,
+			"name": "Metagross",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_063_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Wrack Down",
+							"effect": null,
+							"damage": {
+								"exact": 60
+							}
+						},
+						{
+							"types": [
+								"Psychic",
+								"Psychic"
+							],
+							"name": "Conjoined Beams",
+							"effect": "If Beldum and Metang are on your Bench, this attack does 150 more damage.",
+							"damage": {
+								"plus": 130
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Metang"
+					},
+					"energy": "Psychic",
+					"hp": 170,
+					"weakness": "Dark",
+					"resistance": "Fighting",
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Mitsuhiro Arita"
+		},
+		{
+			"number": 64,
+			"name": "N's Sigilyph",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_064_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Psychic Sphere",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						},
+						{
+							"types": [
+								"Psychic",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Victory Symbol",
+							"effect": "If you use this attack when you have exactly 1 Prize card remaining, you win this game.",
+							"damage": null
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 110,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Shiburingaru"
+		},
+		{
+			"number": 65,
+			"name": "Oricorio",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_065_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Call for Family",
+							"effect": "Search your deck for up to 2 Basic Pokémon and put them onto your Bench. Then, shuffle your deck.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Spooky Shot",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 80,
+					"weakness": "Dark",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "aspara"
+		},
+		{
+			"number": 66,
+			"name": "Lillie's Cutiefly",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_066_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Hold Still",
+							"effect": "Heal 10 damage from this Pokémon.",
+							"damage": null
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 30,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 0,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Saya Tsuruta"
+		},
+		{
+			"number": 67,
+			"name": "Lillie's Ribombee",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_067_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Inviting Wink",
+						"effect": "When you play this Pokémon from your hand to evolve 1 of your Pokémon during your turn, you may have your opponent reveal their hand and you put any number of Basic Pokémon you find there onto their Bench."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Magical Shot",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Lillie's Cutiefly"
+					},
+					"energy": "Psychic",
+					"hp": 70,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 0,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "mashu"
+		},
+		{
+			"number": 68,
+			"name": "Lillie's Comfey",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_068_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Inviting Flowers",
+							"effect": "You may search your deck for any number of Basic Lillie's Pokémon and put them onto your Bench. Then, shuffle your deck.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Fade Out",
+							"effect": "Put this Pokémon and all attached cards into your hand.",
+							"damage": {
+								"exact": 30
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 70,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Narumi Sato"
+		},
+		{
+			"number": 69,
+			"name": "Mimikyu ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_069_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic",
+								"Colourless"
+							],
+							"name": "Mischievous Hands",
+							"effect": "Choose 2 of your opponent's Pokémon and put 3 damage counters on each of them.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Psychic",
+								"Psychic",
+								"Colourless"
+							],
+							"name": "Ghostly Trip",
+							"effect": "Your opponent's Active Pokémon is now Confused.",
+							"damage": {
+								"exact": 120
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 190,
+					"weakness": "Dark",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "PLANETA Igarashi"
+		},
+		{
+			"number": 70,
+			"name": "Dhelmise",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_070_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Bind Down",
+							"effect": "During your opponent's next turn, the Defending Pokémon can't retreat.",
+							"damage": {
+								"exact": 60
+							}
+						},
+						{
+							"types": [
+								"Psychic",
+								"Psychic",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Anchor Smash",
+							"effect": null,
+							"damage": {
+								"exact": 130
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 130,
+					"weakness": "Dark",
+					"resistance": "Fighting",
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Sanosuke Sakuma"
+		},
+		{
+			"number": 71,
+			"name": "Impidimp",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_071_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Gentle Slap",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 70,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Haru Akasaka"
+		},
+		{
+			"number": 72,
+			"name": "Morgrem",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_072_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Light Punch",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Psychic",
+								"Colourless"
+							],
+							"name": "Smash Kick",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Impidimp"
+					},
+					"energy": "Psychic",
+					"hp": 90,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Lee HyunJung"
+		},
+		{
+			"number": 73,
+			"name": "Grimmsnarl",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_073_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Shadowy Knot",
+							"effect": "This attack does 50 damage for each [C] in your opponent's Active Pokémon's Retreat Cost.",
+							"damage": {
+								"multiple": 50
+							}
+						},
+						{
+							"types": [
+								"Psychic",
+								"Colourless"
+							],
+							"name": "Mega Punch",
+							"effect": null,
+							"damage": {
+								"exact": 120
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Morgrem"
+					},
+					"energy": "Psychic",
+					"hp": 170,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Nisota Niso"
+		},
+		{
+			"number": 74,
+			"name": "Milcery",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_074_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Tackle",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 50,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Shibuzoh."
+		},
+		{
+			"number": 75,
+			"name": "Alcremie ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_075_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Confectionary Gift",
+						"effect": "Once during your turn, you may heal 30 damage from 1 of your Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Psychic",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Whipped Shot",
+							"effect": null,
+							"damage": {
+								"exact": 160
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Milcery"
+					},
+					"energy": "Psychic",
+					"hp": 250,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "PLANETA Mochizuki"
+		},
+		{
+			"number": 76,
+			"name": "Cubone",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_076_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Stampede",
+							"effect": null,
+							"damage": {
+								"exact": 10
+							}
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Light Punch",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fighting",
+					"hp": 70,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Mugi Hamada"
+		},
+		{
+			"number": 77,
+			"name": "Swinub",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_077_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Call for Family",
+							"effect": "Search your deck for up to 2 Basic Pokémon and put them onto your Bench. Then, shuffle your deck.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Fighting"
+							],
+							"name": "Lunge Out",
+							"effect": null,
+							"damage": {
+								"exact": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fighting",
+					"hp": 70,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "REND"
+		},
+		{
+			"number": 78,
+			"name": "Piloswine",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_078_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Strength",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						},
+						{
+							"types": [
+								"Fighting",
+								"Fighting"
+							],
+							"name": "Impaling Tusk",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Swinub"
+					},
+					"energy": "Fighting",
+					"hp": 100,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Aliya Chen"
+		},
+		{
+			"number": 79,
+			"name": "Mamoswine ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_079_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Mammoth Hauler",
+						"effect": "Once during your turn, you may search your deck for a Pokémon, reveal it, and put it into your hand. Then, shuffle your deck."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Fighting",
+								"Fighting"
+							],
+							"name": "Rumbling March",
+							"effect": "This attack does 40 more damage for each Stage 2 Pokémon on your Bench.",
+							"damage": {
+								"plus": 180
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Piloswine"
+					},
+					"energy": "Fighting",
+					"hp": 340,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 4,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Nisota Niso"
+		},
+		{
+			"number": 80,
+			"name": "Larvitar",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_080_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Crunch",
+							"effect": "Flip a coin. If heads, discard an Energy from your opponent's Active Pokémon.",
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fighting",
+					"hp": 70,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Dsuke"
+		},
+		{
+			"number": 81,
+			"name": "Pupitar",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_081_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Take Down",
+							"effect": "This Pokémon also does 20 damage to itself.",
+							"damage": {
+								"exact": 60
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Larvitar"
+					},
+					"energy": "Fighting",
+					"hp": 90,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Scav"
+		},
+		{
+			"number": 82,
+			"name": "Regirock",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_082_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Rock Armor",
+						"effect": "If this Pokémon has any Energy attached, it takes 30 less damage from attacks (after applying Weakness and Resistance)."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Fighting",
+								"Fighting",
+								"Fighting"
+							],
+							"name": "Breaching Lariat",
+							"effect": "This attack's damage isn't affected by Resistance.",
+							"damage": {
+								"exact": 120
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fighting",
+					"hp": 130,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Uta"
+		},
+		{
+			"number": 83,
+			"name": "Pancham",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_083_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Corkscrew Punch",
+							"effect": null,
+							"damage": {
+								"exact": 10
+							}
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Focus Fist",
+							"effect": "Flip a coin. If tails, this attack does nothing.",
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fighting",
+					"hp": 60,
+					"weakness": "Psychic",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Yuriko Akase"
+		},
+		{
+			"number": 84,
+			"name": "Rockruff",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_084_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Dig It Up",
+							"effect": "Look at the top card of your deck. You may discard that card.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Stampede",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fighting",
+					"hp": 70,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Yoshimi Miyoshi"
+		},
+		{
+			"number": 85,
+			"name": "Lycanroc",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_085_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Spike-Clad",
+						"effect": "When you play this Pokémon from your hand to evolve 1 of your Pokémon during your turn, you may attach up to 2 Spiky Energy cards from your discard pile to this Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Clamping Fangs",
+							"effect": "This attack does 40 more damage for each damage counter on your opponent's Active Pokémon.",
+							"damage": {
+								"plus": 40
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Rockruff"
+					},
+					"energy": "Fighting",
+					"hp": 120,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Shiburingaru"
+		},
+		{
+			"number": 86,
+			"name": "Hop's Silicobra",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_086_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Turf Maker",
+							"effect": "Search your deck for a Stadium card, reveal it, and put it into your hand. Then, shuffle your deck.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Fighting",
+								"Colourless"
+							],
+							"name": "Gnaw",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fighting",
+					"hp": 80,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "aspara"
+		},
+		{
+			"number": 87,
+			"name": "Hop's Sandaconda",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_087_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fighting",
+								"Colourless"
+							],
+							"name": "Rumble",
+							"effect": "During your opponent's next turn, the Defending Pokémon can't retreat.",
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Fighting",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Break Ground",
+							"effect": "This attack also does 20 damage to each of your Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+							"damage": {
+								"exact": 140
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Hop's Silicobra"
+					},
+					"energy": "Fighting",
+					"hp": 140,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Sanosuke Sakuma"
+		},
+		{
+			"number": 88,
+			"name": "Toedscool",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_088_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Spray Fluid",
+							"effect": null,
+							"damage": {
+								"exact": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fighting",
+					"hp": 60,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "osare"
+		},
+		{
+			"number": 89,
+			"name": "Toedscruel",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_089_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Secret Forest Path",
+						"effect": "As long as this Pokémon is on your Bench, your Active Pokémon's Retreat Cost is [C][C] less."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Fighting",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Mud Shot",
+							"effect": null,
+							"damage": {
+								"exact": 80
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Toedscool"
+					},
+					"energy": "Fighting",
+					"hp": 130,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Masako Tomii"
+		},
+		{
+			"number": 90,
+			"name": "Klawf",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_090_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Snipping Pincers",
+							"effect": "Flip 2 coins. For each heads, discard an Energy from your opponent's Active Pokémon.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Fighting",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Hammer In",
+							"effect": null,
+							"damage": {
+								"exact": 100
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fighting",
+					"hp": 120,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Shinya Komatsu"
+		},
+		{
+			"number": 91,
+			"name": "Koffing",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_091_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Tackle",
+							"effect": null,
+							"damage": {
+								"exact": 10
+							}
+						},
+						{
+							"types": [
+								"Dark",
+								"Colourless"
+							],
+							"name": "Suffocating Gas",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Dark",
+					"hp": 60,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Rond"
+		},
+		{
+			"number": 92,
+			"name": "Weezing",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_092_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Dark"
+							],
+							"name": "Pervasive Gas",
+							"effect": "Your opponent's Active Pokémon is now Confused.",
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Dark",
+								"Colourless"
+							],
+							"name": "Crazy Blast",
+							"effect": "If this Pokémon used Pervasive Gas during your last turn, this attack does 120 more damage.",
+							"damage": {
+								"plus": 50
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Koffing"
+					},
+					"energy": "Dark",
+					"hp": 130,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "KEIICHIRO ITO"
+		},
+		{
+			"number": 93,
+			"name": "Paldean Wooper",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_093_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Dark"
+							],
+							"name": "Trip Over",
+							"effect": "Flip a coin. If heads, this attack does 20 more damage.",
+							"damage": {
+								"plus": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Dark",
+					"hp": 60,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Lee HyunJung"
+		},
+		{
+			"number": 94,
+			"name": "Paldean Clodsire ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_094_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Dark",
+								"Colourless"
+							],
+							"name": "Poison Ring",
+							"effect": "Your opponent's Active Pokémon is now Poisoned. During your opponent's next turn, that Pokémon can't retreat.",
+							"damage": {
+								"exact": 60
+							}
+						},
+						{
+							"types": [
+								"Dark",
+								"Dark",
+								"Colourless"
+							],
+							"name": "Giga Impact",
+							"effect": "During your next turn, this Pokémon can't attack.",
+							"damage": {
+								"exact": 220
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Paldean Wooper"
+					},
+					"energy": "Dark",
+					"hp": 280,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "PLANETA Tsuji"
+		},
+		{
+			"number": 95,
+			"name": "Tyranitar",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_095_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Daunting Gaze",
+						"effect": "As long as this Pokémon is in the Active Spot, your opponent can't play any Item cards from their hand."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Dark",
+								"Colourless"
+							],
+							"name": "Cracking Stomp",
+							"effect": "Discard the top 2 cards of your opponent's deck.",
+							"damage": {
+								"exact": 150
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Pupitar"
+					},
+					"energy": "Dark",
+					"hp": 190,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "AKIRA EGAWA"
+		},
+		{
+			"number": 96,
+			"name": "N's Purrloin",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_096_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Dark",
+								"Colourless"
+							],
+							"name": "Thieving Swipe",
+							"effect": "Your opponent reveals their hand, and you choose a card you find there and put it on the bottom of their deck.",
+							"damage": {
+								"exact": 30
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Dark",
+					"hp": 70,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Keisin"
+		},
+		{
+			"number": 97,
+			"name": "N's Zorua",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_097_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Dark"
+							],
+							"name": "Scratch",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Dark",
+					"hp": 70,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Jiro Sasumo"
+		},
+		{
+			"number": 98,
+			"name": "N's Zoroark ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_098_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Trade",
+						"effect": "You must discard a card from your hand in order to use this Ability. Once during your turn, you may draw 2 cards."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Dark",
+								"Dark"
+							],
+							"name": "Night Joker",
+							"effect": "Choose 1 of your Benched N's Pokémon's attacks and use it as this attack.",
+							"damage": null
+						}
+					],
+					"stage": {
+						"stage1": "N's Zorua"
+					},
+					"energy": "Dark",
+					"hp": 280,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "takuyoa"
+		},
+		{
+			"number": 99,
+			"name": "Pangoro",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_099_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Dark"
+							],
+							"name": "Torment",
+							"effect": "Choose 1 of your opponent's Active Pokémon's attacks. During your opponent's next turn, that Pokémon can't use that attack.",
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Dark",
+								"Dark",
+								"Colourless"
+							],
+							"name": "Power Tackle",
+							"effect": "During your next turn, this Pokémon can't attack.",
+							"damage": {
+								"exact": 160
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Pancham"
+					},
+					"energy": "Dark",
+					"hp": 140,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "nagimiso"
+		},
+		{
+			"number": 100,
+			"name": "Lokix",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_100_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Dark"
+							],
+							"name": "Low Sweep",
+							"effect": null,
+							"damage": {
+								"exact": 60
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Nymble"
+					},
+					"energy": "Dark",
+					"hp": 120,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "AKIRA EGAWA"
+		},
+		{
+			"number": 101,
+			"name": "Bombirdier",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_101_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Glide",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						},
+						{
+							"types": [
+								"Dark",
+								"Dark",
+								"Colourless"
+							],
+							"name": "Drop Shot",
+							"effect": "Discard all Energy from this Pokémon, and this attack does 120 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+							"damage": null
+						}
+					],
+					"stage": "basic",
+					"energy": "Dark",
+					"hp": 120,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Gemi"
+		},
+		{
+			"number": 102,
+			"name": "Escavalier",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_102_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Pierce",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						},
+						{
+							"types": [
+								"Metal",
+								"Colourless"
+							],
+							"name": "Iron Buster",
+							"effect": "During your next turn, this Pokémon can't attack.",
+							"damage": {
+								"exact": 120
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Karrablast"
+					},
+					"energy": "Metal",
+					"hp": 120,
+					"weakness": "Fire",
+					"resistance": "Grass",
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Takumi Wada"
+		},
+		{
+			"number": 103,
+			"name": "N's Klink",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_103_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Double Spin",
+							"effect": "Flip 2 coins. This attack does 10 damage for each heads.",
+							"damage": {
+								"multiple": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Metal",
+					"hp": 60,
+					"weakness": "Fire",
+					"resistance": "Grass",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Saboteri"
+		},
+		{
+			"number": 104,
+			"name": "N's Klang",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_104_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Spinning Gears",
+							"effect": "Your opponent's Active Pokémon is now Confused.",
+							"damage": {
+								"exact": 20
+							}
+						},
+						{
+							"types": [
+								"Metal",
+								"Colourless"
+							],
+							"name": "Confront",
+							"effect": null,
+							"damage": {
+								"exact": 40
+							}
+						}
+					],
+					"stage": {
+						"stage1": "N's Klink"
+					},
+					"energy": "Metal",
+					"hp": 90,
+					"weakness": "Fire",
+					"resistance": "Grass",
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "KEIICHIRO ITO"
+		},
+		{
+			"number": 105,
+			"name": "N's Klinklang",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_105_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Magnetic Blast",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						},
+						{
+							"types": [
+								"Metal",
+								"Metal",
+								"Colourless"
+							],
+							"name": "Triple Smash",
+							"effect": "Flip 3 coins. This attack does 120 damage for each heads.",
+							"damage": {
+								"multiple": 120
+							}
+						}
+					],
+					"stage": {
+						"stage2": "N's Klang"
+					},
+					"energy": "Metal",
+					"hp": 160,
+					"weakness": "Fire",
+					"resistance": "Grass",
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "matazo"
+		},
+		{
+			"number": 106,
+			"name": "Galarian Stunfisk",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_106_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Mud-Slap",
+							"effect": null,
+							"damage": {
+								"exact": 40
+							}
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Bounding Bite",
+							"effect": "This Pokémon also does 30 damage to itself.",
+							"damage": {
+								"exact": 100
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Metal",
+					"hp": 100,
+					"weakness": "Fire",
+					"resistance": "Grass",
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Aya Kusube"
+		},
+		{
+			"number": 107,
+			"name": "Magearna",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_107_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Auto Heal",
+						"effect": "As long as this Pokémon is in the Active Spot, whenever you attach an Energy card from your hand to 1 of your Pokémon, heal 90 damage from that Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Spike Draw",
+							"effect": "Draw 2 cards.",
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Metal",
+					"hp": 90,
+					"weakness": "Fire",
+					"resistance": "Grass",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "rika"
+		},
+		{
+			"number": 108,
+			"name": "Hop's Corviknight",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_108_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Shoot Through",
+							"effect": "This attack also does 50 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+							"damage": {
+								"exact": 50
+							}
+						},
+						{
+							"types": [
+								"Metal",
+								"Metal",
+								"Colourless"
+							],
+							"name": "Steel Wing",
+							"effect": "During your opponent's next turn, this Pokémon takes 60 less damage from attacks (after applying Weakness and Resistance).",
+							"damage": {
+								"exact": 150
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Hop's Corvisquire"
+					},
+					"energy": "Metal",
+					"hp": 170,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "GIDORA"
+		},
+		{
+			"number": 109,
+			"name": "Cufant",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_109_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Metal",
+								"Metal",
+								"Colourless"
+							],
+							"name": "Rollout",
+							"effect": null,
+							"damage": {
+								"exact": 80
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Metal",
+					"hp": 100,
+					"weakness": "Fire",
+					"resistance": "Grass",
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "kodama"
+		},
+		{
+			"number": 110,
+			"name": "Copperajah",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_110_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Metal",
+								"Metal",
+								"Colourless"
+							],
+							"name": "Ram",
+							"effect": null,
+							"damage": {
+								"exact": 100
+							}
+						},
+						{
+							"types": [
+								"Metal",
+								"Metal",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Mega Impact",
+							"effect": null,
+							"damage": {
+								"exact": 160
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Cufant"
+					},
+					"energy": "Metal",
+					"hp": 190,
+					"weakness": "Fire",
+					"resistance": "Grass",
+					"retreat": 4,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Ryuta Fuse"
+		},
+		{
+			"number": 111,
+			"name": "Hop's Zacian ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_111_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Insta-Strike",
+							"effect": "This attack also does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Metal",
+								"Metal",
+								"Metal",
+								"Colourless"
+							],
+							"name": "Brave Slash",
+							"effect": "During your next turn, this Pokémon can't use Brave Slash.",
+							"damage": {
+								"exact": 240
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Metal",
+					"hp": 230,
+					"weakness": "Fire",
+					"resistance": "Grass",
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "aky CG Works"
+		},
+		{
+			"number": 112,
+			"name": "Bagon",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_112_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Bite",
+							"effect": null,
+							"damage": {
+								"exact": 10
+							}
+						},
+						{
+							"types": [
+								"Fire",
+								"Water"
+							],
+							"name": "Reckless Charge",
+							"effect": "This Pokémon also does 10 damage to itself.",
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Dragon",
+					"hp": 70,
+					"weakness": null,
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Miki Tanaka"
+		},
+		{
+			"number": 113,
+			"name": "Shelgon",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_113_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Guard Press",
+							"effect": "During your opponent's next turn, this Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Fire",
+								"Water",
+								"Colourless"
+							],
+							"name": "Heavy Impact",
+							"effect": null,
+							"damage": {
+								"exact": 80
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Bagon"
+					},
+					"energy": "Dragon",
+					"hp": 100,
+					"weakness": null,
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Julie Hang"
+		},
+		{
+			"number": 114,
+			"name": "Salamence ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_114_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Wide Blast",
+							"effect": "This attack does 50 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+							"damage": null
+						},
+						{
+							"types": [
+								"Fire",
+								"Water",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Dragon Impact",
+							"effect": "Discard 2 Energy from this Pokémon.",
+							"damage": {
+								"exact": 300
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Shelgon"
+					},
+					"energy": "Dragon",
+					"hp": 320,
+					"weakness": null,
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "toriyufu"
+		},
+		{
+			"number": 115,
+			"name": "Druddigon",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_115_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Dragon's Fury",
+							"effect": "Attach a Basic [R] Energy card from your discard pile to 1 of your [N] Pokémon.",
+							"damage": {
+								"exact": 20
+							}
+						},
+						{
+							"types": [
+								"Fire",
+								"Water",
+								"Colourless"
+							],
+							"name": "Slashing Claw",
+							"effect": null,
+							"damage": {
+								"exact": 120
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Dragon",
+					"hp": 120,
+					"weakness": null,
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "kawayoo"
+		},
+		{
+			"number": 116,
+			"name": "N's Reshiram",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_116_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Lightning"
+							],
+							"name": "Powerful Rage",
+							"effect": "This attack does 20 damage for each damage counter on this Pokémon.",
+							"damage": {
+								"multiple": 20
+							}
+						},
+						{
+							"types": [
+								"Fire",
+								"Fire",
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Virtuous Flame",
+							"effect": null,
+							"damage": {
+								"exact": 170
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Dragon",
+					"hp": 130,
+					"weakness": null,
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "rika"
+		},
+		{
+			"number": 117,
+			"name": "Hop's Snorlax",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_117_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Extra Helpings",
+						"effect": "Attacks used by your Hop's Pokémon do 30 more damage to your opponent's Active Pokémon (before applying Weakness and Resistance). The effect of Extra Helpings doesn't stack."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Dynamic Press",
+							"effect": "This Pokémon also does 80 damage to itself.",
+							"damage": {
+								"exact": 140
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 150,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 4,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "GOSSAN"
+		},
+		{
+			"number": 118,
+			"name": "Sentret",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_118_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Smack",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 60,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Taiga Kayama"
+		},
+		{
+			"number": 119,
+			"name": "Furret",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_119_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Scratch",
+							"effect": null,
+							"damage": {
+								"exact": 40
+							}
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Jet Headbutt",
+							"effect": null,
+							"damage": {
+								"exact": 70
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Sentret"
+					},
+					"energy": "Colourless",
+					"hp": 120,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Tomomi Ozaki"
+		},
+		{
+			"number": 120,
+			"name": "Dunsparce",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_120_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Trading Places",
+							"effect": "Switch this Pokémon with 1 of your Benched Pokémon.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Ram",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 70,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Asako Ito"
+		},
+		{
+			"number": 121,
+			"name": "Dudunsparce ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_121_R_EN_LG.png",
+			"rarity": "DoubleRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Tenacious Tail",
+							"effect": "This attack does 60 damage for each of your opponent's Pokémon ex in play.",
+							"damage": {
+								"multiple": 60
+							}
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Destructive Drill",
+							"effect": "This attack's damage isn't affected by any effects on your opponent's Active Pokémon.",
+							"damage": {
+								"exact": 150
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Dunsparce"
+					},
+					"energy": "Colourless",
+					"hp": 270,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "5ban Graphics"
+		},
+		{
+			"number": 122,
+			"name": "Kecleon",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_122_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Stealth Attack",
+							"effect": "Flip a coin. If heads, during your opponent's next turn, prevent all damage from and effects of attacks done to this Pokémon.",
+							"damage": {
+								"exact": 80
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 80,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "0313"
+		},
+		{
+			"number": 123,
+			"name": "Tropius",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_123_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Fruit Bearing",
+							"effect": "Discard a card from your hand. If you do, draw 3 cards.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Gust",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 110,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Atsuya Uki"
+		},
+		{
+			"number": 124,
+			"name": "Audino",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_124_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Beckon",
+							"effect": "Put a Supporter card from your discard pile into your hand.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Zen Headbutt",
+							"effect": null,
+							"damage": {
+								"exact": 70
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 110,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Minahamu"
+		},
+		{
+			"number": 125,
+			"name": "Minccino",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_125_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Slap",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 70,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Oswaldo KATO"
+		},
+		{
+			"number": 126,
+			"name": "Cinccino",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_126_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Tail Smack",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Minccino"
+					},
+					"energy": "Colourless",
+					"hp": 100,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "En Morikura"
+		},
+		{
+			"number": 127,
+			"name": "Noibat",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_127_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Rapid Draw",
+							"effect": "Draw a card.",
+							"damage": {
+								"exact": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 60,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Tomokazu Komiya"
+		},
+		{
+			"number": 128,
+			"name": "Noivern",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_128_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Tuning Echo",
+						"effect": "If you have the same number of cards in your hand as your opponent, ignore all Energy in the cost of Frightening Howl used by this Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Frightening Howl",
+							"effect": "Your opponent's Active Pokémon is now Confused.",
+							"damage": {
+								"exact": 110
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Noibat"
+					},
+					"energy": "Colourless",
+					"hp": 110,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 0,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Anesaki Dynamic"
+		},
+		{
+			"number": 129,
+			"name": "Komala",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_129_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Slumbering Smack",
+							"effect": "Both Active Pokémon are now Asleep. During your next turn, attacks used by this Pokémon do 100 more damage to your opponent's Active Pokémon (before applying Weakness and Resistance).",
+							"damage": {
+								"exact": 30
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 100,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Natsumi Yoshida"
+		},
+		{
+			"number": 130,
+			"name": "Drampa",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_130_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Ram",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Dragon Claw",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 120,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Tetsu Kayama"
+		},
+		{
+			"number": 131,
+			"name": "Skwovet",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_131_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Collect",
+							"effect": "Draw a card.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Gnaw",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 60,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "sowsow"
+		},
+		{
+			"number": 132,
+			"name": "Greedent",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_132_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Gluttonous Tail",
+							"effect": "Draw 2 cards.",
+							"damage": {
+								"exact": 60
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Skwovet"
+					},
+					"energy": "Colourless",
+					"hp": 120,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Jerky"
+		},
+		{
+			"number": 133,
+			"name": "Hop's Rookidee",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_133_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Intimidating Stare",
+							"effect": "During your opponent's next turn, attacks used by the Defending Pokémon do 20 less damage (before applying Weakness and Resistance).",
+							"damage": null
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Peck",
+							"effect": null,
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 60,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Shinya Mizuno"
+		},
+		{
+			"number": 134,
+			"name": "Hop's Corvisquire",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_134_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Speed Dive",
+							"effect": null,
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Razor Wing",
+							"effect": null,
+							"damage": {
+								"exact": 80
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Hop's Rookidee"
+					},
+					"energy": "Colourless",
+					"hp": 90,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Souichirou Gunjima"
+		},
+		{
+			"number": 135,
+			"name": "Hop's Wooloo",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_135_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Smash Kick",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 70,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Tomomi Ozaki"
+		},
+		{
+			"number": 136,
+			"name": "Hop's Dubwool",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_136_R_EN_LG.png",
+			"rarity": "Rare",
+			"variants": [
+				"Foil",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Defiant Horn",
+						"effect": "When you play this Pokémon from your hand to evolve 1 of your Pokémon during your turn, you may switch in 1 of your opponent's Benched Pokémon to the Active Spot."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Headbutt",
+							"effect": null,
+							"damage": {
+								"exact": 80
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Hop's Wooloo"
+					},
+					"energy": "Colourless",
+					"hp": 120,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Ryota Murayama"
+		},
+		{
+			"number": 137,
+			"name": "Cramorant",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_137_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Ceaseless Spitting",
+							"effect": "Flip a coin until you get tails. This attack does 50 damage for each heads.",
+							"damage": {
+								"multiple": 50
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 110,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Tomomi Ozaki"
+		},
+		{
+			"number": 138,
+			"name": "Hop's Cramorant",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_138_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Fickle Spitting",
+							"effect": "If your opponent doesn't have exactly 3 or 4 Prize cards remaining, this attack does nothing.",
+							"damage": {
+								"exact": 120
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 110,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Saboteri"
+		},
+		{
+			"number": 139,
+			"name": "Lechonk",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_139_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Ram",
+							"effect": null,
+							"damage": {
+								"exact": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 70,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "OKACHEKE"
+		},
+		{
+			"number": 140,
+			"name": "Oinkologne",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_140_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Aromatic Stomps",
+							"effect": "Flip a coin. If heads, during your opponent's next turn, the Defending Pokémon can't attack.",
+							"damage": {
+								"exact": 50
+							}
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Headbutt Bounce",
+							"effect": null,
+							"damage": {
+								"exact": 120
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Lechonk"
+					},
+					"energy": "Colourless",
+					"hp": 120,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Mina Nakai"
+		},
+		{
+			"number": 141,
+			"name": "Squawkabilly",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_141_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Add On",
+							"effect": "Draw 2 cards.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Hyper Voice",
+							"effect": null,
+							"damage": {
+								"exact": 40
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 70,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "sowsow"
+		},
+		{
+			"number": 142,
+			"name": "Billy & O'Nare",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_142_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "supporter",
+					"text": "Draw 2 cards. Then, if you have 10 or more cards in your hand, draw 2 more cards."
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "Sanosuke Sakuma"
+		},
+		{
+			"number": 143,
+			"name": "Black Belt's Training",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_143_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "supporter",
+					"text": "During this turn, attacks used by your Pokémon do 40 more damage to your opponent's Active Pokémon ex (before applying Weakness and Resistance)."
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "GOSSAN"
+		},
+		{
+			"number": 144,
+			"name": "Black Belt's Training",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_144_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "supporter",
+					"text": "During this turn, attacks used by your Pokémon do 40 more damage to your opponent's Active Pokémon ex (before applying Weakness and Resistance)."
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "GOSSAN"
+		},
+		{
+			"number": 145,
+			"name": "Black Belt's Training",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_145_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "supporter",
+					"text": "During this turn, attacks used by your Pokémon do 40 more damage to your opponent's Active Pokémon ex (before applying Weakness and Resistance)."
+				}
+			},
+			"regulation_mark": "H",
+			"illustrator": "GOSSAN"
+		},
+		{
+			"number": 146,
+			"name": "Brock's Scouting",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_146_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "supporter",
+					"text": "Search your deck for up to 2 Basic Pokémon or 1 Evolution Pokémon, reveal them, and put them into your hand. Then, shuffle your deck."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Teeziro"
+		},
+		{
+			"number": 147,
+			"name": "Hop's Bag",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_147_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": {
+						"item": {
+							"ability": null,
+							"hp": null
+						}
+					},
+					"text": "Search your deck for up to 2 Basic Hop's Pokémon and put them onto your Bench. Then, shuffle your deck."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "AYUMI ODASHIMA"
+		},
+		{
+			"number": 148,
+			"name": "Hop's Choice Band",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_148_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": {
+						"tool": {
+							"attack": null
+						}
+					},
+					"text": "Attacks used by the Hop's Pokémon this card is attached to cost [C] less and do 30 more damage to your opponent's Active Pokémon (before applying Weakness and Resistance)."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Toyste Beach"
+		},
+		{
+			"number": 149,
+			"name": "Iris's Fighting Spirit",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_149_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "supporter",
+					"text": "You can use this card only if you discard another card from your hand.Draw cards until you have 6 cards in your hand."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "yuu"
+		},
+		{
+			"number": 150,
+			"name": "Levincia",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_150_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "stadium",
+					"text": "Once during each player's turn, that player may put up to 2 Basic [L] Energy cards from their discard pile into their hand."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "MARINA Chikazawa"
+		},
+		{
+			"number": 151,
+			"name": "Lillie's Pearl",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_151_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": {
+						"tool": {
+							"attack": null
+						}
+					},
+					"text": "If the Lillie's Pokémon this card is attached to is Knocked Out by damage from an attack from your opponent's Pokémon, that player takes 1 fewer Prize card."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "AYUMI ODASHIMA"
+		},
+		{
+			"number": 152,
+			"name": "N's Castle",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_152_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "stadium",
+					"text": "N's Pokémon in play (both yours and your opponent's) have no Retreat Cost."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "AYUMI ODASHIMA"
+		},
+		{
+			"number": 153,
+			"name": "N's PP Up",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_153_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": {
+						"item": {
+							"ability": null,
+							"hp": null
+						}
+					},
+					"text": "Attach a Basic Energy card from your discard pile to 1 of your Benched N's Pokémon."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Toyste Beach"
+		},
+		{
+			"number": 154,
+			"name": "Postwick",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_154_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "stadium",
+					"text": "Attacks used by Hop's Pokémon (both yours and your opponent's) do 30 more damage to the opponent's Active Pokémon (before applying Weakness and Resistance)."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "AYUMI ODASHIMA"
+		},
+		{
+			"number": 155,
+			"name": "Professor's Research",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_155_R_EN_LG.png",
+			"rarity": "Common",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "supporter",
+					"text": "Discard your hand and draw 7 cards."
+				}
+			},
+			"regulation_mark": "G",
+			"illustrator": "Taira Akitsu"
+		},
+		{
+			"number": 156,
+			"name": "Redeemable Ticket",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_156_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": {
+						"item": {
+							"ability": null,
+							"hp": null
+						}
+					},
+					"text": "Count your Prize cards, shuffle them, and put them on the bottom of your deck. Then, take that many cards from the top of your deck and put them face down as your Prize cards."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Studio Bora Inc."
+		},
+		{
+			"number": 157,
+			"name": "Ruffian",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_157_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "supporter",
+					"text": "Discard a Pokémon Tool and a Special Energy from 1 of your opponent's Pokémon."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Hideki Ishikawa"
+		},
+		{
+			"number": 158,
+			"name": "Super Potion",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_158_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": {
+						"item": {
+							"ability": null,
+							"hp": null
+						}
+					},
+					"text": "Heal 60 damage from 1 of your Pokémon. If you do, discard an Energy attached to that Pokémon."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Studio Bora Inc."
+		},
+		{
+			"number": 159,
+			"name": "Spiky Energy",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_159_R_EN_LG.png",
+			"rarity": "Uncommon",
+			"variants": [
+				"Regular",
+				"Parallel"
+			],
+			"card_varient": {
+				"energy": {
+					"special": {
+						"text": "As long as this card is attached to a Pokémon, it provides [C] Energy.If the Pokémon this card is attached to is in the Active Spot and is damaged by an attack from your opponent's Pokémon (even if this Pokémon is Knocked Out), put 2 damage counters on the Attacking Pokémon."
+					}
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": null
+		},
+		{
+			"number": 160,
+			"name": "Maractus",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_160_R_EN_LG.png",
+			"rarity": "IllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Exploding Needles",
+						"effect": "If this Pokémon is in the Active Spot and is Knocked Out by damage from an attack from your opponent's Pokémon, put 6 damage counters on the Attacking Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Corner",
+							"effect": "During your opponent's next turn, the Defending Pokémon can't retreat.",
+							"damage": {
+								"exact": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Grass",
+					"hp": 110,
+					"weakness": "Fire",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Ounishi"
+		},
+		{
+			"number": 161,
+			"name": "Articuno",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_161_R_EN_LG.png",
+			"rarity": "IllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Frigid Fluttering",
+							"effect": "Search your deck for up to 2 Basic [W] Energy cards and attach them to this Pokémon. Then, shuffle your deck.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Water",
+								"Water",
+								"Colourless"
+							],
+							"name": "Ice Blast",
+							"effect": null,
+							"damage": {
+								"exact": 110
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Water",
+					"hp": 110,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Kuroimori"
+		},
+		{
+			"number": 162,
+			"name": "Wailord",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_162_R_EN_LG.png",
+			"rarity": "IllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Hydro Pump",
+							"effect": "This attack does 50 more damage for each [W] Energy attached to this Pokémon.",
+							"damage": {
+								"plus": 10
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Wailmer"
+					},
+					"energy": "Water",
+					"hp": 240,
+					"weakness": "Lightning",
+					"resistance": null,
+					"retreat": 4,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Katsunori Sato"
+		},
+		{
+			"number": 163,
+			"name": "Iono's Kilowattrel",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_163_R_EN_LG.png",
+			"rarity": "IllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Flashing Draw",
+						"effect": "You must discard a Basic [L] Energy from this Pokémon in order to use this Ability. Once during your turn, you may draw cards until you have 6 cards in your hand."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Lightning",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Mach Bolt",
+							"effect": null,
+							"damage": {
+								"exact": 70
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Iono's Wattrel"
+					},
+					"energy": "Lightning",
+					"hp": 120,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Terada Tera"
+		},
+		{
+			"number": 164,
+			"name": "Lillie's Ribombee",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_164_R_EN_LG.png",
+			"rarity": "IllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Inviting Wink",
+						"effect": "When you play this Pokémon from your hand to evolve 1 of your Pokémon during your turn, you may have your opponent reveal their hand and you put any number of Basic Pokémon you find there onto their Bench."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Psychic"
+							],
+							"name": "Magical Shot",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Lillie's Cutiefly"
+					},
+					"energy": "Psychic",
+					"hp": 70,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 0,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "saino misaki"
+		},
+		{
+			"number": 165,
+			"name": "Swinub",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_165_R_EN_LG.png",
+			"rarity": "IllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Call for Family",
+							"effect": "Search your deck for up to 2 Basic Pokémon and put them onto your Bench. Then, shuffle your deck.",
+							"damage": null
+						},
+						{
+							"types": [
+								"Fighting"
+							],
+							"name": "Lunge Out",
+							"effect": null,
+							"damage": {
+								"exact": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fighting",
+					"hp": 70,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Nakamura Ippan"
+		},
+		{
+			"number": 166,
+			"name": "Lycanroc",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_166_R_EN_LG.png",
+			"rarity": "IllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Spike-Clad",
+						"effect": "When you play this Pokémon from your hand to evolve 1 of your Pokémon during your turn, you may attach up to 2 Spiky Energy cards from your discard pile to this Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Clamping Fangs",
+							"effect": "This attack does 40 more damage for each damage counter on your opponent's Active Pokémon.",
+							"damage": {
+								"plus": 40
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Rockruff"
+					},
+					"energy": "Fighting",
+					"hp": 120,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "GIDORA"
+		},
+		{
+			"number": 167,
+			"name": "N's Reshiram",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_167_R_EN_LG.png",
+			"rarity": "IllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Lightning"
+							],
+							"name": "Powerful Rage",
+							"effect": "This attack does 20 damage for each damage counter on this Pokémon.",
+							"damage": {
+								"multiple": 20
+							}
+						},
+						{
+							"types": [
+								"Fire",
+								"Fire",
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Virtuous Flame",
+							"effect": null,
+							"damage": {
+								"exact": 170
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Dragon",
+					"hp": 130,
+					"weakness": null,
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Bun Toujo"
+		},
+		{
+			"number": 168,
+			"name": "Furret",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_168_R_EN_LG.png",
+			"rarity": "IllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Scratch",
+							"effect": null,
+							"damage": {
+								"exact": 40
+							}
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Jet Headbutt",
+							"effect": null,
+							"damage": {
+								"exact": 70
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Sentret"
+					},
+					"energy": "Colourless",
+					"hp": 120,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "REND"
+		},
+		{
+			"number": 169,
+			"name": "Noibat",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_169_R_EN_LG.png",
+			"rarity": "IllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Rapid Draw",
+							"effect": "Draw a card.",
+							"damage": {
+								"exact": 10
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 60,
+					"weakness": "Lightning",
+					"resistance": "Fighting",
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "sowsow"
+		},
+		{
+			"number": 170,
+			"name": "Hop's Wooloo",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_170_R_EN_LG.png",
+			"rarity": "IllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Smash Kick",
+							"effect": null,
+							"damage": {
+								"exact": 50
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Colourless",
+					"hp": 70,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "MINAMINAMI Take"
+		},
+		{
+			"number": 171,
+			"name": "Volcanion ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_171_R_EN_LG.png",
+			"rarity": "UltraRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Scalding Steam",
+						"effect": "Once during your turn, if this Pokémon is in the Active Spot, you may make your opponent's Active Pokémon Burned."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Fire",
+								"Colourless"
+							],
+							"name": "Scorching Cyclone",
+							"effect": "Move an Energy from this Pokémon to 1 of your Benched Pokémon.",
+							"damage": {
+								"exact": 160
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fire",
+					"hp": 220,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "5ban Graphics"
+		},
+		{
+			"number": 172,
+			"name": "Iono's Bellibolt ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_172_R_EN_LG.png",
+			"rarity": "UltraRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Electric Streamer",
+						"effect": "As often as you like during your turn, you may attach a Basic [L] Energy card from your hand to 1 of your Iono's Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Lightning",
+								"Lightning",
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Thunderous Bolt",
+							"effect": "During your next turn, this Pokémon can't attack.",
+							"damage": {
+								"exact": 230
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Iono's Tadbulb"
+					},
+					"energy": "Lightning",
+					"hp": 280,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "5ban Graphics"
+		},
+		{
+			"number": 173,
+			"name": "Lillie's Clefairy ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_173_R_EN_LG.png",
+			"rarity": "UltraRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Fairy Zone",
+						"effect": "The Weakness of each of your opponent's [N] Pokémon in play is now [P]. (Apply Weakness as ×2.)"
+					},
+					"attacks": [
+						{
+							"types": [
+								"Psychic",
+								"Colourless"
+							],
+							"name": "Full Moon Rondo",
+							"effect": "This attack does 20 more damage for each Benched Pokémon (both yours and your opponent's).",
+							"damage": {
+								"plus": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 190,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "5ban Graphics"
+		},
+		{
+			"number": 174,
+			"name": "Mamoswine ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_174_R_EN_LG.png",
+			"rarity": "UltraRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Mammoth Hauler",
+						"effect": "Once during your turn, you may search your deck for a Pokémon, reveal it, and put it into your hand. Then, shuffle your deck."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Fighting",
+								"Fighting"
+							],
+							"name": "Rumbling March",
+							"effect": "This attack does 40 more damage for each Stage 2 Pokémon on your Bench.",
+							"damage": {
+								"plus": 180
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Piloswine"
+					},
+					"energy": "Fighting",
+					"hp": 340,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 4,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "N-DESIGN Inc."
+		},
+		{
+			"number": 175,
+			"name": "N's Zoroark ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_175_R_EN_LG.png",
+			"rarity": "UltraRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Trade",
+						"effect": "You must discard a card from your hand in order to use this Ability. Once during your turn, you may draw 2 cards."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Dark",
+								"Dark"
+							],
+							"name": "Night Joker",
+							"effect": "Choose 1 of your Benched N's Pokémon's attacks and use it as this attack.",
+							"damage": null
+						}
+					],
+					"stage": {
+						"stage1": "N's Zorua"
+					},
+					"energy": "Dark",
+					"hp": 280,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "takuyoa"
+		},
+		{
+			"number": 176,
+			"name": "Hop's Zacian ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_176_R_EN_LG.png",
+			"rarity": "UltraRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Insta-Strike",
+							"effect": "This attack also does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Metal",
+								"Metal",
+								"Metal",
+								"Colourless"
+							],
+							"name": "Brave Slash",
+							"effect": "During your next turn, this Pokémon can't use Brave Slash.",
+							"damage": {
+								"exact": 240
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Metal",
+					"hp": 230,
+					"weakness": "Fire",
+					"resistance": "Grass",
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "aky CG Works"
+		},
+		{
+			"number": 177,
+			"name": "Salamence ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_177_R_EN_LG.png",
+			"rarity": "UltraRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Wide Blast",
+							"effect": "This attack does 50 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+							"damage": null
+						},
+						{
+							"types": [
+								"Fire",
+								"Water",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Dragon Impact",
+							"effect": "Discard 2 Energy from this Pokémon.",
+							"damage": {
+								"exact": 300
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Shelgon"
+					},
+					"energy": "Dragon",
+					"hp": 320,
+					"weakness": null,
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "5ban Graphics"
+		},
+		{
+			"number": 178,
+			"name": "Dudunsparce ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_178_R_EN_LG.png",
+			"rarity": "UltraRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Tenacious Tail",
+							"effect": "This attack does 60 damage for each of your opponent's Pokémon ex in play.",
+							"damage": {
+								"multiple": 60
+							}
+						},
+						{
+							"types": [
+								"Colourless",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Destructive Drill",
+							"effect": "This attack's damage isn't affected by any effects on your opponent's Active Pokémon.",
+							"damage": {
+								"exact": 150
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Dunsparce"
+					},
+					"energy": "Colourless",
+					"hp": 270,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "5ban Graphics"
+		},
+		{
+			"number": 179,
+			"name": "Brock's Scouting",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_179_R_EN_LG.png",
+			"rarity": "UltraRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "supporter",
+					"text": "Search your deck for up to 2 Basic Pokémon or 1 Evolution Pokémon, reveal them, and put them into your hand. Then, shuffle your deck."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Teeziro"
+		},
+		{
+			"number": 180,
+			"name": "Iris's Fighting Spirit",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_180_R_EN_LG.png",
+			"rarity": "UltraRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "supporter",
+					"text": "You can use this card only if you discard another card from your hand.Draw cards until you have 6 cards in your hand."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "yuu"
+		},
+		{
+			"number": 181,
+			"name": "Ruffian",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_181_R_EN_LG.png",
+			"rarity": "UltraRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"trainer": {
+					"trainer_type": "supporter",
+					"text": "Discard a Pokémon Tool and a Special Energy from 1 of your opponent's Pokémon."
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Hideki Ishikawa"
+		},
+		{
+			"number": 182,
+			"name": "Volcanion ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_182_R_EN_LG.png",
+			"rarity": "SpecialIllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Scalding Steam",
+						"effect": "Once during your turn, if this Pokémon is in the Active Spot, you may make your opponent's Active Pokémon Burned."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Fire",
+								"Colourless"
+							],
+							"name": "Scorching Cyclone",
+							"effect": "Move an Energy from this Pokémon to 1 of your Benched Pokémon.",
+							"damage": {
+								"exact": 160
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Fire",
+					"hp": 220,
+					"weakness": "Water",
+					"resistance": null,
+					"retreat": 3,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "akagi"
+		},
+		{
+			"number": 183,
+			"name": "Iono's Bellibolt ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_183_R_EN_LG.png",
+			"rarity": "SpecialIllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Electric Streamer",
+						"effect": "As often as you like during your turn, you may attach a Basic [L] Energy card from your hand to 1 of your Iono's Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Lightning",
+								"Lightning",
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Thunderous Bolt",
+							"effect": "During your next turn, this Pokémon can't attack.",
+							"damage": {
+								"exact": 230
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Iono's Tadbulb"
+					},
+					"energy": "Lightning",
+					"hp": 280,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Yuu Nishida"
+		},
+		{
+			"number": 184,
+			"name": "Lillie's Clefairy ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_184_R_EN_LG.png",
+			"rarity": "SpecialIllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Fairy Zone",
+						"effect": "The Weakness of each of your opponent's [N] Pokémon in play is now [P]. (Apply Weakness as ×2.)"
+					},
+					"attacks": [
+						{
+							"types": [
+								"Psychic",
+								"Colourless"
+							],
+							"name": "Full Moon Rondo",
+							"effect": "This attack does 20 more damage for each Benched Pokémon (both yours and your opponent's).",
+							"damage": {
+								"plus": 20
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Psychic",
+					"hp": 190,
+					"weakness": "Metal",
+					"resistance": null,
+					"retreat": 1,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Susumu Maeya"
+		},
+		{
+			"number": 185,
+			"name": "N's Zoroark ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_185_R_EN_LG.png",
+			"rarity": "SpecialIllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Trade",
+						"effect": "You must discard a card from your hand in order to use this Ability. Once during your turn, you may draw 2 cards."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Dark",
+								"Dark"
+							],
+							"name": "Night Joker",
+							"effect": "Choose 1 of your Benched N's Pokémon's attacks and use it as this attack.",
+							"damage": null
+						}
+					],
+					"stage": {
+						"stage1": "N's Zorua"
+					},
+					"energy": "Dark",
+					"hp": 280,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Megumi Mizutani"
+		},
+		{
+			"number": 186,
+			"name": "Hop's Zacian ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_186_R_EN_LG.png",
+			"rarity": "SpecialIllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Colourless"
+							],
+							"name": "Insta-Strike",
+							"effect": "This attack also does 30 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+							"damage": {
+								"exact": 30
+							}
+						},
+						{
+							"types": [
+								"Metal",
+								"Metal",
+								"Metal",
+								"Colourless"
+							],
+							"name": "Brave Slash",
+							"effect": "During your next turn, this Pokémon can't use Brave Slash.",
+							"damage": {
+								"exact": 240
+							}
+						}
+					],
+					"stage": "basic",
+					"energy": "Metal",
+					"hp": 230,
+					"weakness": "Fire",
+					"resistance": "Grass",
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "DOM"
+		},
+		{
+			"number": 187,
+			"name": "Salamence ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_187_R_EN_LG.png",
+			"rarity": "SpecialIllustrationRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": null,
+					"attacks": [
+						{
+							"types": [
+								"Fire",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Wide Blast",
+							"effect": "This attack does 50 damage to each of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)",
+							"damage": null
+						},
+						{
+							"types": [
+								"Fire",
+								"Water",
+								"Colourless",
+								"Colourless"
+							],
+							"name": "Dragon Impact",
+							"effect": "Discard 2 Energy from this Pokémon.",
+							"damage": {
+								"exact": 300
+							}
+						}
+					],
+					"stage": {
+						"stage2": "Shelgon"
+					},
+					"energy": "Dragon",
+					"hp": 320,
+					"weakness": null,
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "Tsuyoshi Nagano"
+		},
+		{
+			"number": 188,
+			"name": "Iono's Bellibolt ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_188_R_EN_LG.png",
+			"rarity": "HyperRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Electric Streamer",
+						"effect": "As often as you like during your turn, you may attach a Basic [L] Energy card from your hand to 1 of your Iono's Pokémon."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Lightning",
+								"Lightning",
+								"Lightning",
+								"Colourless"
+							],
+							"name": "Thunderous Bolt",
+							"effect": "During your next turn, this Pokémon can't attack.",
+							"damage": {
+								"exact": 230
+							}
+						}
+					],
+					"stage": {
+						"stage1": "Iono's Tadbulb"
+					},
+					"energy": "Lightning",
+					"hp": 280,
+					"weakness": "Fighting",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "5ban Graphics"
+		},
+		{
+			"number": 189,
+			"name": "N's Zoroark ex",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_189_R_EN_LG.png",
+			"rarity": "HyperRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"pokemon": {
+					"ability": {
+						"name": "Trade",
+						"effect": "You must discard a card from your hand in order to use this Ability. Once during your turn, you may draw 2 cards."
+					},
+					"attacks": [
+						{
+							"types": [
+								"Dark",
+								"Dark"
+							],
+							"name": "Night Joker",
+							"effect": "Choose 1 of your Benched N's Pokémon's attacks and use it as this attack.",
+							"damage": null
+						}
+					],
+					"stage": {
+						"stage1": "N's Zorua"
+					},
+					"energy": "Dark",
+					"hp": 280,
+					"weakness": "Grass",
+					"resistance": null,
+					"retreat": 2,
+					"paradox_type": null,
+					"is_tera": false
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": "takuyoa"
+		},
+		{
+			"number": 190,
+			"name": "Spiky Energy",
+			"image_url": "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/JTG/JTG_190_R_EN_LG.png",
+			"rarity": "HyperRare",
+			"variants": [
+				"Foil"
+			],
+			"card_varient": {
+				"energy": {
+					"special": {
+						"text": "As long as this card is attached to a Pokémon, it provides [C] Energy.If the Pokémon this card is attached to is in the Active Spot and is damaged by an attack from your opponent's Pokémon (even if this Pokémon is Knocked Out), put 2 damage counters on the Attacking Pokémon."
+					}
+				}
+			},
+			"regulation_mark": "I",
+			"illustrator": null
+		}
+	]
+}
