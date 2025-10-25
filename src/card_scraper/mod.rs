@@ -306,7 +306,7 @@ impl CardScaper {
             .map(|x| x.0);
 
             let final_listings = self
-                .scrape_listings_for_card(&card, expansion, last_listing_date, driver)
+                .scrape_listings_for_card(card, expansion, last_listing_date, driver)
                 .await
                 .map_err(|e| format!("Failed to scrape card: {e:?}"))?;
 
@@ -493,7 +493,7 @@ impl CardScaper {
                     continue;
                 };
 
-                if !class_names.split_whitespace().any(|x| x == "s-item") {
+                if !class_names.split_whitespace().any(|x| x == "s-card") {
                     if listing.text().await? == "Results matching fewer words" {
                         println!("Reached end of good results");
                         break;
@@ -504,7 +504,7 @@ impl CardScaper {
 
                 let date = NaiveDate::parse_from_str(
                     listing
-                        .find(By::Css(".s-item__caption"))
+                        .find(By::Css(".s-card__caption"))
                         .await?
                         .text()
                         .await?
@@ -521,7 +521,7 @@ impl CardScaper {
                 }
 
                 let title = listing
-                    .find(By::Css("a.s-item__link span[role=heading]"))
+                    .find(By::Css("a > div.s-card__title span"))
                     .await?
                     .text()
                     .await?;
@@ -563,7 +563,7 @@ impl CardScaper {
                 }
 
                 let price = listing
-                    .find(By::Css(".s-item__price"))
+                    .find(By::Css(".s-card__price"))
                     .await?
                     .text()
                     .await?;
@@ -574,7 +574,7 @@ impl CardScaper {
                 };
 
                 let link = listing
-                    .find(By::Css(".s-item__link"))
+                    .find(By::Css(".su-card-container__header a"))
                     .await?
                     .prop("href")
                     .await?
@@ -592,53 +592,39 @@ impl CardScaper {
                     .expect("Split always returns one value")
                     .parse()?;
 
-                let buying_format =
-                    if let Ok(bids) = listing.find(By::Css(".s-item__bidCount")).await {
-                        Ok(BuyingFormat::Auction {
+                let buying_format = match listing
+                    .find(By::Css(".su-card-container__attributes__primary .s-card__attribute-row:nth-child(2)"))
+                    .await?
+                    .text()
+                    .await?
+                    .as_str()
+                {
+                    "Buy It Now" => BuyingFormat::BuyItNow {
+                        accepts_offers: false,
+                        offer_was_accepted: false,
+                    },
+                    "or Best Offer" => BuyingFormat::BuyItNow {
+                        accepts_offers: true,
+                        offer_was_accepted: false,
+                    },
+                    "Best Offer accepted" => BuyingFormat::BuyItNow {
+                        accepts_offers: true,
+                        offer_was_accepted: true,
+                    },
+                    bids => {
+                        BuyingFormat::Auction {
                             bids: bids
-                                .text()
-                                .await?
                                 .split_whitespace()
                                 .next()
-                                .expect("Should always have a value")
+                                .expect("should always have a value")
                                 .parse()
-                                .expect("Should always be a number"),
+                                .expect("should always be a number"),
                             offer_was_accepted: listing
-                                .find(By::Css(".s-item__formatBestOfferAccepted"))
-                                .await
-                                .map(|_| true)
-                                .unwrap_or(false),
-                        })
-                    } else if listing
-                        .find(By::Css(".s-item__formatBuyItNow"))
-                        .await
-                        .is_ok()
-                    {
-                        Ok(BuyingFormat::BuyItNow {
-                            accepts_offers: false,
-                            offer_was_accepted: false,
-                        })
-                    } else if listing
-                        .find(By::Css(".s-item__formatBestOfferEnabled"))
-                        .await
-                        .is_ok()
-                    {
-                        Ok(BuyingFormat::BuyItNow {
-                            accepts_offers: true,
-                            offer_was_accepted: false,
-                        })
-                    } else if listing
-                        .find(By::Css(".s-item__formatBestOfferAccepted"))
-                        .await
-                        .is_ok()
-                    {
-                        Ok(BuyingFormat::BuyItNow {
-                            accepts_offers: true,
-                            offer_was_accepted: true,
-                        })
-                    } else {
-                        Err("Failed to resolve buying format")
-                    }?;
+                                .find(By::Css(".su-card-container__attributes__primary .s-card__attribute-row:nth-child(3)"))
+                                .await?.text().await? == "Best Offer accepted"
+                        }
+                    }
+                };
 
                 let listing = Listing {
                     id,
