@@ -472,15 +472,6 @@ impl CardScaper {
             }
         }
 
-        if let Ok(grade_btn) = driver
-            .find(By::Css(
-                "li[name=Grade] input[type=checkbox][aria-label='Not specified']",
-            ))
-            .await
-        {
-            grade_btn.click().await?;
-        }
-
         let mut final_listings = Vec::new();
 
         let mut page_count = 0;
