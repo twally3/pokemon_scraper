@@ -112,6 +112,7 @@ struct Listing<'a> {
     price: Money<'a>,
     link: String,
     buying_format: BuyingFormat,
+    grading_company: Option<u32>,
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -173,6 +174,13 @@ impl CardScaper {
         &self,
         expansions: Vec<Expansion>,
     ) -> Result<(), String> {
+        let grading_companies = sqlx::query_as::<_, (u32, String)>(
+            "SELECT id, LOWER(initials) AS initials FROM grading_companies;",
+        )
+        .fetch_all(&self.pool)
+        .await
+        .map_err(|e| format!("Failed to get grading companies: {e}"))?;
+
         let (ei, ci) = sqlx::query_as::<_, (String, f32, u32)>(
             "SELECT set_name, CAST(expansion AS REAL) AS expansion, number FROM scraper_progress WHERE id = 1",
         )
@@ -239,7 +247,7 @@ impl CardScaper {
                         println!("Killing scraper");
                         return Ok(());
                     }
-                    x = self.scrape_expansion(expansion, ci.take().unwrap_or_default(), &driver) => {
+                    x = self.scrape_expansion(expansion, ci.take().unwrap_or_default(), &grading_companies, &driver) => {
                         if let Err(a) = x {
                             println!("Something went wrong scraping: {a:?}");
 
@@ -278,6 +286,7 @@ impl CardScaper {
         &self,
         expansion: &Expansion,
         card_start: usize,
+        grading_companies: &Vec<(u32, String)>,
         driver: &WebDriver,
     ) -> Result<(), String> {
         let cards = &expansion.cards[card_start..]
@@ -317,7 +326,13 @@ impl CardScaper {
             .map(|x| x.0);
 
             let final_listings = self
-                .scrape_listings_for_card(card, expansion, last_listing_date, driver)
+                .scrape_listings_for_card(
+                    card,
+                    expansion,
+                    last_listing_date,
+                    grading_companies,
+                    driver,
+                )
                 .await
                 .map_err(|e| format!("Failed to scrape card: {e:?}"))?;
 
@@ -335,13 +350,13 @@ impl CardScaper {
                             sqlx::query(&format!(
                                 "
                                 INSERT INTO listings
-                                    (id, title, date, price, link, bids, accepts_offers, offer_was_accepted) 
+                                    (id, title, date, price, link, bids, accepts_offers, offer_was_accepted, graded_by) 
                                 VALUES {} 
                                 ON CONFLICT DO NOTHING
                                 ",
                                 final_listings
                                     .iter()
-                                    .map(|_| "(?,?,?,?,?,?,?,?)")
+                                    .map(|_| "(?,?,?,?,?,?,?,?,?)")
                                     .collect::<Vec<_>>()
                                     .join(",")
                             )),
@@ -354,6 +369,7 @@ impl CardScaper {
                                     .bind(x.buying_format.get_bids().map(|x| x as u32))
                                     .bind(x.buying_format.get_accepts_offers())
                                     .bind(x.buying_format.get_offer_was_accepted())
+                                    .bind(x.grading_company)
                             },
                         )
                         .execute(&mut *txn)
@@ -424,6 +440,7 @@ impl CardScaper {
         card: &Pokemon,
         expansion: &Expansion,
         last_listing_date: Option<chrono::NaiveDate>,
+        grading_companies: &Vec<(u32, String)>,
         driver: &WebDriver,
     ) -> Result<Vec<Listing<'a>>, Box<dyn std::error::Error>> {
         // TODO: Consider clearing the text box
@@ -528,12 +545,19 @@ impl CardScaper {
                     .text()
                     .await?;
 
-                if !title.to_lowercase().contains(&card.name.to_lowercase())
+                let lower_case_title = title.to_lowercase();
+
+                let grading_company = grading_companies
+                    .iter()
+                    .find(|(_, initials)| lower_case_title.contains(initials))
+                    .map(|(id, _)| *id);
+
+                if !lower_case_title.contains(&card.name.to_lowercase())
                     && !card
                         .name
                         .to_lowercase()
                         .split_whitespace()
-                        .all(|x| title.to_lowercase().contains(x))
+                        .all(|x| lower_case_title.contains(x))
                 {
                     println!("Title \"{}\" doesn't contain card name. Skipping.", title);
                     continue;
@@ -542,8 +566,8 @@ impl CardScaper {
                 if match card.class.first().unwrap() {
                     Class::Regular => ["reverse holo", "reverse"]
                         .into_iter()
-                        .any(|x| title.to_lowercase().contains(x)),
-                    Class::ReverseHolo => title.to_lowercase().contains("regular"),
+                        .any(|x| lower_case_title.contains(x)),
+                    Class::ReverseHolo => lower_case_title.contains("regular"),
                     Class::Foil => false,
                 } {
                     println!("Title \"{}\" contains blacklisted words. Skipping.", title);
@@ -554,7 +578,7 @@ impl CardScaper {
                     Class::Regular => false,
                     Class::ReverseHolo => !["reverse holo", "holo", "reverse"]
                         .into_iter()
-                        .any(|x| title.to_lowercase().contains(x)),
+                        .any(|x| lower_case_title.contains(x)),
                     Class::Foil => false,
                 } {
                     println!(
@@ -635,6 +659,7 @@ impl CardScaper {
                     price,
                     link,
                     buying_format,
+                    grading_company,
                 };
 
                 final_listings.push(listing);
