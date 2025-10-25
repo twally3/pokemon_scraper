@@ -134,6 +134,16 @@ pub struct Expansion {
     pub cards: Vec<Pokemon>,
 }
 
+impl PartialEq for Expansion {
+    fn eq(&self, other: &Self) -> bool {
+        self.set_name == other.set_name
+            && self.expansion_name == other.expansion_name
+            && self.expansion_number == other.expansion_number
+    }
+}
+
+impl Eq for Expansion {}
+
 pub struct CardScaper {
     pool: sqlx::Pool<Sqlite>,
     shutdown_rx: std::sync::Arc<tokio::sync::Notify>,
@@ -178,6 +188,7 @@ impl CardScaper {
                 })
         })
         .unwrap_or_default();
+        let mut ci = Some(ci);
 
         for expansion in &expansions {
             expansion
@@ -228,7 +239,7 @@ impl CardScaper {
                         println!("Killing scraper");
                         return Ok(());
                     }
-                    x = self.scrape_expansion(expansion, ci, &driver) => {
+                    x = self.scrape_expansion(expansion, ci.take().unwrap_or_default(), &driver) => {
                         if let Err(a) = x {
                             println!("Something went wrong scraping: {a:?}");
 
