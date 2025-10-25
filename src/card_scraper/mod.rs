@@ -163,6 +163,22 @@ impl CardScaper {
         &self,
         expansions: Vec<Expansion>,
     ) -> Result<(), String> {
+        let (ei, ci) = sqlx::query_as::<_, (String, f32, u32)>(
+            "SELECT set_name, CAST(expansion AS REAL) AS expansion, number FROM scraper_progress WHERE id = 1",
+        )
+        .fetch_optional(&self.pool)
+        .await
+        .map_err(|e| format!("Failed to get scraper progress: {e}"))?
+        .and_then(|(set_name, expansion, number)| {
+            expansions
+                .iter()
+                .position(|e| e.set_name == set_name && e.expansion_number == expansion)
+                .map(|i| {
+                    (i, expansions[i].cards.iter().position(|c| c.number == number as usize).unwrap_or_default())
+                })
+        })
+        .unwrap_or_default();
+
         for expansion in &expansions {
             expansion
                 .cards
@@ -184,7 +200,7 @@ impl CardScaper {
                             .fold(acc, |acc, c| {
                                 acc
                                     .bind(expansion.set_name.clone())
-                                    .bind(expansion.expansion_number as u32)
+                                    .bind(expansion.expansion_number)
                                     .bind(x.number as u32)
                                     .bind(c.to_string())
                                     .bind(x.name.clone())
@@ -206,13 +222,13 @@ impl CardScaper {
             .await
             .map_err(|e| e.to_string())?;
 
-            for expansion in &expansions {
+            for expansion in &expansions[ei..] {
                 tokio::select! {
                     _ = self.shutdown_rx.notified() => {
                         println!("Killing scraper");
                         return Ok(());
                     }
-                    x = self.scrape_expansion(expansion, &driver) => {
+                    x = self.scrape_expansion(expansion, ci, &driver) => {
                         if let Err(a) = x {
                             println!("Something went wrong scraping: {a:?}");
 
@@ -230,6 +246,11 @@ impl CardScaper {
 
             drop(driver);
 
+            sqlx::query("DELETE FROM scraper_progress")
+                .execute(&self.pool)
+                .await
+                .map_err(|e| format!("Failed to delete scraper progress: {e}"))?;
+
             tokio::select! {
                 _ = self.shutdown_rx.notified() => {
                     println!("Killing scraper");
@@ -245,10 +266,10 @@ impl CardScaper {
     async fn scrape_expansion(
         &self,
         expansion: &Expansion,
+        card_start: usize,
         driver: &WebDriver,
     ) -> Result<(), String> {
-        let cards = expansion
-            .cards
+        let cards = &expansion.cards[card_start..]
             .iter()
             .flat_map(|card| {
                 card.class.iter().map(|class| Pokemon {
@@ -276,7 +297,7 @@ impl CardScaper {
                     ",
             )
             .bind(expansion.set_name.clone())
-            .bind(expansion.expansion_number as u32)
+            .bind(expansion.expansion_number)
             .bind(card.number as u32)
             .bind(card.class.first().unwrap().to_string())
             .fetch_optional(&self.pool)
@@ -289,10 +310,6 @@ impl CardScaper {
                 .await
                 .map_err(|e| format!("Failed to scrape card: {e:?}"))?;
 
-            if final_listings.is_empty() {
-                continue;
-            }
-
             let mut txn = self
                 .pool
                 .begin()
@@ -300,59 +317,76 @@ impl CardScaper {
                 .map_err(|e| format!("Error creating transaction: {e}"))?;
 
             let r: Result<(), sqlx::error::Error> = async {
-                final_listings
-                    .iter()
-                    .fold(
-                        sqlx::query(&format!(
-                            "
-                            INSERT INTO listings
-                                (id, title, date, price, link, bids, accepts_offers, offer_was_accepted) 
-                            VALUES {} 
-                            ON CONFLICT DO NOTHING
-                            ",
-                            final_listings
-                                .iter()
-                                .map(|_| "(?,?,?,?,?,?,?,?)")
-                                .collect::<Vec<_>>()
-                                .join(",")
-                        )),
-                        |acc, x| {
-                            acc.bind(x.id as u32)
-                                .bind(x.title.clone())
-                                .bind(x.date)
-                                .bind(std::convert::Into::<u64>::into(&x.price) as u32)
-                                .bind(x.link.clone())
-                                .bind(x.buying_format.get_bids().map(|x| x as u32))
-                                .bind(x.buying_format.get_accepts_offers())
-                                .bind(x.buying_format.get_offer_was_accepted())
-                        },
-                    )
-                    .execute(&mut *txn)
-                    .await?;
+                if !final_listings.is_empty() {
+                    final_listings
+                        .iter()
+                        .fold(
+                            sqlx::query(&format!(
+                                "
+                                INSERT INTO listings
+                                    (id, title, date, price, link, bids, accepts_offers, offer_was_accepted) 
+                                VALUES {} 
+                                ON CONFLICT DO NOTHING
+                                ",
+                                final_listings
+                                    .iter()
+                                    .map(|_| "(?,?,?,?,?,?,?,?)")
+                                    .collect::<Vec<_>>()
+                                    .join(",")
+                            )),
+                            |acc, x| {
+                                acc.bind(x.id as u32)
+                                    .bind(x.title.clone())
+                                    .bind(x.date)
+                                    .bind(std::convert::Into::<u64>::into(&x.price) as u32)
+                                    .bind(x.link.clone())
+                                    .bind(x.buying_format.get_bids().map(|x| x as u32))
+                                    .bind(x.buying_format.get_accepts_offers())
+                                    .bind(x.buying_format.get_offer_was_accepted())
+                            },
+                        )
+                        .execute(&mut *txn)
+                        .await?;
 
-                final_listings
-                    .iter()
-                    .fold(
-                        sqlx::query(&format!(
-                            "
-                            INSERT INTO listings_cards
-                                (listing_id, card_set_name, card_expansion, card_number, card_class) 
-                            VALUES {} 
-                            ON CONFLICT DO NOTHING
-                            ",
-                            final_listings
-                                .iter()
-                                .map(|_| "(?,?,?,?,?)")
-                                .collect::<Vec<_>>()
-                                .join(",")
-                        )),
-                        |acc, x| acc
-                            .bind(x.id as u32)
-                            .bind(expansion.set_name.clone())
-                            .bind(expansion.expansion_number as u32)
-                            .bind(card.number as u32)
-                            .bind(card.class.first().unwrap().to_string()),
-                    )
+                    final_listings
+                        .iter()
+                        .fold(
+                            sqlx::query(&format!(
+                                "
+                                INSERT INTO listings_cards
+                                    (listing_id, card_set_name, card_expansion, card_number, card_class) 
+                                VALUES {} 
+                                ON CONFLICT DO NOTHING
+                                ",
+                                final_listings
+                                    .iter()
+                                    .map(|_| "(?,?,?,?,?)")
+                                    .collect::<Vec<_>>()
+                                    .join(",")
+                            )),
+                            |acc, x| acc
+                                .bind(x.id as u32)
+                                .bind(expansion.set_name.clone())
+                                .bind(expansion.expansion_number )
+                                .bind(card.number as u32)
+                                .bind(card.class.first().unwrap().to_string()),
+                        )
+                        .execute(&mut *txn)
+                        .await?;
+
+                }
+
+                sqlx::query(
+                    "
+                    INSERT OR REPLACE INTO scraper_progress 
+                        (id, set_name, expansion, number, class)
+                    VALUES
+                        (1, ?, ?, ?, ?)"
+                )
+                    .bind(expansion.set_name.clone())
+                    .bind(expansion.expansion_number )
+                    .bind(card.number as u32)
+                    .bind(card.class.first().unwrap().to_string())
                     .execute(&mut *txn)
                     .await?;
 
@@ -636,5 +670,84 @@ impl CardScaper {
         }
 
         Ok(final_listings)
+    }
+}
+
+trait Finder {
+    async fn find(&self, by: By) -> thirtyfour::error::WebDriverResult<thirtyfour::WebElement>;
+    async fn find_all(
+        &self,
+        by: By,
+    ) -> thirtyfour::error::WebDriverResult<Vec<thirtyfour::WebElement>>;
+}
+
+impl Finder for std::sync::Arc<thirtyfour::session::handle::SessionHandle> {
+    async fn find(&self, by: By) -> thirtyfour::error::WebDriverResult<thirtyfour::WebElement> {
+        self.find(by).await
+    }
+
+    async fn find_all(
+        &self,
+        by: By,
+    ) -> thirtyfour::error::WebDriverResult<Vec<thirtyfour::WebElement>> {
+        self.find_all(by).await
+    }
+}
+
+impl Finder for thirtyfour::WebElement {
+    async fn find(&self, by: By) -> thirtyfour::error::WebDriverResult<thirtyfour::WebElement> {
+        self.find(by).await
+    }
+
+    async fn find_all(
+        &self,
+        by: By,
+    ) -> thirtyfour::error::WebDriverResult<Vec<thirtyfour::WebElement>> {
+        self.find_all(by).await
+    }
+}
+
+trait TryFind {
+    async fn try_find(&self, by: By) -> thirtyfour::error::WebDriverResult<thirtyfour::WebElement>;
+    async fn try_find_all(
+        &self,
+        by: By,
+    ) -> thirtyfour::error::WebDriverResult<Vec<thirtyfour::WebElement>>;
+}
+
+impl<T> TryFind for T
+where
+    T: Finder,
+{
+    async fn try_find(&self, by: By) -> thirtyfour::error::WebDriverResult<thirtyfour::WebElement> {
+        const MAX_RETRIES: usize = 4;
+        const RETRY_DELAY: std::time::Duration = std::time::Duration::from_secs(3);
+
+        for i in 0..MAX_RETRIES {
+            dbg!(i, &by);
+            if let Ok(element) = self.find(by.clone()).await {
+                return Ok(element);
+            }
+            tokio::time::sleep(RETRY_DELAY).await;
+        }
+
+        self.find(by).await
+    }
+
+    async fn try_find_all(
+        &self,
+        by: By,
+    ) -> thirtyfour::error::WebDriverResult<Vec<thirtyfour::WebElement>> {
+        const MAX_RETRIES: usize = 4;
+        const RETRY_DELAY: std::time::Duration = std::time::Duration::from_secs(3);
+
+        for _ in 0..MAX_RETRIES {
+            if let Ok(element) = self.find_all(by.clone()).await {
+                return Ok(element);
+            }
+            tokio::time::sleep(RETRY_DELAY).await;
+        }
+
+        self.find_all(by).await
     }
 }
