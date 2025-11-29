@@ -31,13 +31,14 @@ services:
       - 4444:4444
       - 7900:7900
     # shm_size: 2g
-    tmpfs:
-      - /dev/shm:rw,nosuid,nodev,noexec,relatime,size=2g
-    volumes:
-      - type: tmpfs
-        target: /dev/shm
-        tmpfs:
-          size: 2147483648  # 2GB in bytes
+    # OR
+    # tmpfs:
+    #   - /dev/shm:rw,nosuid,nodev,noexec,relatime,size=2g
+    # volumes:
+    #   - type: tmpfs
+    #     target: /dev/shm
+    #     tmpfs:
+    #       size: 2147483648  # 2GB in bytes
     healthcheck:
       test: ["CMD", "wget", "--spider", "http://localhost:4444/status"]
       interval: 10s

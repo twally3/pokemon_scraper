@@ -44,6 +44,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         include_str!("../expansions/journey_together.json"),
         include_str!("../expansions/destined_rivals.json"),
         include_str!("../expansions/mega_evolution.json"),
+        include_str!("../expansions/phantasmal_flames.json"),
     ];
 
     let expansions = expansions
@@ -69,6 +70,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .expect("Failed to parse SCRAPER_SLEEP_SECS");
     let mut caps = DesiredCapabilities::chrome();
     caps.add_arg("--start-maximized")?;
+    caps.add_arg("--disable-dev-shm-usage")?;
 
     let (scraper_tx, mut scraper_rx) = tokio::sync::watch::channel(());
     let (server_tx, mut server_rx) = tokio::sync::watch::channel(());
